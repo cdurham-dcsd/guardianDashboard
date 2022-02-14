@@ -1,7 +1,7 @@
 {
-  "name": "echeckin-parent",
+  "name": "transportation-parent",
   "version": "1.0.0",
-  "description": "backend support for echeckin-parent",
+  "description": "backend support for transportation-parent",
   "main": "server.js",
   "scripts": {
     "test": "\"echo \\\"Error: no test specified\\\" && exit 1\"",
