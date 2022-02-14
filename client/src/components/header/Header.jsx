@@ -1,15 +1,15 @@
 import React, { useState } from "react";
 import { Menu, Button, MenuItem } from "@mui/material";
 import { logout } from "../../utils/auth/Auth";
-import Icon from "../../icons/icons";
-import UserDetails from "../../utils/UserDetails";
+import Icon from "../../components/icon/Icon";
+//import UserDetails from "../../utils/UserDetails";
 
 import "../../styles/Header.scss";
 
 const Header = () => {
     const [anchorEl, setAnchorEl] = useState(null);
     // UserDetails is returning an object with keys, name, employeeNumber, givenName, displayName, email, surname, uid, category, position, ect.
-    const { givenName, surname } = UserDetails();
+    //const { givenName, surname } = UserDetails();
 
     // This is for the @mui dropdown "Helpful Links"
     const open = Boolean(anchorEl);
@@ -24,12 +24,12 @@ const Header = () => {
     return (
         <div className="header-container">
             <div className="header-dcsd-icon">
-                <Icon icon="DCSD" width="60" height="60" fill="#19608f" />
+                <Icon iconName="DCSD" width="60" height="60" fill="#19608f" />
             </div>
             <div className="header-right">
                 <div className="header-name-container">
                     <h5>
-                        Welcome, {givenName} {surname}
+                        Welcome, Andrew Nicola
                     </h5>
                 </div>
 
@@ -54,7 +54,7 @@ const Header = () => {
                                 Helpful Links
                                 <span>
                                     <Icon
-                                        icon="HAMBURGER"
+                                        iconName="HAMBURGER"
                                         height="20"
                                         fill="white"
                                         className="nav-button-icon"
@@ -182,7 +182,7 @@ const Header = () => {
                         <span className="nav-button-text">
                             HOME
                             <Icon
-                                icon="HOME"
+                                iconName="HOME"
                                 Width="55"
                                 height="18"
                                 fill="white"
@@ -199,7 +199,7 @@ const Header = () => {
                         <span className="nav-button-text ">
                             LOGOUT
                             <Icon
-                                icon="LOGOUT"
+                                iconName="LOGOUT"
                                 height="25"
                                 fill="white"
                                 className="nav-button-icon"
