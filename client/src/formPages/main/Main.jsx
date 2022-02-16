@@ -1,4 +1,5 @@
 import React from "react";
+import BreadCrumb from "../../components/breadcrumb/BreadCrumb";
 import Header from "../../components/header/Header";
 
 /**
@@ -10,6 +11,8 @@ import Header from "../../components/header/Header";
 const Main = () => {
     return (
         <>
+        <Header />
+            <BreadCrumb />
             <div className="App">
                 <h1>Hello, World!</h1>
             </div>
