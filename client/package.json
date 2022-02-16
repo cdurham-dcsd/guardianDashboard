@@ -1,5 +1,5 @@
 {
-  "name": "echeckin-parent",
+  "name": "transportation",
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
@@ -12,14 +12,14 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/wsmith-dcsd/echeckin-parent.git"
+    "url": "git+https://github.com/dcsd/transportation.git"
   },
   "author": "DCSD",
   "license": "ISC",
   "bugs": {
-    "url": "https://github.com/dcsd/echeckin-parent/issues"
+    "url": "https://github.com/dcsd/transportation/issues"
   },
-  "homepage": "https://github.com/dcsd/echeckin-parent#readme",
+  "homepage": "https://github.com/dcsd/transportation#readme",
   "devDependencies": {
     "@babel/cli": "^7.16.8",
     "@babel/core": "^7.16.12",

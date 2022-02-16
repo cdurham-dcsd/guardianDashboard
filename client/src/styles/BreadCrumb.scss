@@ -6,13 +6,13 @@
 .bc-location {
   width: 50%;
   height: 40px;
-  background: linear-gradient(90deg, $header-lt-blue, white);
+  background: linear-gradient(90deg, $lt-blue, white);
   display: flex;
   align-items: center;
   padding: .6em 0 0 0;
 
   & h6 {
-    color: $header-dk-blue;
+    color: $dk-blue;
     padding-left: 10px;
     font-weight: 500;
   }

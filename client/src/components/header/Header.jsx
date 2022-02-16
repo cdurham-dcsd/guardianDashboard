@@ -1,14 +1,17 @@
 import React, { useState } from "react";
-import { Menu, Button, MenuItem } from "@mui/material";
+import { Button, Link, Menu, MenuItem } from "@mui/material";
+
 import { logout } from "../../utils/auth/Auth";
-import Icon from "../../components/icon/Icon";
 //import UserDetails from "../../utils/UserDetails";
+import Icon from "../../components/icon/Icon";
+import HamburgerMenu from "./HamburgerMenu";
 
 import "../../styles/Header.scss";
 
 const Header = () => {
     const [anchorEl, setAnchorEl] = useState(null);
-    // UserDetails is returning an object with keys, name, employeeNumber, givenName, displayName, email, surname, uid, category, position, ect.
+    // UserDetails is returning an object with keys, name, employeeNumber,
+    // givenName, displayName, email, surname, uid, category, position, etc.
     //const { givenName, surname } = UserDetails();
 
     // This is for the @mui dropdown "Helpful Links"
@@ -22,9 +25,24 @@ const Header = () => {
     };
 
     return (
-        <div className="header-container">
+        <nav className="header-container">
             <div className="header-dcsd-icon">
-                <Icon iconName="DCSD" width="60" height="60" fill="#19608f" />
+                <Link
+                    aria-label="Home Page Link"
+                    href="https://engaged.dcsdk12.org"
+                    rel="noopener noreferrer"
+                    sx={{
+                        textDecoration: "none",
+                        color: "black"
+                    }}
+                >
+                    <Icon
+                        fill="#19608f"
+                        height="60"
+                        iconName="DCSD"
+                        width="60"
+                    />
+                </Link>
             </div>
             <div className="header-right">
                 <div className="header-name-container">
@@ -38,137 +56,163 @@ const Header = () => {
                     /////////////////////////////////////////////////////////////////////
                     this is where the "Helpful Links" dropdown button STARTS (from @mui)
                     */}
-                    <div>
-                        <div className="btn-primary m-2 nav-button-links nav-button-links color-override">
-                            <Button
-                                id="basic-button"
-                                aria-controls={open ? "basic-menu" : undefined}
-                                aria-haspopup="true"
-                                aria-expanded={open ? "true" : undefined}
-                                onClick={handleClick}
-                                sx={{
-                                    color: "white",
-                                    fontFamily: "Montserrat"
-                                }}
-                            >
-                                Helpful Links
-                                <span>
-                                    <Icon
-                                        iconName="HAMBURGER"
-                                        height="20"
-                                        fill="white"
-                                        className="nav-button-icon"
-                                    />
-                                </span>
-                            </Button>
-                        </div>
-                        <Menu
-                            id="basic-menu"
-                            anchorEl={anchorEl}
-                            open={open}
-                            onClose={handleClose}
-                            MenuListProps={{
-                                "aria-labelledby": "basic-button"
-                            }}
+                    <div className="btn-primary m-2 nav-button-links nav-button-links color-override">
+                        <Button
+                            aria-controls={open ? "basic-menu" : undefined}
+                            aria-expanded={open ? "true" : undefined}
+                            aria-haspopup="true"
+                            id="basic-button"
+                            onClick={handleClick}
                             sx={{
-                                background: "black",
-                                opacity: "80%"
+                                color: "white",
+                                fontFamily: "Montserrat"
                             }}
                         >
-                            <a
-                                href="https://perfectforms.dcsdk12.org/PerfectFormsSSO/player.aspx"
-                                target="_blank"
-                                rel="noreferrer"
-                            >
-                                <MenuItem
-                                    onClick={handleClose}
-                                    sx={{
-                                        color: "#19608f",
-                                        opacity: "100%"
-                                        // fontSize: "1.3em"
-                                    }}
-                                >
-                                    Contact My Student(s) Nurse
-                                </MenuItem>
-                            </a>
-                            <a
-                                href="https://www.dcsdk12.org/cms/one.aspx?pageId=5758270"
-                                target="_blank"
-                                rel="noreferrer"
-                            >
-                                <MenuItem
-                                    onClick={handleClose}
-                                    sx={{
-                                        color: "#19608f",
-                                        opacity: "100%"
-                                    }}
-                                >
-                                    Academic Calendars
-                                </MenuItem>
-                            </a>
-                            <a
-                                href="https://www.dcsdk12.org/cms/One.aspx?portalId=220484&pageId=5787115"
-                                target="_blank"
-                                rel="noreferrer"
-                            >
-                                <MenuItem
-                                    onClick={handleClose}
-                                    sx={{
-                                        color: "#19608f",
-                                        opacity: "100%"
-                                        // fontSize: "1.3em"
-                                    }}
-                                >
-                                    Parent Resources
-                                </MenuItem>
-                            </a>
-                            <a
-                                href="https://www.dcsdk12.org/cms/one.aspx?pageId=5759841"
-                                target="_blank"
-                                rel="noreferrer"
-                            >
-                                <MenuItem
-                                    onClick={handleClose}
-                                    sx={{
-                                        color: "#19608f",
-                                        opacity: "100%"
-                                    }}
-                                >
-                                    Bus Routes
-                                </MenuItem>
-                            </a>
-                            <a
-                                href="https://www.myschoolbucks.com/ver2/getmain?requestAction=home"
-                                rel="noreferrer"
-                                target="_blank"
-                            >
-                                <MenuItem
-                                    onClick={handleClose}
-                                    sx={{
-                                        color: "#19608f",
-                                        opacity: "100%"
-                                    }}
-                                >
-                                    Online Payments
-                                </MenuItem>
-                            </a>
-                            <a
-                                href="https://dcsd.nutrislice.com/menus-eula"
-                                rel="noreferrer"
-                                target="_blank"
-                            >
-                                <MenuItem
-                                    onClick={handleClose}
-                                    sx={{
-                                        color: "#19608f",
-                                        opacity: "100%"
-                                    }}
-                                >
-                                    Lunch Menus
-                                </MenuItem>
-                            </a>
-                        </Menu>
+                            Helpful Links
+                            <span>
+                                <Icon
+                                    fill="white"
+                                    className="nav-button-icon"
+                                    height="20"
+                                    iconName="LIST_DCSD"
+                                />
+                            </span>
+                        </Button>
                     </div>
+                    <Menu
+                        anchorEl={anchorEl}
+                        id="basic-menu"
+                        MenuListProps={{
+                            "aria-labelledby": "basic-button"
+                        }}
+                        onClose={handleClose}
+                        open={open}
+                        sx={{
+                            background: "black",
+                            opacity: "80%"
+                        }}
+                    >
+                        <a
+                            href="https://perfectforms.dcsdk12.org/PerfectFormsSSO/player.aspx"
+                            rel="noreferrer"
+                            target="_blank"
+                        >
+                            <MenuItem
+                                onClick={handleClose}
+                                sx={{
+                                    color: "#19608f",
+                                    opacity: "100%"
+                                }}
+                            >
+                                <Icon
+                                    iconName="LINK"
+                                    fill="#19608f"
+                                    height="15"
+                                />
+                                Contact My Student(s) Nurse
+                            </MenuItem>
+                        </a>
+                        <a
+                            href="https://www.dcsdk12.org/cms/one.aspx?pageId=5758270"
+                            rel="noreferrer"
+                            target="_blank"
+                        >
+                            <MenuItem
+                                onClick={handleClose}
+                                sx={{
+                                    color: "#19608f",
+                                    opacity: "100%"
+                                }}
+                            >
+                                <Icon
+                                    fill="#19608f"
+                                    height="15"
+                                    iconName="LINK"
+                                />
+                                Academic Calendars
+                            </MenuItem>
+                        </a>
+                        <a
+                            href="https://www.dcsdk12.org/cms/One.aspx?portalId=220484&pageId=5787115"
+                            rel="noreferrer"
+                            target="_blank"
+                        >
+                            <MenuItem
+                                onClick={handleClose}
+                                sx={{
+                                    color: "#19608f",
+                                    opacity: "100%"
+                                }}
+                            >
+                                <Icon
+                                    fill="#19608f"
+                                    height="15"
+                                    iconName="LINK"
+                                />
+                                Parent Resources
+                            </MenuItem>
+                        </a>
+                        <a
+                            href="https://www.dcsdk12.org/cms/one.aspx?pageId=5759841"
+                            rel="noreferrer"
+                            target="_blank"
+                        >
+                            <MenuItem
+                                onClick={handleClose}
+                                sx={{
+                                    color: "#19608f",
+                                    opacity: "100%"
+                                }}
+                            >
+                                <Icon
+                                    fill="#19608f"
+                                    height="15"
+                                    iconName="LINK"
+                                />
+                                Bus Routes
+                            </MenuItem>
+                        </a>
+                        <a
+                            href="https://www.myschoolbucks.com/ver2/getmain?requestAction=home"
+                            rel="noreferrer"
+                            target="_blank"
+                        >
+                            <MenuItem
+                                onClick={handleClose}
+                                sx={{
+                                    color: "#19608f",
+                                    opacity: "100%"
+                                }}
+                            >
+                                <Icon
+                                    fill="#19608f"
+                                    height="15"
+                                    iconName="LINK"
+                                />
+                                Online Payments
+                            </MenuItem>
+                        </a>
+                        <a
+                            href="https://dcsd.nutrislice.com/menus-eula"
+                            rel="noreferrer"
+                            target="_blank"
+                        >
+                            <MenuItem
+                                onClick={handleClose}
+                                sx={{
+                                    color: "#19608f",
+                                    opacity: "100%"
+                                }}
+                            >
+                                <Icon
+                                    fill="#19608f"
+                                    height="15"
+                                    iconName="LINK"
+                                />
+                                Lunch Menus
+                            </MenuItem>
+                        </a>
+                    </Menu>
                     {/*
                     this is where the "Helpful Links" dropdown button ENDS (from @mui)
                     /////////////////////////////////////////////////////////////////////
@@ -182,11 +226,10 @@ const Header = () => {
                         <span className="nav-button-text">
                             HOME
                             <Icon
-                                iconName="HOME"
-                                Width="55"
-                                height="18"
-                                fill="white"
                                 className="nav-button-icon"
+                                fill="white"
+                                height="20"
+                                iconName="HOME"
                             />
                         </span>
                     </a>
@@ -194,23 +237,25 @@ const Header = () => {
                         aria-label="Logout Button"
                         className="btn btn-primary m-2 color-override"
                         onClick={logout}
+                        onKeyDown={logout}
                         type="button"
                     >
-                        <span className="nav-button-text ">
+                        <span className="nav-button-text">
                             LOGOUT
                             <Icon
-                                iconName="LOGOUT"
-                                height="25"
-                                fill="white"
                                 className="nav-button-icon"
+                                fill="white"
+                                height="25"
+                                iconName="LOGOUT"
                                 onClick={logout}
                                 onKeyDown={logout}
                             />
                         </span>
                     </button>
                 </div>
+                <HamburgerMenu />
             </div>
-        </div>
+        </nav>
     );
 };
 
