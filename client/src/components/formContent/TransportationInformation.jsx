@@ -5,7 +5,7 @@ const TransportationInformation = () => {
         <div>
             <h1>Transportation Info</h1>
         </div>
-    )
+    );
 };
 
 export default TransportationInformation;

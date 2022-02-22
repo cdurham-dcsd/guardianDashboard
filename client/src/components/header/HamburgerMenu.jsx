@@ -5,7 +5,7 @@ import IconButton from "@mui/material/IconButton";
 import { Link, Button, MenuItem } from "@mui/material";
 
 import { logout } from "../../utils/auth/Auth";
-import Icon from "../../components/icon/Icon";
+import Icon from "../icon/Icon";
 
 import "../../styles/Header.scss";
 

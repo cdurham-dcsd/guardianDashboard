@@ -41,9 +41,9 @@ const StudentTile = ({ studentNumber }) => {
         //     });
         //}
     }, [studentInfoDto, studentNumber]);
-    console.log("studentInfoDto",studentInfoDto)
-    console.log("studentNumber", studentNumber);
-    console.log("activeSchoolYearKey", activeSchoolYearKey);
+    //console.log("studentInfoDto",studentInfoDto)
+    //console.log("studentNumber", studentNumber);
+    //console.log("activeSchoolYearKey", activeSchoolYearKey);
 
     // if (studentInfoDto && studentNumber && activeSchoolYearKey) {
     return (

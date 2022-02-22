@@ -13,13 +13,14 @@ import StudentTile from "./studentTile/StudentTile";
  */
 const Main = () => {
     const { studentNumber } = useParams();
-    console.log("student number: " , studentNumber);
+    //  console.log("student number: " , studentNumber);
+
     return (
         <>
             <Header />
             <BreadCrumb />
             <StudentTile studentNumber={studentNumber} />
-            <FormPage />
+            <FormPage />            
             <div className="App">
                 <h1>Hello, World!</h1>
             </div>
