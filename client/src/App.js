@@ -1,8 +1,8 @@
 import React from "react";
 import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
 import "./App.scss";
-import Main from "./formPages/main/Main";
-import NotFound from "./formPages/notFound/NotFound";
+import Main from "./components/Main";
+import NotFound from "./components/NotFound";
 //import PrivateRoute from "./components/privateRoute/PrivateRoute";
 
 const App = () => {

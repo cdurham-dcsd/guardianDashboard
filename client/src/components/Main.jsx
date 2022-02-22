@@ -1,6 +1,9 @@
 import React from "react";
-import BreadCrumb from "../../components/breadcrumb/BreadCrumb";
-import Header from "../../components/header/Header";
+import { useParams } from "react-router-dom";
+import BreadCrumb from "./breadcrumb/BreadCrumb";
+import FormPage from "./formComponents/FormPage";
+import Header from "./header/Header";
+import StudentTile from "./studentTile/StudentTile";
 
 /**
  * Scaffolding page
@@ -9,10 +12,15 @@ import Header from "../../components/header/Header";
  * @constructor
  */
 const Main = () => {
+    const { studentNumber } = useParams();
+    //  console.log("student number: " , studentNumber);
+
     return (
         <>
-        <Header />
+            <Header />
             <BreadCrumb />
+            <StudentTile studentNumber={studentNumber} />
+            <FormPage />            
             <div className="App">
                 <h1>Hello, World!</h1>
             </div>

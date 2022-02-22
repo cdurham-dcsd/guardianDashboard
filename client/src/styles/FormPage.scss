@@ -1,0 +1,9 @@
+@import "./global/Colors.scss";
+
+.form-page-container {
+    // border: 2px solid aquamarine;
+    display: flex;
+    flex-direction: column;
+    background: $grey2;
+    padding: 40px 0 20px 0;
+}
