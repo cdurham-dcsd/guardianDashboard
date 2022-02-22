@@ -23,7 +23,7 @@ FormContainer.propTypes = {
     children: PropTypes.node, 
     className: PropTypes.string,
     title: PropTypes.string.isRequired,
-    titleCololr: PropTypes.string
+    titleColor: PropTypes.string
 };
 
 FormContainer.defaultProps = {
