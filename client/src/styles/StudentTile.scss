@@ -1,0 +1,25 @@
+@import "./global/Colors.scss";
+
+.student-container {
+    // border: 2px solid $error;
+    border-radius: 15px;
+    box-shadow: 0 7px 7px $shadow;
+    width: 350px;
+    height: 80px;
+    display: flex;
+    align-items: center;
+
+    .student-text-container {
+        // border: 2px solid $error;
+        width: 100%;
+
+        & p {
+            margin: 1px;
+            font-weight: 500;
+            font-size: 0.8em;
+        }
+        p:nth-child(1) {
+            font-weight: 700;
+        }
+    }
+}
