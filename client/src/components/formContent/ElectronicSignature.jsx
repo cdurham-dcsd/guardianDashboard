@@ -21,13 +21,12 @@ const ElectronicSignature = () => {
      * @return true
      */
     const handleOnChange = e => {
-        console.log(e.target.value);
+        // console.log(e.target.value);
         const { name, value } = e.target;
         let newValue = value;
-        if (name === "affirmation") {
-            if (newValue) {
-                newValue = false;
-            }
+        if (name === "affirmation") {       
+            newValue = e.target.checked;
+            // console.log(newValue);
         }
         dispatch({
             type: "text",
@@ -55,10 +54,10 @@ const ElectronicSignature = () => {
             <input type="text" name="lastName" id="lastName" onChange={handleOnChange} placeholder="Last Name" value={formState.lastName} />
             <div>
                 <br />
-                <input type="checkbox" name="affirmation" id="affirmation" onChange={handleOnChange} defaultChecked={formState.affirmation} value={true} />
+                <input type="checkbox" name="affirmation" id="affirmation" onChange={handleOnChange} defaultChecked={formState.affirmation} value={formState.affirmation} />
 
                 <label htmlFor="affirmation">
-                    &nbsp;By checking this box, I certify that I am the parent or legal gaurdian
+                &nbsp;By checking this box, I certify that I am the parent or legal gaurdian
                 </label>                  
             </div>
         </div>
