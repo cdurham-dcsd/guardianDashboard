@@ -49,7 +49,7 @@ const StudentTile = ({ studentNumber }) => {
     return (
         (studentInfoDto && studentNumber && activeSchoolYearKey) && (
             <>
-                <div className="student-container ms-4 mt-4">
+                <div className="student-container mt-4 mb-4">
                     <div className="student-photo ms-3">
                         <StudentImage
                             className=""
