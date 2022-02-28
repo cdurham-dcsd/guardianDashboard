@@ -26,6 +26,10 @@ app.get("/transportation/:studentNumber?/:mapId?", (req, res) => {
     console.log("I want transportation, possibly with a studentNumber, maybe mapId");
     res.sendFile(path.join(__dirname, "../client/public", "./index.html"));
 });
+app.get("/transportation/:studentNumber?/:mapId?/:status?", (req, res) => {
+    console.log("I want transportation, possibly with a studentNumber, maybe mapId");
+    res.sendFile(path.join(__dirname, "../client/public", "./index.html"));
+});
 app.get("/notFound", (req, res) => {
     console.log("Not Found Page");
     res.sendFile(path.join(__dirname, "../client/public", "./index.html"));
