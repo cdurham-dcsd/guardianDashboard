@@ -1,0 +1,15 @@
+.input-container {
+    //border: 2px solid red;
+    display: flex;
+    justify-content: space-between;
+}
+.e-sig-input {
+    //border: 2px solid red;
+    width: 30%;
+
+    & input {
+        width: 100%;
+        border-radius: 5px;
+        padding: .5rem;
+    }
+}
