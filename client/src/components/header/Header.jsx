@@ -64,8 +64,7 @@ const Header = () => {
                             id="basic-button"
                             onClick={handleClick}
                             sx={{
-                                color: "white",
-                                fontFamily: "Montserrat"
+                                color: "white"
                             }}
                         >
                             Helpful Links

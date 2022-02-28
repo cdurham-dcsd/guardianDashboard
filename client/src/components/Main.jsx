@@ -5,6 +5,8 @@ import FormPage from "./formComponents/FormPage";
 import Header from "./header/Header";
 import StudentTile from "./studentTile/StudentTile";
 
+import "../styles/Main.scss";
+
 /**
  * Scaffolding page
  * @name Main
@@ -18,15 +20,10 @@ const Main = () => {
         <>
             <Header />
             <BreadCrumb />
-            <StudentTile studentNumber={studentNumber} />
-            <FormPage />            
-            <div className="App">
-                <h1>Hello, World!</h1>
+            <div className="gutter">
+                <StudentTile studentNumber={studentNumber} />
+                <FormPage />
             </div>
-            <p>Click the button below to see if you are connected</p>
-            <form action="/post" method="post" className="form">
-                <button type="submit">Connected?</button>
-            </form>
         </>
     );
 };

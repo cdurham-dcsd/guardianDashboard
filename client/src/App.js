@@ -14,7 +14,9 @@ const App = () => {
                 {/*</Route>}*/}
                 <Route path="/transportation" exact element={<Main />}>
                     <Route path=":studentNumber" element={<Main />}>
-                        <Route path=":mapId" element={<Main />} />
+                        <Route path=":mapId" element={<Main />}>
+                            <Route path=":status" element={<Main />} />  
+                        </Route>
                     </Route>
                 </Route>
                 <Route path="/notFound" exact element={<NotFound />} />
