@@ -2,6 +2,8 @@ import React from "react";
 import PropTypes from "prop-types";
 import { useParams } from "react-router-dom";
 
+import "../../styles/TransportationPaymentSelection.scss";
+
 const TransportationPaymentSelection = ({ formState, handleOnChange }) => {
     const { status } = useParams();
     console.log(status);
@@ -10,20 +12,20 @@ const TransportationPaymentSelection = ({ formState, handleOnChange }) => {
         <div>
             {status !== "annualBilling" && (
             <div>
-                <p>
-                    Transportation fees are approved by the DCSD Board of Education. Rides are $1 each way per student. Students who receive speciallized transportation services or qualify for the free or reduced lunch program will have their fees waived.
-                </p>
                 {status !== "expired" && (
                 <div>
                     <div>
-                        There are two options to pay your fees:
+                    Transportation fees are approved by the DCSD Board of Education. Rides are $1 each way per student. Students who receive speciallized transportation services or qualify for the free or reduced lunch program will have their fees waived.
                     </div>
+                    <br />
+                    <h4>
+                        There are two options to pay your fees:
+                    </h4>
                     <label htmlFor="paymentSelectionAnnualy">
                         <input type="radio" name="paymentSelection" value="Y" id="paymentSelectionAnnualy" defaultChecked={formState.paymentSelection} onChange={handleOnChange} /> 
                         {" "}
                         Annual Prepayment of $250. (Applies to each eligible student)
                         </label>
-                        <br />
                         <ul>
                             <li>
                                 This option provides approximately 28% discount based on full time bus ridership.
@@ -33,7 +35,8 @@ const TransportationPaymentSelection = ({ formState, handleOnChange }) => {
                             </li>
                         </ul> 
                     <label htmlFor="paymentSelectionQuarterly">
-                        <input type="radio" name="paymentSelection" value="YQ" id="paymentSelectionQuarterly" defaultChecked={formState.paymentSelection} onChange={handleOnChange} /> {" "}
+                        <input type="radio" name="paymentSelection" value="YQ" id="paymentSelectionQuarterly" defaultChecked={formState.paymentSelection} onChange={handleOnChange} /> 
+                        {" "}
                         Quarterly Billing</label>
                         <ul>
                             <li>
@@ -44,14 +47,11 @@ const TransportationPaymentSelection = ({ formState, handleOnChange }) => {
                 )}
             </div> 
             )}
-
+            {formState.paymentSelection === "YQ" && (
             <div className="mt-3">
-                {formState.paymentSelection === "YQ" && (
-                    <p>
-                        If you would like to change your transportation payment selection, you may select the Annual Prepayment option until September 13, 2021
-                    </p>
-                )}
+                If you would like to change your transportation payment selection, you may select the Annual Prepayment option until September 13, 2021
             </div>
+            )}
             {status === "expired" && (
             <div>
                 <ul>
@@ -65,12 +65,12 @@ const TransportationPaymentSelection = ({ formState, handleOnChange }) => {
             </div>)}
             {status === "annualBilling" && (
             <div>
-                <p>
-                    In an earlier session you have selected: Annual Billing
-                </p>
-                <p>
+                <div>
+                    In an earlier session you have selected: <strong>Annual Billing</strong>
+                </div>
+                <div>
                     If you would like to change your transportation payment election, please contact Transportation at <a href= "http://www.k12insight.com/Lets-Talk/CustomWork/CustomDialogueDouglas.aspx?k=WK3Z6DLT@DG2T5DLT" rel="noreferer" target="_blank">Let's Talk</a> feedback tool. 
-                </p>
+                </div>
             </div>)}
         </div>
     );

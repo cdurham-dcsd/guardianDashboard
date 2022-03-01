@@ -26,7 +26,7 @@ const SubmitAndGoBack = ({ formState, handleOnChange }) => {
             >
                 <p>Back To Dashboard</p>
             </div>
-            {status !== "notRidingBus" && (
+            {status !== "notRidingBus" && status !== "annualBilling" && status !== "expired" && (
                 <div
                     className="submit-button"
                     onClick={handleOnChange}
