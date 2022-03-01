@@ -1,4 +1,4 @@
-export const dummyData = {
+const dummyData = {
     payload: {
         key: "570389",
         studentNumber: "286190",
@@ -17,3 +17,5 @@ export const dummyData = {
         CoAlt: null
     }
 };
+
+export default dummyData;

@@ -25,13 +25,13 @@ const FormPage = () => {
      * @name initialFormState
      * @type {{affirmation: boolean, firstName: string, lastName: string, middleName: string, paymentSelection: string, ridingBus: boolean}}
      */
-     const initialFormState = {
+    const initialFormState = {
         affirmation: false,
         firstName: "",
         lastName: "",
         middleName: "",
         paymentSelection: "",
-        ridingBus: null, 
+        ridingBus: null
     };
     const [formState, dispatch] = useReducer(FormReducer, initialFormState);
 
@@ -41,11 +41,11 @@ const FormPage = () => {
      * @param {{}} e
      * @return true
      */
-     const handleOnChange = e => {
+    const handleOnChange = (e) => {
         // console.log(e.target.value);
         const { name, value } = e.target;
         let newValue = value;
-        if (name === "affirmation") {       
+        if (name === "affirmation") {
             newValue = e.target.checked;
             // console.log(newValue);
         }
@@ -63,23 +63,41 @@ const FormPage = () => {
                 <TransportationInformation />
             </FormContainer>
             <FormContainer title="Bus Pass Application">
-                <BusPassApplication formState={formState} handleOnChange={handleOnChange} />
+                <BusPassApplication
+                    formState={formState}
+                    handleOnChange={handleOnChange}
+                />
             </FormContainer>
             {status !== "notRidingBus" && (
                 <>
-                    {(formState.ridingBus === "true" || status === "issued" || status === "annualBilling" || status === "inProcess" || status === "expired") && (
-                    <FormContainer title="Transportation Payment Selection">
-                        <TransportationPaymentSelection formState={formState}  handleOnChange={handleOnChange} />
-                    </FormContainer>)}
+                    {(formState.ridingBus === "true" ||
+                        status === "issued" ||
+                        status === "annualBilling" ||
+                        status === "inProcess" ||
+                        status === "expired") && (
+                        <FormContainer title="Transportation Payment Selection">
+                            <TransportationPaymentSelection
+                                formState={formState}
+                                handleOnChange={handleOnChange}
+                            />
+                        </FormContainer>
+                    )}
                     {status !== "annualBilling" && status !== "expired" && (
-                    <FormContainer title="Electronic Signature of Parent/Legal Guardian">
-                        <ElectronicSignature formState={formState}  handleOnChange={handleOnChange} />
-                    </FormContainer>)}
+                        <FormContainer title="Electronic Signature of Parent/Legal Guardian">
+                            <ElectronicSignature
+                                formState={formState}
+                                handleOnChange={handleOnChange}
+                            />
+                        </FormContainer>
+                    )}
                 </>
-            )}   
+            )}
             <FormContainer title="Submit Or Go Back">
-                <SubmitAndGoBack formState={formState}  handleOnChange={handleOnChange} />
-            </FormContainer>  
+                <SubmitAndGoBack
+                    formState={formState}
+                    handleOnChange={handleOnChange}
+                />
+            </FormContainer>
         </div>
     );
 };
