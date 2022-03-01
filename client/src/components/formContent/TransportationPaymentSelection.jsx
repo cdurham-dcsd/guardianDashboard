@@ -69,7 +69,7 @@ const TransportationPaymentSelection = ({ formState, handleOnChange }) => {
                     In an earlier session you have selected: <strong>Annual Billing</strong>
                 </div>
                 <div>
-                    If you would like to change your transportation payment election, please contact Transportation at <a href= "http://www.k12insight.com/Lets-Talk/CustomWork/CustomDialogueDouglas.aspx?k=WK3Z6DLT@DG2T5DLT" rel="noreferer" target="_blank">Let's Talk</a> feedback tool. 
+                    If you would like to change your transportation payment election, please contact Transportation at <a href= "http://www.k12insight.com/Lets-Talk/CustomWork/CustomDialogueDouglas.aspx?k=WK3Z6DLT@DG2T5DLT" rel="noreferrer" target="_blank">Let's Talk</a> feedback tool. 
                 </div>
             </div>)}
         </div>

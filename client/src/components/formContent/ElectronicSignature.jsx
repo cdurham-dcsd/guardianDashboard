@@ -15,7 +15,7 @@ const ElectronicSignature = ({ formState, handleOnChange }) => {
             I understand that outstanding transportation fees may be sent to a collection agency for non-payment and/or may initiate further legal action.
             </div>
             <div className="mb-2">
-            My signature indicates that I have read and understand all the above terms of the application for a bus pass and have reviewed the district policies and procedures in regards to transportation in the <a href= "https://www.dcsdk12.org/schools_academics/academics/code_of_conduct" rel="noreferer" target="_blank">Student Code of Conduct document</a>.
+            My signature indicates that I have read and understand all the above terms of the application for a bus pass and have reviewed the district policies and procedures in regards to transportation in the <a href= "https://www.dcsdk12.org/schools_academics/academics/code_of_conduct" rel="noreferrer" target="_blank">Student Code of Conduct document</a>.
             </div>
             <div className="input-container">
                 <div className="e-sig-input">

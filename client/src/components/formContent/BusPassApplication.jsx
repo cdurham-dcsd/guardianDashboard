@@ -34,7 +34,7 @@ const BusPassApplication = ({ formState, handleOnChange }) => {
                     )}
                     {status === "issued" && (
                         <span>
-                        Our system indicates you have already been issued a bus pass. Please contact the DCSD Transportation team at <a href="https://www.k12insight.com/Lets-Talk/DialogueCustom.aspx?k=WK3Z6DLT@DG2T5DLT" rel="noreferer" target="_blank">Let&apos;s Talk</a> to request a replacement SMART tag bus pass.
+                        Our system indicates you have already been issued a bus pass. Please contact the DCSD Transportation team at <a href="https://www.k12insight.com/Lets-Talk/DialogueCustom.aspx?k=WK3Z6DLT@DG2T5DLT" rel="noreferrer" target="_blank">Let&apos;s Talk</a> to request a replacement SMART tag bus pass.
                         </span>
                     )}
                     {status !== "expired" && status !=="annualBilling" && status !== "inProcess" && status !== "issued" && (
@@ -73,7 +73,7 @@ const BusPassApplication = ({ formState, handleOnChange }) => {
                         )}
                         {formState.ridingBus === "false" && (
                             <div>
-                                Thank you for your response. By submitting this form, your student will not be issued a SMART tag bus pass. If you need to change your selection at a later date, please contact the <a href="https://www.k12insight.com/Lets-Talk/DialogueCustom.aspx?k=WK3Z6DLT@DG2T5DLT" rel="noreferer" target="_blank"> Transportation Department</a>.
+                                Thank you for your response. By submitting this form, your student will not be issued a SMART tag bus pass. If you need to change your selection at a later date, please contact the <a href="https://www.k12insight.com/Lets-Talk/DialogueCustom.aspx?k=WK3Z6DLT@DG2T5DLT" rel="noreferrer" target="_blank"> Transportation Department</a>.
                             </div>
                         )}
                     </div>
@@ -82,7 +82,7 @@ const BusPassApplication = ({ formState, handleOnChange }) => {
                 </>
             ) : (
                 <div>
-                On 2/22/22 you indicated that this student would not be riding a bus this year. If you need to update your selection for the student, please contact the <a href="https://www.k12insight.com/Lets-Talk/DialogueCustom.aspx?k=WK3Z6DLT@DG2T5DLT" rel="noreferer" target="_blank">Transportation Department</a>. 
+                On 2/22/22 you indicated that this student would not be riding a bus this year. If you need to update your selection for the student, please contact the <a href="https://www.k12insight.com/Lets-Talk/DialogueCustom.aspx?k=WK3Z6DLT@DG2T5DLT" rel="noreferrer" target="_blank">Transportation Department</a>. 
                 </div>
             )
         }

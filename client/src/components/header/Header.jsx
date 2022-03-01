@@ -1,9 +1,8 @@
 import React, { useState } from "react";
 import { Button, Link, Menu, MenuItem } from "@mui/material";
-
 import { logout } from "../../utils/auth/Auth";
-//import UserDetails from "../../utils/UserDetails";
-import Icon from "../../components/icon/Icon";
+// import UserDetails from "../../utils/UserDetails";
+import Icon from "../icon/Icon";
 import HamburgerMenu from "./HamburgerMenu";
 
 import "../../styles/Header.scss";
@@ -12,8 +11,7 @@ const Header = () => {
     const [anchorEl, setAnchorEl] = useState(null);
     // UserDetails is returning an object with keys, name, employeeNumber,
     // givenName, displayName, email, surname, uid, category, position, etc.
-    //const { givenName, surname } = UserDetails();
-
+    // const { givenName, surname } = UserDetails();
     // This is for the @mui dropdown "Helpful Links"
     const open = Boolean(anchorEl);
 
@@ -46,11 +44,8 @@ const Header = () => {
             </div>
             <div className="header-right">
                 <div className="header-name-container">
-                    <h5>
-                        Welcome, Andrew Nicola
-                    </h5>
+                    <h5>Welcome, Andrew Nicola</h5>
                 </div>
-
                 <div className="nav-button-container">
                     {/*
                     /////////////////////////////////////////////////////////////////////

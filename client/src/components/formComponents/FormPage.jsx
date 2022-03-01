@@ -13,12 +13,12 @@ import "../../styles/FormPage.scss";
 const FormPage = () => {
     const { status } = useParams();
     /*
-    annualBilling - already applied for annual billing
+    annualBilling - already applied for annual billing (done)
     inProcess - application is still in process (not working)
-    applying - first time (default)
-    expired - date for annual pass has past
+    applying - first time (default) (done)
+    expired - date for annual pass has past (done)
     notRidingBus - already chosed not to ride bus in the past (done)
-    issued - already a SMART tag card issued
+    issued - already a SMART tag card issued (done)
     */
 
     /**
