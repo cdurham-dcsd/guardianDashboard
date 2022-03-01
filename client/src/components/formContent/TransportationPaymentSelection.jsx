@@ -1,35 +1,10 @@
-import React, { useReducer } from "react";
+import React from "react";
+import PropTypes from "prop-types";
 import { useParams } from "react-router-dom";
-import FormReducer from "../../utils/FormReducer";
 
-const TransportationPaymentSelection = () => {
+const TransportationPaymentSelection = ({ formState, handleOnChange }) => {
     const { status } = useParams();
     console.log(status);
-    /**
-     * @name initialFormState
-     * @type {{PaymentSelection: string}}
-     */
-    const initialFormState = {
-        PaymentSelection: "",
-    };
-    const [formState, dispatch] = useReducer(FormReducer, initialFormState);
-
-    /**
-     * FormReducer allows for simplified input control.
-     * @name handleOnChange
-     * @param {{}} e
-     * @return true
-     */
-    const handleOnChange = e => {
-        console.log(e.target.value);
-        const { name, value } = e.target;
-        dispatch({
-            type: "text",
-            field: name,
-            payload: value
-        });
-        return true;
-    };
 
     return (
         <div>
@@ -43,9 +18,10 @@ const TransportationPaymentSelection = () => {
                     <div>
                         There are two options to pay your fees:
                     </div>
-                    <input type="radio" name="paymentSelection" value="Y" id="paymentSelectionAnnualy" defaultChecked={formState.paymentSelection} onChange={handleOnChange} /> 
+                    <label htmlFor="paymentSelectionAnnualy">
+                        <input type="radio" name="paymentSelection" value="Y" id="paymentSelectionAnnualy" defaultChecked={formState.paymentSelection} onChange={handleOnChange} /> 
                         {" "}
-                        <label htmlFor="paymentSelectionAnnualy">Annual Prepayment of $250. (Applies to each eligible student)
+                        Annual Prepayment of $250. (Applies to each eligible student)
                         </label>
                         <br />
                         <ul>
@@ -56,9 +32,9 @@ const TransportationPaymentSelection = () => {
                                 This option if not payed by September 13, 2021 will revert to Quarterly Billing.
                             </li>
                         </ul> 
-                    <input type="radio" name="paymentSelection" value="YQ" id="paymentSelectionQuarterly" defaultChecked={formState.paymentSelection}
-                    onChange={handleOnChange} /> {" "}
-                        <label htmlFor="paymentSelectionQuarterly">Quarterly Billing</label>
+                    <label htmlFor="paymentSelectionQuarterly">
+                        <input type="radio" name="paymentSelection" value="YQ" id="paymentSelectionQuarterly" defaultChecked={formState.paymentSelection} onChange={handleOnChange} /> {" "}
+                        Quarterly Billing</label>
                         <ul>
                             <li>
                                 Accumulated ride charges of $1 each way will be invoiced via MySchoolBucks.
@@ -93,11 +69,16 @@ const TransportationPaymentSelection = () => {
                     In an earlier session you have selected: Annual Billing
                 </p>
                 <p>
-                    If you would like to change your transportation payment election, please contact Transportation at <a href= "http://www.k12insight.com/Lets-Talk/CustomWork/CustomDialogueDouglas.aspx?k=WK3Z6DLT@DG2T5DLT" target="_blank">Let's Talk</a> feedback tool. 
+                    If you would like to change your transportation payment election, please contact Transportation at <a href= "http://www.k12insight.com/Lets-Talk/CustomWork/CustomDialogueDouglas.aspx?k=WK3Z6DLT@DG2T5DLT" rel="noreferer" target="_blank">Let's Talk</a> feedback tool. 
                 </p>
             </div>)}
         </div>
     );
 };
+
+TransportationPaymentSelection.propTypes = {
+    formState: PropTypes.objectOf(PropTypes.any).isRequired,
+    handleOnChange: PropTypes.func.isRequired
+}
 
 export default TransportationPaymentSelection;

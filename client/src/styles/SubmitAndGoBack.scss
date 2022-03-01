@@ -1,0 +1,95 @@
+@import "./global/Colors.scss";
+
+.button-container {
+    //border: 2px solid red;
+    display: flex;
+    justify-content: center;
+    width: 50%;
+    margin: 0 auto;
+
+    .submit-button {
+        background-color: $information;
+        border-radius: .50rem;
+        box-shadow: 0.1rem .2rem .3rem 0 $shadow;
+        color: white;
+        display: flex;
+        align-items: center;
+        font-size: .875em;
+        //margin-top: -.15rem;
+        margin: 0 10px 0 10px;
+        //padding: .1rem 2rem 0;
+        transition: .2s ease;
+        width: 12rem;
+
+        & p {
+            //border: 2px solid white;
+            margin: 0 auto;
+            text-align: center;
+            font-size: 1.1em;
+            font-weight: 500;
+            padding: 3px 2px;
+        }
+    }
+      
+      .submit-button:hover {
+        -ms-transform: scale(1.009);
+        -webkit-transform: scale(1.009);
+        background-color: $information-hover;
+        font-weight: 500;
+        transform: scale(1.009);
+        transition: .1s ease;
+      }
+      
+      .submit-button:active {
+        -ms-transform: scale(1);
+        -webkit-transform: scale(1);
+        background-color: $information-hover;
+        color: $grey1;
+        font-weight: normal;
+        transform: scale(1);
+        transition: .01s ease;
+      }
+      
+      .go-back-button {
+          background-color: $error;
+          border-radius: .50rem;
+          box-shadow: 0.1rem .2rem .3rem 0 $shadow;
+          color: white;
+          display: flex;
+          align-items: center;
+          font-size: .875em;   
+          //margin-top: -.15rem;
+          margin: 0 10px 0 10px;
+          //padding: .1rem 2rem 0;
+          transition: .2s ease;
+          width: 12rem;
+            & p {
+                //border: 2px solid white;
+                margin: 0 auto;
+                text-align: center;
+                font-size: 1.1em;
+                font-weight: 500;
+                padding: 3px 2px;
+            }
+        }
+        
+        .go-back-button:hover {
+          -ms-transform: scale(1.009);
+          -webkit-transform: scale(1.009);
+          background-color: $error-hover;
+          font-weight: 500;
+          transform: scale(1.009);
+          transition: .1s ease;
+        }
+        
+        .go-back-button:active {
+          -ms-transform: scale(1);
+          -webkit-transform: scale(1);
+          background-color: $error-hover;
+          color: $grey1;
+          font-weight: normal;
+          transform: scale(1);
+          transition: .01s ease;
+        }
+} //end of button-container
+
