@@ -9,7 +9,7 @@ const BreadCrumb = () => {
     return (
         <div>
             <Icon
-                className="ms-3 mt-3 mb-3" 
+                className="ms-3 mt-3 mb-3"
                 fill="#19608f"
                 iconName="TRANSPORTATION"
                 title="Transportation Logo"
