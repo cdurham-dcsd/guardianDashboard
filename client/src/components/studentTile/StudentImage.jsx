@@ -1,13 +1,13 @@
 import React, { useCallback, useContext, useEffect, useState } from "react";
 import PropTypes from "prop-types";
 import Icon from "../icon/Icon";
-//import { GlobalContext } from "../contextProvider/ContextProvider";
-//import StudentInfoDao from "../../dao/StudentInfoDao";
+// import { GlobalContext } from "../contextProvider/ContextProvider";
+// import StudentInfoDao from "../../dao/StudentInfoDao";
 
 /**
  * Return a student's picture, or if it doesn't exist, return a default placeholder
  * @name StudentImage
- * @param {string} className    
+ * @param {string} className
  * @param {string} height
  * @param {string} schoolYearKey
  * @param {{}} studentInfoDto
@@ -25,9 +25,8 @@ const StudentImage = ({
     const [studentImage, setStudentImage] = useState(null);
 
     // inMemoryToken is stored in the GlobalContext as state
-    //const { state } = useContext(GlobalContext);
-    //const { token } = state || {};
-
+    // const { state } = useContext(GlobalContext);
+    // const { token } = state || {};
     /**
      * Retrieve a StudentImageDto from student-info service
      * @name getStudentImage
@@ -54,7 +53,7 @@ const StudentImage = ({
     //         setStudentImage({});
     //     }
     // }, [schoolYearKey, studentImage, studentNumber]);
-    
+
     return (
         <div className="d-flex">
             {studentImage ? (
@@ -72,7 +71,7 @@ const StudentImage = ({
                 />
             )}
         </div>
-);
+    );
 };
 
 StudentImage.propTypes = {

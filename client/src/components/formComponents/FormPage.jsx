@@ -6,18 +6,19 @@ import BusPassApplication from "../formContent/BusPassApplication";
 import ElectronicSignature from "../formContent/ElectronicSignature";
 import FormContainer from "./FormContainer";
 import TransportationPaymentSelection from "../formContent/TransportationPaymentSelection";
+import SubmitAndGoBack from "../formContent/SubmitAndGoBack";
 
 import "../../styles/FormPage.scss";
-import SubmitAndGoBack from "../formContent/SubmitAndGoBack";
 
 const FormPage = () => {
     const { status } = useParams();
     /*
-    annualBilling
-    applied
-    applying
-    expired
-    notRidingBus
+    annualBilling - already applied for annual billing (done)
+    inProcess - application is still in process (not working)
+    applying - first time (default) (done)
+    expired - date for annual pass has past (done)
+    notRidingBus - already chosed not to ride bus in the past (done)
+    issued - already a SMART tag card issued (done)
     */
 
     /**
@@ -66,12 +67,14 @@ const FormPage = () => {
             </FormContainer>
             {status !== "notRidingBus" && (
                 <>
+                    {(formState.ridingBus === "true" || status === "issued" || status === "annualBilling" || status === "inProcess" || status === "expired") && (
                     <FormContainer title="Transportation Payment Selection">
                         <TransportationPaymentSelection formState={formState}  handleOnChange={handleOnChange} />
-                    </FormContainer>   
+                    </FormContainer>)}
+                    {status !== "annualBilling" && status !== "expired" && (
                     <FormContainer title="Electronic Signature of Parent/Legal Guardian">
                         <ElectronicSignature formState={formState}  handleOnChange={handleOnChange} />
-                    </FormContainer>
+                    </FormContainer>)}
                 </>
             )}   
             <FormContainer title="Submit Or Go Back">

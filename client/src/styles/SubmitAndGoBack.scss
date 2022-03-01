@@ -9,7 +9,7 @@
 
     .submit-button {
         background-color: $information;
-        border-radius: .50rem;
+        border-radius: .30rem;
         box-shadow: 0.1rem .2rem .3rem 0 $shadow;
         color: white;
         display: flex;
@@ -23,7 +23,7 @@
 
         & p {
             //border: 2px solid white;
-            margin: 0 auto;
+            margin: 4px auto 0;
             text-align: center;
             font-size: 1.1em;
             font-weight: 500;
@@ -52,7 +52,7 @@
       
       .go-back-button {
           background-color: $error;
-          border-radius: .50rem;
+          border-radius: .30rem;
           box-shadow: 0.1rem .2rem .3rem 0 $shadow;
           color: white;
           display: flex;
@@ -65,7 +65,7 @@
           width: 12rem;
             & p {
                 //border: 2px solid white;
-                margin: 0 auto;
+                margin: 4px auto 0;
                 text-align: center;
                 font-size: 1.1em;
                 font-weight: 500;
