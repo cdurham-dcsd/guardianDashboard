@@ -13,7 +13,7 @@ import "../../styles/SubmitAndGoBack.scss";
  * @constructor
  */
 const SubmitAndGoBack = ({ formState, handleOnChange }) => {
-    const {status} = useParams();
+    const { status } = useParams();
 
     return (
         <div className="button-container pt-3 pb-3">
@@ -26,17 +26,19 @@ const SubmitAndGoBack = ({ formState, handleOnChange }) => {
             >
                 <p>Back To Dashboard</p>
             </div>
-            {status !== "notRidingBus" && status !== "annualBilling" && status !== "expired" && (
-                <div
-                    className="submit-button"
-                    onClick={handleOnChange}
-                    onKeyDown={handleOnChange}
-                    role="button"
-                    tabIndex={0}
-                >
-                    <p>Submit</p>
-                </div>
-            )}
+            {
+                status !== "notRidingBus" &&
+                status !== "annualBilling" &&
+                status !== "expired" && (
+                    <div
+                        className="submit-button"
+                        onKeyDown={handleOnChange}
+                        role="button"
+                        tabIndex={0}
+                    >
+                        <p>Submit</p>
+                    </div>
+                )}
         </div>
     );
 };

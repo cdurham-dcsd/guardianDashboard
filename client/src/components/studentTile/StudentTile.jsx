@@ -4,7 +4,7 @@ import PropTypes from "prop-types";
 import StudentImage from "./StudentImage";
 // import StudentInfoDao from "../../dao/StudentInfoDao";
 // import UserDao from "../../dao/UserDao";
-import { dummyData } from "./dummyData/dummyData";
+import dummyData from "./dummyData/dummyData";
 
 import "../../styles/StudentTile.scss";
 
@@ -45,7 +45,9 @@ const StudentTile = ({ studentNumber }) => {
 
     // if (studentInfoDto && studentNumber && activeSchoolYearKey) {
     return (
-        (studentInfoDto && studentNumber && activeSchoolYearKey) && (
+        studentInfoDto &&
+        studentNumber &&
+        activeSchoolYearKey && (
             <div className="student-container mt-4 mb-4">
                 <div className="student-photo ms-3">
                     <StudentImage

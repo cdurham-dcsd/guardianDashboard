@@ -8,17 +8,17 @@
  *  @return {*}
  */
 const FormReducer = (state, action) => {
-	switch (action.type) {
-		case "reset":
-			return action.payload;
-		case "text":
-			// can also handle textArea, selects, etc.
-			return {
-				...state,
-				[action.field]: action.payload
-			};
-		default:
-			return state;
+    switch (action.type) {
+        case "reset":
+            return action.payload;
+        case "text":
+            // can also handle textArea, selects, etc.
+            return {
+                ...state,
+                [action.field]: action.payload
+            };
+        default:
+            return state;
     }
 };
 
