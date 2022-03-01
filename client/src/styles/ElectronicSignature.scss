@@ -1,3 +1,5 @@
+@import "./global/Colors.scss";
+
 .input-container {
     //border: 2px solid red;
     display: flex;
@@ -10,6 +12,10 @@
     & input {
         width: 100%;
         border-radius: 5px;
-        padding: .5rem;
+        padding: .25rem;
+    }
+    .hidden-label {
+        color: $grey2;
+        font-weight: 400;
     }
 }
