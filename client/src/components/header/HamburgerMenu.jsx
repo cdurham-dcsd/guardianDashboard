@@ -180,7 +180,7 @@ const HamburgerMenu = () => {
                             height="20"
                             iconName="HOME"
                         />
-                        Home
+                        Dashboard
                     </Link>
                 </MenuItem>
                 <MenuItem
