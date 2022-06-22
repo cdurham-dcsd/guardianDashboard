@@ -228,7 +228,7 @@ const Header = () => {
                         rel="noopener noreferrer"
                     >
                         <span className="nav-button-text">
-                            GUARDIAN DASHBOARD
+                            DASHBOARD
                             <Icon
                                 className="nav-button-icon"
                                 fill="white"
