@@ -1,17 +1,23 @@
 import React, { useState } from "react";
 import { Button, Link, Menu, MenuItem } from "@mui/material";
 import { logout } from "../../utils/auth/Auth";
-// import UserDetails from "../../utils/UserDetails";
+import UserDetails from "../../utils/UserDetails";
 import Icon from "../icon/Icon";
 import HamburgerMenu from "./HamburgerMenu";
 
 import "../../styles/Header.scss";
 
+/**
+ * This is returning the header content with buttons and links
+ * @name Header
+ * @return {JSX.Element}
+ */
 const Header = () => {
     const [anchorEl, setAnchorEl] = useState(null);
     // UserDetails is returning an object with keys, name, employeeNumber,
     // givenName, displayName, email, surname, uid, category, position, etc.
-    // const { givenName, surname } = UserDetails();
+    const { givenName, surname } = UserDetails();
+
     // This is for the @mui dropdown "Helpful Links"
     const open = Boolean(anchorEl);
 
@@ -26,7 +32,7 @@ const Header = () => {
         <nav className="header-container">
             <div className="header-dcsd-icon">
                 <Link
-                    aria-label="Home Page Link"
+                    aria-label="Guardian Dashboard Page Link"
                     href="https://engaged.dcsdk12.org"
                     rel="noopener noreferrer"
                     sx={{
@@ -44,8 +50,11 @@ const Header = () => {
             </div>
             <div className="header-right">
                 <div className="header-name-container">
-                    <h5>Welcome, Andrew Nicola</h5>
+                    <h5>
+                        Welcome, {givenName} {surname}
+                    </h5>
                 </div>
+
                 <div className="nav-button-container">
                     {/*
                     /////////////////////////////////////////////////////////////////////
@@ -59,7 +68,8 @@ const Header = () => {
                             id="basic-button"
                             onClick={handleClick}
                             sx={{
-                                color: "white"
+                                color: "white",
+                                fontFamily: "Montserrat"
                             }}
                         >
                             Helpful Links
@@ -218,7 +228,7 @@ const Header = () => {
                         rel="noopener noreferrer"
                     >
                         <span className="nav-button-text">
-                            HOME
+                            GUARDIAN DASHBOARD
                             <Icon
                                 className="nav-button-icon"
                                 fill="white"
@@ -239,7 +249,7 @@ const Header = () => {
                             <Icon
                                 className="nav-button-icon"
                                 fill="white"
-                                height="25"
+                                height="20"
                                 iconName="LOGOUT"
                                 onClick={logout}
                                 onKeyDown={logout}

@@ -4,15 +4,35 @@ import PropTypes from "prop-types";
 // Set up our reducer function to act on Previous and Next selections
 function reducer(state, action) {
     switch (action.type) {
-        case "Token Update":
-            return {
-                ...state,
-                token: action.token
-            };
         case "Get Username":
             return {
                 ...state,
                 username: action.username
+            };
+        case "SchoolYearDto":
+            return {
+                ...state,
+                schoolYearDto: action.schoolYearDto
+            };
+        case "SchoolYearKey":
+            return {
+                ...state,
+                schoolYearKey: action.schoolYearKey
+            };
+        case "StudentInfoDto":
+            return {
+                ...state,
+                studentInfoDto: action.studentInfoDto
+            };
+        case "StudentNumber":
+            return {
+                ...state,
+                studentNumber: action.studentNumber
+            };
+        case "Token Update":
+            return {
+                ...state,
+                token: action.token
             };
         default:
             return { token: null };

@@ -45,6 +45,17 @@ const storeToken = ({
 };
 
 /**
+ * Obliterate the user_details session
+ * @name fakeLogout
+ * @returns {Promise<void>}
+ */
+const fakeLogout = async () => {
+    inMemoryToken = null;
+    // remove the user session
+    sessionStorage.removeItem("user_details");
+};
+
+/**
  * Logout function that logs people out of active tabs and redirect logout for SAML.
  * @name logout
  * @returns {Promise<void>}
@@ -183,4 +194,4 @@ const Auth = () => {
     return null;
 };
 
-export { retrieveToken, logout, Auth, readToken };
+export { fakeLogout, retrieveToken, logout, Auth, readToken };
