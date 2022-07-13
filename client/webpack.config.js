@@ -1,8 +1,8 @@
 const path = require("path");
 
-module.exports = {
+const config = {
     entry: "./src/index.js",
-    mode: "development",
+    // mode: "development",
     module: {
         rules: [
             {
@@ -64,3 +64,5 @@ module.exports = {
         }
     }
 };
+
+module.exports = config;

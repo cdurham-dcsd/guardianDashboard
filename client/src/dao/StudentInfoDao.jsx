@@ -34,6 +34,7 @@ const StudentInfoDao = (props) => {
         householdDto,
         individualDto,
         objectName,
+        params,
         personId,
         schoolYearKey,
         studentNumber,
@@ -54,7 +55,8 @@ const StudentInfoDao = (props) => {
             break;
         case "customAttributesRead":
             options.method = "GET";
-            options.url = `${STUDENT_INFO_CUSTOM_ATTRIBUTES}/${studentNumber}/index.json`;
+            options.params = params;
+            options.url = `${STUDENT_INFO_CUSTOM_ATTRIBUTES}/${studentNumber}/${attributeName}/${objectName}/detail.json`;
             break;
         case "guardianHouseholdFromUsernameRead":
             options.method = "GET";

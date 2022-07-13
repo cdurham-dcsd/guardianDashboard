@@ -8,7 +8,7 @@ import ServiceWrapper from "../utils/ServiceWrapper";
  * @return {null|*}
  */
 const UserDao = (props) => {
-    const { action, token, username } = props;
+    const { action, searchString, token, username } = props;
     const bearer = `Bearer ${token}`;
     const options = {
         headers: {

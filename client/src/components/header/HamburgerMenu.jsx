@@ -2,7 +2,7 @@ import React from "react";
 import Menu from "@mui/material/Menu";
 import Divider from "@mui/material/Divider";
 import IconButton from "@mui/material/IconButton";
-import { Link, Button, MenuItem } from "@mui/material";
+import { Button, MenuItem } from "@mui/material";
 
 import { logout } from "../../utils/auth/Auth";
 import Icon from "../icon/Icon";
@@ -11,6 +11,14 @@ import "../../styles/Header.scss";
 
 const HamburgerMenu = () => {
     const [anchorEl, setAnchorEl] = React.useState(null);
+
+    const closeTab = () => {
+        // remove all sessionStorage
+        sessionStorage.clear();
+        window.opener = null;
+        window.open("about:blank", "_self");
+        window.close();
+    };
 
     const open = Boolean(anchorEl);
     const handleClick = (event) => {
@@ -164,24 +172,19 @@ const HamburgerMenu = () => {
                     </Button>
                 </MenuItem>
                 <Divider />
-                <MenuItem>
-                    <Link
-                        aria-label="Home Page Link"
-                        href="https://engaged.dcsdk12.org"
-                        rel="noopener noreferrer"
-                        sx={{
-                            textDecoration: "none",
-                            color: "black"
-                        }}
-                    >
-                        <Icon
-                            className="mobile-dropdown-icon"
-                            fill="#19608f"
-                            height="20"
-                            iconName="HOME"
-                        />
-                        Dashboard
-                    </Link>
+                <MenuItem
+                    type="button"
+                    onClick={closeTab}
+                    onKeyDown={closeTab}
+                    href="#"
+                >
+                    <Icon
+                        className="mobile-dropdown-icon"
+                        fill="#19608f"
+                        height="20"
+                        iconName="HOME"
+                    />
+                    EXIT
                 </MenuItem>
                 <MenuItem
                     type="button"

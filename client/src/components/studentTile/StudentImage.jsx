@@ -16,12 +16,12 @@ import StudentInfoDao from "../../dao/StudentInfoDao";
  * @return {JSX.Element}
  */
 const StudentImage = ({
-                          className,
-                          height,
-                          schoolYearKey,
-                          studentInfoDto,
-                          width
-                      }) => {
+    className,
+    height,
+    schoolYearKey,
+    studentInfoDto,
+    width
+}) => {
     const [imageUrl, setImageUrl] = useState(null);
 
     // inMemoryToken is stored in the GlobalContext as state

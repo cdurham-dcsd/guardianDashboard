@@ -18,6 +18,14 @@ const Header = () => {
     // givenName, displayName, email, surname, uid, category, position, etc.
     const { givenName, surname } = UserDetails();
 
+    const closeTab = () => {
+        // remove all sessionStorage
+        sessionStorage.clear();
+        window.opener = null;
+        window.open("about:blank", "_self");
+        window.close();
+    };
+
     // This is for the @mui dropdown "Helpful Links"
     const open = Boolean(anchorEl);
 
@@ -221,14 +229,14 @@ const Header = () => {
                     this is where the "Helpful Links" dropdown button ENDS (from @mui)
                     /////////////////////////////////////////////////////////////////////
                     */}
-                    <a
-                        aria-label="Home Page Link"
+                    <button
+                        aria-label="Exit Button"
                         className="btn btn-primary m-2 color-override"
-                        href="https://engaged.dcsdk12.org"
-                        rel="noopener noreferrer"
+                        onClick={closeTab}
+                        type="button"
                     >
                         <span className="nav-button-text">
-                            DASHBOARD
+                            EXIT
                             <Icon
                                 className="nav-button-icon"
                                 fill="white"
@@ -236,7 +244,7 @@ const Header = () => {
                                 iconName="HOME"
                             />
                         </span>
-                    </a>
+                    </button>
                     <button
                         aria-label="Logout Button"
                         className="btn btn-primary m-2 color-override"

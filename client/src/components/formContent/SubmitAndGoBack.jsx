@@ -1,51 +1,57 @@
 import React from "react";
 import PropTypes from "prop-types";
-import { useParams } from "react-router-dom";
+import { ECHECKIN_SCHOOL_DOMAIN } from "../../utils/auth/config";
 
 import "../../styles/SubmitAndGoBack.scss";
 
 /**
- * A simulated button specifically for formContainer title bars
+ * Submit the Bus Pass Application
  * @name SubmitAndGoBack
  * @param {func} handleOnChange
- * @param {string} title
+ * @param {func} handleSubmit
  * @return {JSX.Element}
  * @constructor
  */
-const SubmitAndGoBack = ({ formState, handleOnChange }) => {
-    const { status } = useParams();
+const SubmitAndGoBack = ({ handleOnChange, handleSubmit }) => {
+    const closeTab = () => {
+        // remove all sessionStorage
+        sessionStorage.clear();
+        window.opener = null;
+        window.open(ECHECKIN_SCHOOL_DOMAIN, "_self");
+        window.close();
+    };
 
     return (
         <div className="button-container pt-3 pb-3">
             <div
                 className="go-back-button"
-                onClick={handleOnChange}
-                onKeyDown={handleOnChange}
+                onClick={() => {
+                    closeTab();
+                }}
+                onKeyDown={() => {
+                    closeTab();
+                }}
                 role="button"
                 tabIndex={0}
             >
-                <p>Back To Dashboard</p>
+                <p>Exit</p>
             </div>
-            {
-                status !== "notRidingBus" &&
-                status !== "annualBilling" &&
-                status !== "expired" && (
-                    <div
-                        className="submit-button"
-                        onKeyDown={handleOnChange}
-                        role="button"
-                        tabIndex={0}
-                    >
-                        <p>Submit</p>
-                    </div>
-                )}
+            <div
+                className="submit-button"
+                onKeyDown={handleSubmit}
+                onClick={handleSubmit}
+                role="button"
+                tabIndex={0}
+            >
+                <p>Submit</p>
+            </div>
         </div>
     );
 };
 
 SubmitAndGoBack.propTypes = {
-    formState: PropTypes.objectOf(PropTypes.any).isRequired,
-    handleOnChange: PropTypes.func.isRequired
+    handleOnChange: PropTypes.func.isRequired,
+    handleSubmit: PropTypes.func.isRequired
 };
 
 export default SubmitAndGoBack;
