@@ -1,59 +1,67 @@
-import React, { useContext, useEffect, useState } from "react";
-import PropTypes from "prop-types";
-// import { GlobalContext } from "../contextProvider/ContextProvider";
+import React, { useContext, useEffect } from "react";
+import { GlobalContext } from "../contextProvider/ContextProvider";
 import StudentImage from "./StudentImage";
-// import StudentInfoDao from "../../dao/StudentInfoDao";
-// import UserDao from "../../dao/UserDao";
-import dummyData from "./dummyData/dummyData";
+import StudentInfoDao from "../../dao/StudentInfoDao";
+import UserDao from "../../dao/UserDao";
 
 import "../../styles/StudentTile.scss";
 
-const StudentTile = ({ studentNumber }) => {
-    const [activeSchoolYearKey, setActiveSchoolYearKey] = useState(0);
-    const [studentInfoDto, setStudentInfoDto] = useState(null);
-    // const { state } = useContext(GlobalContext);
-    // const { token } = state || {};
-    // console.log("studentNumber=", studentNumber);
+const StudentTile = () => {
+    const { dispatch, state } = useContext(GlobalContext);
+    const { schoolYearKey, studentInfoDto, studentNumber, token } = state || {};
+
     /**
+     * GETTING STUDENT INFO DTO & ACTIVE SCHOOL YEAR KEY
      * Grab the StudentInfoDto using studentNumber
      */
     useEffect(() => {
-        if (!studentInfoDto) {
-            setStudentInfoDto(dummyData.payload);
-            setActiveSchoolYearKey("16");
+        if (studentNumber && token && !studentInfoDto) {
+            // get the student's info
+            const options = {
+                action: "studentInfoRead",
+                studentNumber,
+                token
+            };
+            StudentInfoDao(options).then((response) => {
+                if (response) {
+                    const { payload } = response.data;
+                    if (payload && Object.keys(payload).length) {
+                        dispatch({
+                            type: "StudentInfoDto",
+                            studentInfoDto: payload
+                        });
+                    }
+                }
+            });
+            // get the active school year
+            options.action = "activeSchoolYearRead";
+            options.setResults = null;
+            UserDao(options).then((response) => {
+                if (response) {
+                    const { payload } = response.data;
+                    if (Object.keys(payload).length) {
+                        dispatch({
+                            type: "SchoolYearKey",
+                            schoolYearKey: payload.key
+                        });
+                        dispatch({
+                            type: "SchoolYearDto",
+                            schoolYearDto: payload
+                        });
+                    }
+                }
+            });
         }
-        // if (token && !studentInfoDto) {
-        //     // get the student's info
-        //     const options = {
-        //         action: "studentInfoRead",
-        //         setResults: setStudentInfoDto,
-        //         studentNumber,
-        //         token
-        //     };
-        //     StudentInfoDao(options).then();
-        //     // get the active school year
-        //     options.action = "activeSchoolYearRead";
-        //     options.setResults = null;
-        //     UserDao(options).then((response) => {
-        //         setActiveSchoolYearKey(response.data.payload.key);
-        //     });
-        // }
-    }, [studentInfoDto, studentNumber]);
-    // console.log("studentInfoDto",studentInfoDto)
-    // console.log("studentNumber", studentNumber);
-    // console.log("activeSchoolYearKey", activeSchoolYearKey);
+    }, [dispatch, studentInfoDto, studentNumber, token]);
 
-    // if (studentInfoDto && studentNumber && activeSchoolYearKey) {
-    return (
-        studentInfoDto &&
-        studentNumber &&
-        activeSchoolYearKey && (
+    if (studentInfoDto && studentNumber && schoolYearKey) {
+        return (
             <div className="student-container mt-4 mb-4">
                 <div className="student-photo ms-3">
                     <StudentImage
                         className=""
                         height="60px"
-                        schoolYearKey={activeSchoolYearKey}
+                        schoolYearKey={schoolYearKey}
                         studentInfoDto={studentInfoDto}
                         studentNumber={studentNumber}
                     />
@@ -64,12 +72,10 @@ const StudentTile = ({ studentNumber }) => {
                     <p>{`Grade: ${studentInfoDto.gradeName}`}</p>
                 </div>
             </div>
-        )
-    );
-};
+        );
+    }
 
-StudentTile.propTypes = {
-    studentNumber: PropTypes.string.isRequired
+    return null;
 };
 
 export default StudentTile;

@@ -1,5 +1,6 @@
 import { useEffect, useContext, useState } from "react";
 import axios from "axios";
+import { useParams } from "react-router-dom";
 import {
     EXPIRY_BUFFER_MILLI,
     SAML_LOGOUT_URL,
@@ -8,7 +9,6 @@ import {
     TOKEN_EXPIRY_CHECK_MILLI,
     TOKEN_URL
 } from "./config";
-
 import { GlobalContext } from "../../components/contextProvider/ContextProvider";
 
 /**
@@ -42,6 +42,17 @@ const storeToken = ({
         guid,
         tokenType
     };
+};
+
+/**
+ * Obliterate inMemoryToken and user_details session
+ * @name fakeLogout
+ * @returns {Promise<void>}
+ */
+const fakeLogout = async () => {
+    inMemoryToken = null;
+    // remove the user session
+    sessionStorage.removeItem("user_details");
 };
 
 /**
@@ -172,6 +183,18 @@ const readToken = () => {
     return inMemoryToken;
 };
 
+const SetStudentNumber = () => {
+    const { studentNumber } = useParams();
+    useEffect(() => {
+        if (studentNumber) {
+            sessionStorage.setItem(
+                "student-number",
+                JSON.stringify(parseInt(studentNumber, 10))
+            );
+        }
+    }, [studentNumber]);
+};
+
 /**
  * Refresh the token, so that it doesn't expire
  * @name Auth
@@ -179,8 +202,9 @@ const readToken = () => {
  * @constructor
  */
 const Auth = () => {
+    SetStudentNumber();
     TokenRefresh();
     return null;
 };
 
-export { retrieveToken, logout, Auth, readToken };
+export { fakeLogout, retrieveToken, logout, Auth, readToken };

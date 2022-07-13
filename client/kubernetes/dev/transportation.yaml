@@ -1,0 +1,91 @@
+# kubectl autoscale deployment transportation-app --cpu-percent=70 --min=1 --max=5 -n transportation
+apiVersion: v1
+kind: Namespace
+metadata:
+  labels:
+    name: transportation
+  name: transportation
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: transportation-parent-app
+  labels:
+    app: transportation-parent-app
+  namespace: transportation
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: transportation-parent-app
+  template:
+    metadata:
+      labels:
+        app: transportation-parent-app
+    spec:
+      containers:
+        - image: 152476864589.dkr.ecr.us-east-2.amazonaws.com/transportation-parent-app:1.0.0.0
+          imagePullPolicy: Always
+          name: transportation-parent-app
+          resources:
+            requests:
+              memory: "128Mi"
+              cpu: "100m"
+            limits:
+              memory: "256Mi"
+              cpu: "200m"
+          ports:
+            - containerPort: 8080
+              protocol: TCP
+---
+# apiVersion: v1
+# kind: Service
+# metadata:
+#   name: transportation-parent-svc
+#   namespace: transportation
+# spec:
+#   selector:
+#     app: transportation-parent-app
+#   type: LoadBalancer
+#   ports:
+#     -  protocol: TCP
+#        port: 80
+#        targetPort: 8080
+
+apiVersion: v1
+kind: Service
+metadata:
+  name: transportation-parent-svc
+  namespace: transportation
+  annotations:
+    # Note that the backend talks over HTTP.
+    service.beta.kubernetes.io/aws-load-balancer-backend-protocol: http
+    # TODO: Fill in with the ARN of your certificate.
+    service.beta.kubernetes.io/aws-load-balancer-ssl-cert: arn:aws:acm:us-east-2:152476864589:certificate/d321a071-bf73-4934-b090-b11dbb827a77
+    # Only run SSL on the port named "https" below.
+    service.beta.kubernetes.io/aws-load-balancer-ssl-ports: "https"
+spec:
+  selector:
+    app: transportation-parent-app
+  ports:
+    - name: http
+      port: 80
+      targetPort: 8080
+    - name: https
+      port: 443
+      targetPort: 8080
+  type: LoadBalancer
+---
+apiVersion: autoscaling/v1
+kind: HorizontalPodAutoscaler
+metadata:
+  name: transportation-parent-app
+  namespace: transportation
+spec:
+  maxReplicas: 5
+  minReplicas: 1
+  scaleTargetRef:
+    apiVersion: apps/v1
+    kind: Deployment
+    name: transportation-parent-app
+  targetCPUUtilizationPercentage: 70

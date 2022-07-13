@@ -20,7 +20,9 @@
         "ecmaVersion": 2018,
         "sourceType": "module",
         "allowImportExportEverywhere": false,
-        "codeFrame": false
+        "codeFrame": false,
+        "requireConfigFile": false,
+        "configFile": "./.babelrc"
     },
     "plugins": [
         "react",

@@ -1,17 +1,32 @@
 import React, { useState } from "react";
 import { Button, Link, Menu, MenuItem } from "@mui/material";
 import { logout } from "../../utils/auth/Auth";
-// import UserDetails from "../../utils/UserDetails";
+import UserDetails from "../../utils/UserDetails";
 import Icon from "../icon/Icon";
 import HamburgerMenu from "./HamburgerMenu";
+import T from "../../translations/Translations";
 
 import "../../styles/Header.scss";
 
+/**
+ * This is returning the header content with buttons and links
+ * @name Header
+ * @return {JSX.Element}
+ */
 const Header = () => {
     const [anchorEl, setAnchorEl] = useState(null);
     // UserDetails is returning an object with keys, name, employeeNumber,
     // givenName, displayName, email, surname, uid, category, position, etc.
-    // const { givenName, surname } = UserDetails();
+    const { givenName, surname } = UserDetails();
+
+    const closeTab = () => {
+        // remove all sessionStorage
+        sessionStorage.clear();
+        window.opener = null;
+        window.open("about:blank", "_self");
+        window.close();
+    };
+
     // This is for the @mui dropdown "Helpful Links"
     const open = Boolean(anchorEl);
 
@@ -26,7 +41,7 @@ const Header = () => {
         <nav className="header-container">
             <div className="header-dcsd-icon">
                 <Link
-                    aria-label="Home Page Link"
+                    aria-label="Guardian Dashboard Page Link"
                     href="https://engaged.dcsdk12.org"
                     rel="noopener noreferrer"
                     sx={{
@@ -44,8 +59,12 @@ const Header = () => {
             </div>
             <div className="header-right">
                 <div className="header-name-container">
-                    <h5>Welcome, Andrew Nicola</h5>
+                    <h5>
+                        {/*Welcome, {givenName} {surname}*/}
+                        {T({ key: "Main_Nav_Welcome" })} {givenName} {surname}
+                    </h5>
                 </div>
+
                 <div className="nav-button-container">
                     {/*
                     /////////////////////////////////////////////////////////////////////
@@ -59,10 +78,12 @@ const Header = () => {
                             id="basic-button"
                             onClick={handleClick}
                             sx={{
-                                color: "white"
+                                color: "white",
+                                fontFamily: "Montserrat"
                             }}
                         >
-                            Helpful Links
+                            {/*Helpful Links*/}
+                            {T({ key: "Main_Header_Welcome" })}
                             <span>
                                 <Icon
                                     fill="white"
@@ -103,7 +124,8 @@ const Header = () => {
                                     fill="#19608f"
                                     height="15"
                                 />
-                                Contact My Student(s) Nurse
+                                {/*Contact My Student(s) Nurse*/}
+                                {T({ key: "Main_Header_s1" })}
                             </MenuItem>
                         </a>
                         <a
@@ -123,7 +145,8 @@ const Header = () => {
                                     height="15"
                                     iconName="LINK"
                                 />
-                                Academic Calendars
+                                {/*Academic Calendars*/}
+                                {T({ key: "Main_Header_s2" })}
                             </MenuItem>
                         </a>
                         <a
@@ -143,7 +166,8 @@ const Header = () => {
                                     height="15"
                                     iconName="LINK"
                                 />
-                                Parent Resources
+                                {/*Parent Resources*/}
+                                {T({ key: "Main_Header_s3" })}
                             </MenuItem>
                         </a>
                         <a
@@ -163,7 +187,8 @@ const Header = () => {
                                     height="15"
                                     iconName="LINK"
                                 />
-                                Bus Routes
+                                {/*Bus Routes*/}
+                                {T({ key: "Main_Header_s4" })}
                             </MenuItem>
                         </a>
                         <a
@@ -183,7 +208,8 @@ const Header = () => {
                                     height="15"
                                     iconName="LINK"
                                 />
-                                Online Payments
+                                {/*Online Payments*/}
+                                {T({ key: "Main_Header_s5" })}
                             </MenuItem>
                         </a>
                         <a
@@ -203,7 +229,8 @@ const Header = () => {
                                     height="15"
                                     iconName="LINK"
                                 />
-                                Lunch Menus
+                                {/*Lunch Menus*/}
+                                {T({ key: "Main_Header_s6" })}
                             </MenuItem>
                         </a>
                     </Menu>
@@ -211,14 +238,15 @@ const Header = () => {
                     this is where the "Helpful Links" dropdown button ENDS (from @mui)
                     /////////////////////////////////////////////////////////////////////
                     */}
-                    <a
-                        aria-label="Home Page Link"
+                    <button
+                        aria-label="Exit Button"
                         className="btn btn-primary m-2 color-override"
-                        href="https://engaged.dcsdk12.org"
-                        rel="noopener noreferrer"
+                        onClick={closeTab}
+                        type="button"
                     >
                         <span className="nav-button-text">
-                            HOME
+                            {/*EXIT*/}
+                            {T({ key: "Main_Header_Exit" })}
                             <Icon
                                 className="nav-button-icon"
                                 fill="white"
@@ -226,7 +254,7 @@ const Header = () => {
                                 iconName="HOME"
                             />
                         </span>
-                    </a>
+                    </button>
                     <button
                         aria-label="Logout Button"
                         className="btn btn-primary m-2 color-override"
@@ -235,11 +263,12 @@ const Header = () => {
                         type="button"
                     >
                         <span className="nav-button-text">
-                            LOGOUT
+                            {/*LOGOUT*/}
+                            {T({ key: "Main_Header_Logout" })}
                             <Icon
                                 className="nav-button-icon"
                                 fill="white"
-                                height="25"
+                                height="20"
                                 iconName="LOGOUT"
                                 onClick={logout}
                                 onKeyDown={logout}

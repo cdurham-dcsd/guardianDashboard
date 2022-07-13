@@ -4,6 +4,10 @@ export const ECHECKIN_SCHOOL_FORMS_DOMAIN =
     process.env.NODE_ENV !== "production"
         ? "https://twpp-eval.dcsdk12.org"
         : "https://eval.dcsdk12.org";
+export const ECHECKIN_SCHOOL_DOMAIN =
+    process.env.NODE_ENV !== "production"
+        ? "https://twpp-engaged.dcsdk12.org"
+        : "https://engaged.dcsdk12.org";
 export const EXPIRY_BUFFER_MILLI = 30000;
 // dynamic service host
 export const SERVICE_HOST =

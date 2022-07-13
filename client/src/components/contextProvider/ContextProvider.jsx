@@ -4,15 +4,75 @@ import PropTypes from "prop-types";
 // Set up our reducer function to act on Previous and Next selections
 function reducer(state, action) {
     switch (action.type) {
-        case "Token Update":
+        case "EnrollmentDto":
             return {
                 ...state,
-                token: action.token
+                enrollmentDto: action.enrollmentDto
+            };
+        case "CustomStudentAttributesDto":
+            return {
+                ...state,
+                customStudentAttributesDto: action.customStudentAttributesDto
             };
         case "Get Username":
             return {
                 ...state,
                 username: action.username
+            };
+        case "GuardianStudentMap":
+            return {
+                ...state,
+                guardianStudentMap: action.guardianStudentMap
+            };
+        case "HouseholdDto":
+            return {
+                ...state,
+                householdDto: action.householdDto
+            };
+        case "Lang":
+            return {
+                ...state,
+                lang: action.lang
+            };
+        case "MapId":
+            return {
+                ...state,
+                mapId: action.mapId
+            };
+        case "LocKey":
+            return {
+                ...state,
+                locKey: action.locKey
+            };
+        case "SchoolYearDto":
+            return {
+                ...state,
+                schoolYearDto: action.schoolYearDto
+            };
+        case "SchoolYearKey":
+            return {
+                ...state,
+                schoolYearKey: action.schoolYearKey
+            };
+        case "SelectedValuesDto":
+            return {
+                ...state,
+                selectedValuesDto: action.selectedValuesDto
+            };
+        case "StudentInfoDto":
+            return {
+                ...state,
+                studentInfoDto: action.studentInfoDto
+            };
+        case "StudentNumber":
+            return {
+                ...state,
+                studentNumber: action.studentNumber
+            };
+        case "Token Update":
+            return {
+                ...state,
+                token: action.token
             };
         default:
             return { token: null };
