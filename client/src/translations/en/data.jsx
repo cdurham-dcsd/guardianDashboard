@@ -122,6 +122,32 @@ export const data = {
     /// ////////////////////////////////////////////////////////////
     /// //////////// Transportation Payment Selection //////////////
     /// ////////////////////////////////////////////////////////////
+    trans_Pay_s1:
+        "Transportation fees are approved by the DCSD Board of Education. Rides are $1 each way per student. Students who receive specialized transportation services or qualify for the free or reduced lunch program will have their fees waived.",
+    trans_Pay_s2: "checking__ There are two options to pay your fees:",
+    trans_Pay_s3:
+        "Annual Prepayment of $250. (Applies to each eligible student)",
+    trans_Pay_s4:
+        "This option provides approximately 28% discount based on full time bus ridership.",
+    trans_Pay_s5:
+        "This option - if not paid by THING - will revert to Quarterly Billing.",
+    trans_Pay_s6: "Quarterly Billing",
+    trans_Pay_s7:
+        "Accumulated ride charges of $1 each way will be invoiced via MySchoolBucks.",
+    trans_Pay_s8: (
+        <div>
+            If you would like to change your transportation payment election,
+            please visit{" "}
+            <a
+                href="https://www.myschoolbucks.com/ver2/prdembd?ref=ZZHVZS5TX305OUU_ZZ5UJEZ2IPOUCEP"
+                rel="noreferrer"
+                target="_blank"
+            >
+                My School Bucks
+            </a>
+            .
+        </div>
+    ),
 
     /// ////////////////////////////////////////////////////////////
     /// ////// Electronic Signature of Parent/Legal Guardian ///////
