@@ -24,7 +24,7 @@ spec:
         app: transportation-parent-app
     spec:
       containers:
-        - image: 248417419572.dkr.ecr.us-east-2.amazonaws.com/transportation-parent-app:1.0.0
+        - image: 248417419572.dkr.ecr.us-east-2.amazonaws.com/transportation-parent-app:1.0.0.0
           imagePullPolicy: Always
           name: transportation-parent-app
           resources:
@@ -71,9 +71,9 @@ spec:
     app: transportation-parent-app
   ports:
     # @todo: perhaps remove 80 / 8080?
-    - name: http
-      port: 80
-      targetPort: 8080
+#    - name: http
+#      port: 80
+#      targetPort: 8080
     - name: https
       port: 443
       targetPort: 8080
@@ -90,5 +90,5 @@ spec:
   scaleTargetRef:
     apiVersion: apps/v1
     kind: Deployment
-    name: transportation-app
+    name: transportation-parent-app
   targetCPUUtilizationPercentage: 70
