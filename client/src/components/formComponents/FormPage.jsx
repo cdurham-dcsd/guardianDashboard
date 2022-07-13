@@ -8,8 +8,9 @@ import FormContainer from "./FormContainer";
 import TransportationPaymentSelection from "../formContent/TransportationPaymentSelection";
 import SubmitAndGoBack from "../formContent/SubmitAndGoBack";
 import EcheckinDao from "../../dao/EcheckinDao";
-import StudentInfoDao from "../../dao/StudentInfoDao";
+import T from "../../translations/Translations";
 
+import StudentInfoDao from "../../dao/StudentInfoDao";
 import "../../styles/FormPage.scss";
 
 const FormPage = () => {
@@ -230,13 +231,20 @@ const FormPage = () => {
             setDisplayEsig(true);
         }
     }, [customStudent, displayEsig]);
+    const TransportationHeader = T({ key: "trans_Info_header" });
+    const BussPassHeader = T({ key: "trans_BusPass_header" });
+    const PaymentHeader = T({ key: "trans_Pay_header" });
+    const ESigHeader = T({ key: "trans_ESig_header" });
+    const SubmitHeader = T({ key: "trans_Submit_header" });
 
     return (
         <div className="form-page-container">
-            <FormContainer title="Transportation Information">
+            {/*<FormContainer title="Transportation Information">*/}
+            <FormContainer title={TransportationHeader}>
                 <TransportationInformation />
             </FormContainer>
-            <FormContainer title="Bus Pass Application">
+            {/*<FormContainer title="Bus Pass Application">*/}
+            <FormContainer title={BussPassHeader}>
                 <BusPassApplication
                     customStudent={customStudent}
                     formState={formState}
@@ -246,7 +254,8 @@ const FormPage = () => {
                 />
             </FormContainer>
             {displayBilling && (
-                <FormContainer title="Transportation Payment Selection">
+                // <FormContainer title="Transportation Payment Selection">
+                <FormContainer title={PaymentHeader}>
                     <TransportationPaymentSelection
                         annualPassEndDate={annualPassEndDate}
                     />
@@ -254,13 +263,15 @@ const FormPage = () => {
             )}
             {displayEsig && (
                 <>
-                    <FormContainer title="Electronic Signature of Parent/Legal Guardian">
+                    {/*<FormContainer title="Electronic Signature of Parent/Legal Guardian">*/}
+                    <FormContainer title={ESigHeader}>
                         <ElectronicSignature
                             formState={formState}
                             handleOnChange={handleOnChange}
                         />
                     </FormContainer>
-                    <FormContainer title="Submit Or Exit">
+                    {/*<FormContainer title="Submit Or Exit">*/}
+                    <FormContainer title={SubmitHeader}>
                         <SubmitAndGoBack
                             handleOnChange={handleOnChange}
                             handleSubmit={handleSubmit}
