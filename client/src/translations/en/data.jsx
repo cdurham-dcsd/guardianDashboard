@@ -175,12 +175,9 @@ export const data = {
     trans_ElecSig_s6: "Last Name",
     trans_ElecSig_s7:
         "By checking this box, I certify that I am the parent or legal guardian",
-
     /// ////////////////////////////////////////////////////////////
-    /// //////////////////// Buttons//////////////////////// ///////
+    /// ////////////////////////////// Header //////////////////////
     /// ////////////////////////////////////////////////////////////
-    SubmitButton: "Submit",
-    ExitButton: "Exit",
     Main_Header_Welcome: "Welcome",
     Main_Header_HelpfulLinks: "Helpful Links",
     // Main_Header_GDashboard: "Guardian Dashboard",
@@ -191,5 +188,10 @@ export const data = {
     Main_Header_s3: "Parent Resources",
     Main_Header_s4: "Bus Routes",
     Main_Header_s5: "Online Payments",
-    Main_Header_s6: "Lunch Menus"
+    Main_Header_s6: "Lunch Menus",
+    /// ////////////////////////////////////////////////////////////
+    /// //////////////////// Buttons//////////////////////// ///////
+    /// ////////////////////////////////////////////////////////////
+    SubmitButton: "Submit",
+    ExitButton: "Exit"
 };

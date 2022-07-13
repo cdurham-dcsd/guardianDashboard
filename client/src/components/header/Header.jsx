@@ -4,6 +4,7 @@ import { logout } from "../../utils/auth/Auth";
 import UserDetails from "../../utils/UserDetails";
 import Icon from "../icon/Icon";
 import HamburgerMenu from "./HamburgerMenu";
+import T from "../../translations/Translations";
 
 import "../../styles/Header.scss";
 
@@ -59,7 +60,8 @@ const Header = () => {
             <div className="header-right">
                 <div className="header-name-container">
                     <h5>
-                        Welcome, {givenName} {surname}
+                        {/*Welcome, {givenName} {surname}*/}
+                        {T({ key: "Main_Nav_Welcome" })} {givenName} {surname}
                     </h5>
                 </div>
 
@@ -80,7 +82,8 @@ const Header = () => {
                                 fontFamily: "Montserrat"
                             }}
                         >
-                            Helpful Links
+                            {/*Helpful Links*/}
+                            {T({ key: "Main_Header_Welcome" })}
                             <span>
                                 <Icon
                                     fill="white"
@@ -121,7 +124,8 @@ const Header = () => {
                                     fill="#19608f"
                                     height="15"
                                 />
-                                Contact My Student(s) Nurse
+                                {/*Contact My Student(s) Nurse*/}
+                                {T({ key: "Main_Header_s1" })}
                             </MenuItem>
                         </a>
                         <a
@@ -141,7 +145,8 @@ const Header = () => {
                                     height="15"
                                     iconName="LINK"
                                 />
-                                Academic Calendars
+                                {/*Academic Calendars*/}
+                                {T({ key: "Main_Header_s2" })}
                             </MenuItem>
                         </a>
                         <a
@@ -161,7 +166,8 @@ const Header = () => {
                                     height="15"
                                     iconName="LINK"
                                 />
-                                Parent Resources
+                                {/*Parent Resources*/}
+                                {T({ key: "Main_Header_s3" })}
                             </MenuItem>
                         </a>
                         <a
@@ -181,7 +187,8 @@ const Header = () => {
                                     height="15"
                                     iconName="LINK"
                                 />
-                                Bus Routes
+                                {/*Bus Routes*/}
+                                {T({ key: "Main_Header_s4" })}
                             </MenuItem>
                         </a>
                         <a
@@ -201,7 +208,8 @@ const Header = () => {
                                     height="15"
                                     iconName="LINK"
                                 />
-                                Online Payments
+                                {/*Online Payments*/}
+                                {T({ key: "Main_Header_s5" })}
                             </MenuItem>
                         </a>
                         <a
@@ -221,7 +229,8 @@ const Header = () => {
                                     height="15"
                                     iconName="LINK"
                                 />
-                                Lunch Menus
+                                {/*Lunch Menus*/}
+                                {T({ key: "Main_Header_s6" })}
                             </MenuItem>
                         </a>
                     </Menu>
@@ -236,7 +245,8 @@ const Header = () => {
                         type="button"
                     >
                         <span className="nav-button-text">
-                            EXIT
+                            {/*EXIT*/}
+                            {T({ key: "Main_Header_Exit" })}
                             <Icon
                                 className="nav-button-icon"
                                 fill="white"
@@ -253,7 +263,8 @@ const Header = () => {
                         type="button"
                     >
                         <span className="nav-button-text">
-                            LOGOUT
+                            {/*LOGOUT*/}
+                            {T({ key: "Main_Header_Logout" })}
                             <Icon
                                 className="nav-button-icon"
                                 fill="white"
