@@ -60,8 +60,7 @@ export const data = {
     trans_Info_s9: (
         <li>
             If you would like additional information on SMART tag or have any
-            other transportation-related questions, please submit
-            through{" "}
+            other transportation-related questions, please submit through{" "}
             <a
                 href="https://www.k12insight.com/Lets-Talk/DialogueCustom.aspx?k=WK3Z6DLT@DG2T5DLT"
                 rel="noreferrer"
@@ -75,15 +74,16 @@ export const data = {
     /// ////////////////////////////////////////////////////////////
     /// //////////// Bus Pass Application //////////////////////////
     /// ////////////////////////////////////////////////////////////
-    trans_BusPass_s1: "checking__ On {LINK} you submitted an application for a SMART tag bus pass. The DCSD Transportation Department will review and process your application.",
-    trans_BusPass_s2: "checking__ On {LINK} you submitted an application for a replacement SMART tag bus pass. The DCSD Transportation Department will review and process your application",
-    trans_BusPass_s3: "checking__ You currently have a SMART tag card issued",
-    trans_BusPass_s4: "checking__ You do not currently have a SMART tag card issued",
+    trans_BusPass_s1:
+        "On {LINK} you submitted an application for a SMART tag bus pass. The DCSD Transportation Department will review and process your application.",
+    trans_BusPass_s2:
+        "On {LINK} you submitted an application for a replacement SMART tag bus pass. The DCSD Transportation Department will review and process your application",
+    trans_BusPass_s3: "You currently have a SMART tag card issued",
+    trans_BusPass_s4: "You do not currently have a SMART tag card issued",
     trans_BusPass_s5: (
         <>
             checking__ Our system indicates you have already been issued a bus
-            pass. Please contact the DCSD Transportation
-            team at{" "}
+            pass. Please contact the DCSD Transportation team at{" "}
             <a
                 href="https://www.k12insight.com/Lets-Talk/DialogueCustom.aspx?k=WK3Z6DLT@DG2T5DLT"
                 rel="noreferrer"
@@ -124,7 +124,7 @@ export const data = {
     /// ////////////////////////////////////////////////////////////
     trans_Pay_s1:
         "Transportation fees are approved by the DCSD Board of Education. Rides are $1 each way per student. Students who receive specialized transportation services or qualify for the free or reduced lunch program will have their fees waived.",
-    trans_Pay_s2: "checking__ There are two options to pay your fees:",
+    trans_Pay_s2: "There are two options to pay your fees:",
     trans_Pay_s3:
         "Annual Prepayment of $250. (Applies to each eligible student)",
     trans_Pay_s4:
@@ -148,10 +148,33 @@ export const data = {
             .
         </div>
     ),
-
     /// ////////////////////////////////////////////////////////////
     /// ////// Electronic Signature of Parent/Legal Guardian ///////
     /// ////////////////////////////////////////////////////////////
+    trans_ElecSig_s1:
+        "By entering my name below, I understand that I am providing an electronic signature which will serve as authorization and verification of the accuracy and completeness of the information I have provided for my student.",
+    trans_ElecSig_s2:
+        "I understand that outstanding transportation fees may be sent to a collection agency for non-payment and/or may initiate further legal action.",
+    trans_ElecSig_s3: (
+        <div className="mb-2">
+            My signature indicates that I have read and understand all the above
+            terms of the application for a bus pass and have reviewed the
+            district policies and procedures in regards to transportation in the{" "}
+            <a
+                href="https://www.dcsdk12.org/schools_academics/academics/code_of_conduct"
+                rel="noreferrer"
+                target="_blank"
+            >
+                Student Code of Conduct document
+            </a>
+            .
+        </div>
+    ),
+    trans_ElecSig_s4: "First Name",
+    trans_ElecSig_s5: "Middle Name",
+    trans_ElecSig_s6: "Last Name",
+    trans_ElecSig_s7:
+        "By checking this box, I certify that I am the parent or legal guardian",
 
     /// ////////////////////////////////////////////////////////////
     /// //////////////////// Buttons//////////////////////// ///////
@@ -168,7 +191,5 @@ export const data = {
     Main_Header_s3: "Parent Resources",
     Main_Header_s4: "Bus Routes",
     Main_Header_s5: "Online Payments",
-    Main_Header_s6: "Lunch Menus",
-
-
+    Main_Header_s6: "Lunch Menus"
 };
