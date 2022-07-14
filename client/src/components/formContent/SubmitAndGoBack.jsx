@@ -1,6 +1,8 @@
 import React from "react";
 import PropTypes from "prop-types";
 import { ECHECKIN_SCHOOL_DOMAIN } from "../../utils/auth/config";
+import ActionButton from "../formInputs/buttons/ActionButton";
+import T from "../../translations/Translations";
 
 import "../../styles/SubmitAndGoBack.scss";
 
@@ -20,31 +22,41 @@ const SubmitAndGoBack = ({ handleOnChange, handleSubmit }) => {
         window.open(ECHECKIN_SCHOOL_DOMAIN, "_self");
         window.close();
     };
+    // const submitButton = T({ key: "SubmitButton" })
 
     return (
         <div className="button-container pt-3 pb-3">
-            <div
-                className="go-back-button"
-                onClick={() => {
-                    closeTab();
-                }}
-                onKeyDown={() => {
-                    closeTab();
-                }}
-                role="button"
-                tabIndex={0}
-            >
-                <p>Exit</p>
-            </div>
-            <div
-                className="submit-button"
-                onKeyDown={handleSubmit}
+            <ActionButton
+                label={T({ key: "SubmitButton" })}
                 onClick={handleSubmit}
-                role="button"
-                tabIndex={0}
-            >
-                <p>Submit</p>
-            </div>
+            />
+            <ActionButton
+                className="delete-button"
+                label={T({ key: "ExitButton" })}
+                onClick={handleSubmit}
+            />
+            {/*<div*/}
+            {/*    className="submit-button"*/}
+            {/*    onKeyDown={handleSubmit}*/}
+            {/*    onClick={handleSubmit}*/}
+            {/*    role="button"*/}
+            {/*    tabIndex={0}*/}
+            {/*>*/}
+            {/*    <p>Submit</p>*/}
+            {/*</div>*/}
+            {/*<div*/}
+            {/*    className="go-back-button"*/}
+            {/*    onClick={() => {*/}
+            {/*        closeTab();*/}
+            {/*    }}*/}
+            {/*    onKeyDown={() => {*/}
+            {/*        closeTab();*/}
+            {/*    }}*/}
+            {/*    role="button"*/}
+            {/*    tabIndex={0}*/}
+            {/*>*/}
+            {/*    <p>Exit</p>*/}
+            {/*</div>*/}
         </div>
     );
 };

@@ -1,0 +1,42 @@
+@import "../styles/global/Colors";
+@import "../styles/global/globalMixins";
+
+.action-button {
+  @include borderRadius(5px);
+  @include shadow();
+  border: none;
+  background: $information;
+  color: white;
+  width: 200px;
+  height: 30px;
+  transition: 0.1s ease;
+  margin: 10px;
+
+  &:hover {
+    transform: scale(1.015);
+    background: $information-hover;
+  }
+  &:active {
+    color: $grey1
+  }
+} // end of action button
+
+.delete-button {
+  @include borderRadius(5px);
+  @include shadow();
+  border: 2px solid red;
+  background: $white;
+  color: $error;
+  width: 200px;
+  height: 30px;
+  transition: 0.1s ease;
+  margin: 10px;
+
+  &:hover {
+    transform: scale(1.015);
+    background: $hover-white;
+  }
+  &:active {
+    color: $grey3
+  }
+}
