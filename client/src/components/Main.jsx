@@ -12,6 +12,7 @@ import StudentInfoDao from "../dao/StudentInfoDao";
 import UserDao from "../dao/UserDao";
 import EcheckinDao from "../dao/EcheckinDao";
 import UserDetails from "../utils/UserDetails";
+import TranslationButton from "./formInputs/buttons/TranslationButton";
 
 import "react-toastify/dist/ReactToastify.css";
 import "../styles/Main.scss";
@@ -292,6 +293,48 @@ const Main = () => {
         <RbA allowedRoles={allowedRolesArray} redirect="/notFound">
             <ToastContainer />
             <Header />
+            <section className="translation-buttons-container">
+                <TranslationButton
+                    label="English"
+                    onClick={() => {
+                        console.log("English");
+                        dispatch({
+                            type: "Lang",
+                            lang: "en"
+                        });
+                    }}
+                />
+                <TranslationButton
+                    label="Español"
+                    onClick={() => {
+                        console.log("Spanish");
+                        dispatch({
+                            type: "Lang",
+                            lang: "es"
+                        });
+                    }}
+                />
+                <TranslationButton
+                    label="普通話"
+                    onClick={() => {
+                        console.log("Mandarin");
+                        dispatch({
+                            type: "Lang",
+                            lang: "zh"
+                        });
+                    }}
+                />
+                <TranslationButton
+                    label="Русский"
+                    onClick={() => {
+                        console.log("Russian");
+                        dispatch({
+                            type: "Lang",
+                            lang: "ru"
+                        });
+                    }}
+                />
+            </section>
             <BreadCrumb />
             <div className="gutter">
                 <StudentTile />
