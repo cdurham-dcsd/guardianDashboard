@@ -299,9 +299,6 @@ const Main = () => {
             </div>
             <hr />
             <br />
-            <a href="/transportation/229523">
-                transportation with studentNumber
-            </a>
             {process.env.NODE_ENV !== "production" && <Spoofer />}
         </RbA>
     );

@@ -3,9 +3,9 @@ import Menu from "@mui/material/Menu";
 import Divider from "@mui/material/Divider";
 import IconButton from "@mui/material/IconButton";
 import { Button, MenuItem } from "@mui/material";
-
 import { logout } from "../../utils/auth/Auth";
 import Icon from "../icon/Icon";
+import { ECHECKIN_SCHOOL_DOMAIN } from "../../utils/auth/config";
 
 import "../../styles/Header.scss";
 
@@ -16,7 +16,7 @@ const HamburgerMenu = () => {
         // remove all sessionStorage
         sessionStorage.clear();
         window.opener = null;
-        window.open("about:blank", "_self");
+        window.open(ECHECKIN_SCHOOL_DOMAIN, "_self");
         window.close();
     };
 

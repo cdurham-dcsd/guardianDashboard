@@ -7,12 +7,11 @@ import "../../styles/SubmitAndGoBack.scss";
 /**
  * Submit the Bus Pass Application
  * @name SubmitAndGoBack
- * @param {func} handleOnChange
  * @param {func} handleSubmit
  * @return {JSX.Element}
  * @constructor
  */
-const SubmitAndGoBack = ({ handleOnChange, handleSubmit }) => {
+const SubmitAndGoBack = ({ handleSubmit }) => {
     const closeTab = () => {
         // remove all sessionStorage
         sessionStorage.clear();

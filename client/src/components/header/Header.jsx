@@ -5,6 +5,7 @@ import UserDetails from "../../utils/UserDetails";
 import Icon from "../icon/Icon";
 import HamburgerMenu from "./HamburgerMenu";
 import T from "../../translations/Translations";
+import { ECHECKIN_SCHOOL_DOMAIN } from "../../utils/auth/config";
 
 import "../../styles/Header.scss";
 
@@ -23,7 +24,7 @@ const Header = () => {
         // remove all sessionStorage
         sessionStorage.clear();
         window.opener = null;
-        window.open("about:blank", "_self");
+        window.open(ECHECKIN_SCHOOL_DOMAIN, "_self");
         window.close();
     };
 
@@ -42,7 +43,7 @@ const Header = () => {
             <div className="header-dcsd-icon">
                 <Link
                     aria-label="Guardian Dashboard Page Link"
-                    href="https://engaged.dcsdk12.org"
+                    href={ECHECKIN_SCHOOL_DOMAIN}
                     rel="noopener noreferrer"
                     sx={{
                         textDecoration: "none",
@@ -60,7 +61,7 @@ const Header = () => {
             <div className="header-right">
                 <div className="header-name-container">
                     <h5>
-                        {/*Welcome, {givenName} {surname}*/}
+                        {/* Welcome, {givenName} {surname} */}
                         {T({ key: "Main_Nav_Welcome" })} {givenName} {surname}
                     </h5>
                 </div>
@@ -82,7 +83,7 @@ const Header = () => {
                                 fontFamily: "Montserrat"
                             }}
                         >
-                            {/*Helpful Links*/}
+                            {/* Helpful Links */}
                             {T({ key: "Main_Header_Welcome" })}
                             <span>
                                 <Icon
@@ -124,7 +125,7 @@ const Header = () => {
                                     fill="#19608f"
                                     height="15"
                                 />
-                                {/*Contact My Student(s) Nurse*/}
+                                {/* Contact My Student(s) Nurse */}
                                 {T({ key: "Main_Header_s1" })}
                             </MenuItem>
                         </a>
@@ -145,7 +146,7 @@ const Header = () => {
                                     height="15"
                                     iconName="LINK"
                                 />
-                                {/*Academic Calendars*/}
+                                {/* Academic Calendars */}
                                 {T({ key: "Main_Header_s2" })}
                             </MenuItem>
                         </a>
@@ -166,7 +167,7 @@ const Header = () => {
                                     height="15"
                                     iconName="LINK"
                                 />
-                                {/*Parent Resources*/}
+                                {/* Parent Resources */}
                                 {T({ key: "Main_Header_s3" })}
                             </MenuItem>
                         </a>
@@ -187,7 +188,7 @@ const Header = () => {
                                     height="15"
                                     iconName="LINK"
                                 />
-                                {/*Bus Routes*/}
+                                {/* Bus Routes */}
                                 {T({ key: "Main_Header_s4" })}
                             </MenuItem>
                         </a>
@@ -208,7 +209,7 @@ const Header = () => {
                                     height="15"
                                     iconName="LINK"
                                 />
-                                {/*Online Payments*/}
+                                {/* Online Payments */}
                                 {T({ key: "Main_Header_s5" })}
                             </MenuItem>
                         </a>
@@ -229,7 +230,7 @@ const Header = () => {
                                     height="15"
                                     iconName="LINK"
                                 />
-                                {/*Lunch Menus*/}
+                                {/* Lunch Menus */}
                                 {T({ key: "Main_Header_s6" })}
                             </MenuItem>
                         </a>
@@ -245,7 +246,7 @@ const Header = () => {
                         type="button"
                     >
                         <span className="nav-button-text">
-                            {/*EXIT*/}
+                            {/* EXIT */}
                             {T({ key: "Main_Header_Exit" })}
                             <Icon
                                 className="nav-button-icon"
@@ -263,7 +264,7 @@ const Header = () => {
                         type="button"
                     >
                         <span className="nav-button-text">
-                            {/*LOGOUT*/}
+                            {/* LOGOUT */}
                             {T({ key: "Main_Header_Logout" })}
                             <Icon
                                 className="nav-button-icon"
