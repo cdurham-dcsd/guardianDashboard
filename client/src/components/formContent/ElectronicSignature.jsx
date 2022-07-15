@@ -118,7 +118,7 @@ const ElectronicSignature = ({ formState, handleOnChange }) => {
             </div>
             <div>
                 <br />
-                <label htmlFor="affirmation">
+                <label htmlFor="affirmation" className="test">
                     <input
                         type="checkbox"
                         name="affirmation"
