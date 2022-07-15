@@ -1,5 +1,15 @@
 /////////////////////////////////////////////////////////////////
-// Master color variable sheet for DCSD echeckin Parent//
+// Master color variable sheet for DCSD Transportation //
+
+@import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700;800;900&display=swap");
+*,
+*::before,
+*::after {
+    box-sizing: border-box;
+}
+* {
+    font-family: "Montserrat", sans-serif !important;
+}
 
 $error: #CE3525;
 $error-hover: #cf4635;
@@ -9,11 +19,13 @@ $finished: #39B54A;
 $important: #FEBF31;
 $grey1: #D1D3D4;
 $grey2: #A7A9AC;
+$grey3: #808080;
 $information: #00AEEF;
 $information-hover: #02bfff;
 $text: #414042;
 $white: #EDEDED;
 $shadow: #525151;
+$hover-white: #e9cfcf;
 
 * {
     font-family: Montserrat, sans-serif !important;

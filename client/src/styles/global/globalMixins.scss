@@ -1,0 +1,39 @@
+@import "./Colors.scss";
+
+@mixin borderRadius($radius: 5px) {
+    border-radius: $radius;
+}
+@mixin dialogueBold() {
+    font-weight: 600;
+    font-size: .9em;
+}
+@mixin hiddenLabel () {
+    color: $grey3;
+    font-weight: 200;
+}
+
+@mixin input() {
+    border-radius: 5px;
+    //background: #3abeee;
+    font-weight: 400;
+    width: 100%;
+}
+@mixin infoRounded($radius) {
+    background: $information;
+    border-bottom-left-radius: $radius;
+    border-bottom-right-radius: $radius;
+    //font-size: 1.2em;
+}
+@mixin infoSquare() {
+    background: $information;
+    //font-size: 1.2em;
+}
+@mixin shadow() {
+    box-shadow: 0.1rem 0.2rem 0.3rem 0 $shadow;
+}
+//@mixin selectMenuContainerWidth($width) {
+//    width: $width;
+//}
+@mixin widthControl($width) {
+    width: $width
+}
