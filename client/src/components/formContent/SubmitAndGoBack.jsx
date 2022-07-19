@@ -3,17 +3,26 @@ import PropTypes from "prop-types";
 import { ECHECKIN_SCHOOL_DOMAIN } from "../../utils/auth/config";
 import ActionButton from "../formInputs/buttons/ActionButton";
 import T from "../../translations/Translations";
+import { getToday } from "../../utils/DateFormatter";
 
 import "../../styles/SubmitAndGoBack.scss";
 
 /**
  * Submit the Bus Pass Application
  * @name SubmitAndGoBack
+ * @param {string} annualPassEndDate
+ * @param {{}} customStudent
  * @param {func} handleSubmit
+ * @param {{}} hasApplied
  * @return {JSX.Element}
  * @constructor
  */
-const SubmitAndGoBack = ({ handleSubmit }) => {
+const SubmitAndGoBack = ({
+    annualPassEndDate,
+    customStudent,
+    handleSubmit,
+    hasApplied
+}) => {
     const closeTab = () => {
         // remove all sessionStorage
         sessionStorage.clear();
@@ -21,48 +30,53 @@ const SubmitAndGoBack = ({ handleSubmit }) => {
         window.open(ECHECKIN_SCHOOL_DOMAIN, "_self");
         window.close();
     };
-    // const submitButton = T({ key: "SubmitButton" })
+
+    const showSubmit = () => {
+        if (!customStudent && getToday() < annualPassEndDate) {
+            return true;
+        }
+        if (customStudent && customStudent.value === "N") {
+            return false;
+        }
+        return (
+            !hasApplied ||
+            (hasApplied &&
+                customStudent &&
+                customStudent.value === "YQ" &&
+                getToday() < annualPassEndDate)
+        );
+    };
 
     return (
         <div className="button-container pt-3 pb-3">
-            <ActionButton
-                label={T({ key: "SubmitButton" })}
-                onClick={handleSubmit}
-            />
+            {showSubmit() && (
+                <ActionButton
+                    label={T({ key: "SubmitButton" })}
+                    onClick={handleSubmit}
+                />
+            )}
             <ActionButton
                 className="delete-button"
                 label={T({ key: "ExitButton" })}
-                onClick={handleSubmit}
+                onClick={() => {
+                    closeTab();
+                }}
             />
-            {/*<div*/}
-            {/*    className="submit-button"*/}
-            {/*    onKeyDown={handleSubmit}*/}
-            {/*    onClick={handleSubmit}*/}
-            {/*    role="button"*/}
-            {/*    tabIndex={0}*/}
-            {/*>*/}
-            {/*    <p>Submit</p>*/}
-            {/*</div>*/}
-            {/*<div*/}
-            {/*    className="go-back-button"*/}
-            {/*    onClick={() => {*/}
-            {/*        closeTab();*/}
-            {/*    }}*/}
-            {/*    onKeyDown={() => {*/}
-            {/*        closeTab();*/}
-            {/*    }}*/}
-            {/*    role="button"*/}
-            {/*    tabIndex={0}*/}
-            {/*>*/}
-            {/*    <p>Exit</p>*/}
-            {/*</div>*/}
         </div>
     );
 };
 
 SubmitAndGoBack.propTypes = {
-    handleOnChange: PropTypes.func.isRequired,
-    handleSubmit: PropTypes.func.isRequired
+    annualPassEndDate: PropTypes.string,
+    customStudent: PropTypes.objectOf(PropTypes.any),
+    handleSubmit: PropTypes.func.isRequired,
+    hasApplied: PropTypes.objectOf(PropTypes.any)
+};
+
+SubmitAndGoBack.defaultProps = {
+    annualPassEndDate: null,
+    customStudent: null,
+    hasApplied: null
 };
 
 export default SubmitAndGoBack;

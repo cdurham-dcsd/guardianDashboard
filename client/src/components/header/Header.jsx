@@ -62,7 +62,7 @@ const Header = () => {
                 <div className="header-name-container">
                     <h5>
                         {/* Welcome, {givenName} {surname} */}
-                        {T({ key: "Main_Nav_Welcome" })} {givenName} {surname}
+                        {T({ key: "Main_Header_Welcome" })} {givenName} {surname}
                     </h5>
                 </div>
 
@@ -84,7 +84,7 @@ const Header = () => {
                             }}
                         >
                             {/* Helpful Links */}
-                            {T({ key: "Main_Header_Welcome" })}
+                            {T({ key: "Main_Header_HelpfulLinks" })}
                             <span>
                                 <Icon
                                     fill="white"
@@ -256,26 +256,28 @@ const Header = () => {
                             />
                         </span>
                     </button>
-                    <button
-                        aria-label="Logout Button"
-                        className="btn btn-primary m-2 color-override"
-                        onClick={logout}
-                        onKeyDown={logout}
-                        type="button"
-                    >
-                        <span className="nav-button-text">
-                            {/* LOGOUT */}
-                            {T({ key: "Main_Header_Logout" })}
-                            <Icon
-                                className="nav-button-icon"
-                                fill="white"
-                                height="20"
-                                iconName="LOGOUT"
-                                onClick={logout}
-                                onKeyDown={logout}
-                            />
-                        </span>
-                    </button>
+                    {process.env.NODE_ENV !== "production" && (
+                        <button
+                            aria-label="Logout Button"
+                            className="btn btn-primary m-2 color-override"
+                            onClick={logout}
+                            onKeyDown={logout}
+                            type="button"
+                        >
+                            <span className="nav-button-text">
+                                {/* LOGOUT */}
+                                {T({ key: "Main_Header_Logout" })}
+                                <Icon
+                                    className="nav-button-icon"
+                                    fill="white"
+                                    height="20"
+                                    iconName="LOGOUT"
+                                    onClick={logout}
+                                    onKeyDown={logout}
+                                />
+                            </span>
+                        </button>
+                    )}
                 </div>
                 <HamburgerMenu />
             </div>

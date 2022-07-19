@@ -1,5 +1,6 @@
 import React, { useCallback, useContext, useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
+import "react-toastify/dist/ReactToastify.min.css";
 import { toast, ToastContainer } from "react-toastify";
 import { GlobalContext } from "./contextProvider/ContextProvider";
 import RbA from "./rba/RbA";
@@ -14,7 +15,6 @@ import EcheckinDao from "../dao/EcheckinDao";
 import UserDetails from "../utils/UserDetails";
 import TranslationButton from "./formInputs/buttons/TranslationButton";
 
-import "react-toastify/dist/ReactToastify.css";
 import "../styles/Main.scss";
 
 /**
@@ -29,7 +29,7 @@ const Main = () => {
     const { dispatch, state } = useContext(GlobalContext);
     const { householdDto, schoolYearDto, token, username } = state || {};
 
-    const [entryFlag] = useState(true);
+    const [entryFlag, setEntryFlag] = useState(true);
     const [guardianStudentMap, setGuardianStudentMap] = useState(null);
     const [locations, setLocations] = useState(null);
     const [locKey, setLocKey] = useState(null);
@@ -43,7 +43,7 @@ const Main = () => {
     const userDetails = UserDetails();
 
     const createGuardianStudentMap = useCallback(() => {
-        if (studentInfoDto && userDetails && householdDto) {
+        if (studentInfoDto && userDetails && householdDto && schoolYearDto) {
             const { householdMembersDto } = householdDto;
             if (Object.keys(householdMembersDto).length) {
                 const guardianMatch = householdMembersDto.filter(
@@ -62,7 +62,7 @@ const Main = () => {
                         locKey,
                         primSecFlag: studentMatch[0].memberType,
                         schoolId: studentInfoDto.schoolId,
-                        schoolYear: schoolYearDto.label,
+                        schoolYear: schoolYearDto.name,
                         schoolYearKey: schoolYearDto.key,
                         setIcFlag: "false",
                         studentNumber,
@@ -136,13 +136,15 @@ const Main = () => {
             StudentInfoDao(options).then((response) => {
                 if (response) {
                     const { payload } = response.data;
-                    dispatch({
-                        type: "HouseholdDto",
-                        householdDto: payload
-                    });
+                    if (Object.keys(payload).length) {
+                        dispatch({
+                            type: "HouseholdDto",
+                            householdDto: payload
+                        });
+                    }
                 }
             });
-            // setEntryFlag(false);
+            setEntryFlag(false);
         }
     }, [dispatch, entryFlag, householdDto, token, username]);
 
@@ -166,6 +168,7 @@ const Main = () => {
         if (
             locKey &&
             studentNumber &&
+            schoolYearDto &&
             token &&
             username &&
             !guardianStudentMap
@@ -195,6 +198,7 @@ const Main = () => {
         createGuardianStudentMap,
         guardianStudentMap,
         locKey,
+        schoolYearDto,
         studentNumber,
         token,
         username
@@ -285,10 +289,6 @@ const Main = () => {
         }
     }, [dispatch, locations]);
 
-    useEffect(() => {
-
-    }, []);
-
     return (
         <RbA allowedRoles={allowedRolesArray} redirect="/notFound">
             <ToastContainer />
@@ -297,7 +297,6 @@ const Main = () => {
                 <TranslationButton
                     label="English"
                     onClick={() => {
-                        console.log("English");
                         dispatch({
                             type: "Lang",
                             lang: "en"
@@ -307,7 +306,6 @@ const Main = () => {
                 <TranslationButton
                     label="Español"
                     onClick={() => {
-                        console.log("Spanish");
                         dispatch({
                             type: "Lang",
                             lang: "es"
@@ -317,7 +315,6 @@ const Main = () => {
                 <TranslationButton
                     label="普通話"
                     onClick={() => {
-                        console.log("Mandarin");
                         dispatch({
                             type: "Lang",
                             lang: "zh"
@@ -327,7 +324,6 @@ const Main = () => {
                 <TranslationButton
                     label="Русский"
                     onClick={() => {
-                        console.log("Russian");
                         dispatch({
                             type: "Lang",
                             lang: "ru"

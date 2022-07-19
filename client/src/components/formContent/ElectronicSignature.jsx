@@ -11,33 +11,8 @@ const ElectronicSignature = ({ formState, handleOnChange }) => {
     const lastName = T({ key: "trans_ElecSig_s6" }) || "";
     return (
         <div>
-            <div className="mb-2">
-                {/*By entering my name below, I understand that I am providing an*/}
-                {/*electronic signature which will serve as authorization and*/}
-                {/*verification of the accuracy and completeness of the information*/}
-                {/*I have provided for my student.*/}
-                {T({ key: "trans_ElecSig_s1" })}
-            </div>
-            <div className="mb-2">
-                {/*I understand that outstanding transportation fees may be sent to*/}
-                {/*a collection agency for non-payment and/or may initiate further*/}
-                {/*legal action.*/}
-                {T({ key: "trans_ElecSig_s2" })}
-            </div>
-            {/*<div className="mb-2">*/}
-            {/*    My signature indicates that I have read and understand all the*/}
-            {/*    above terms of the application for a bus pass and have reviewed*/}
-            {/*    the district policies and procedures in regards to*/}
-            {/*    transportation in the{" "}*/}
-            {/*    <a*/}
-            {/*        href="https://www.dcsdk12.org/schools_academics/academics/code_of_conduct"*/}
-            {/*        rel="noreferrer"*/}
-            {/*        target="_blank"*/}
-            {/*    >*/}
-            {/*        Student Code of Conduct document*/}
-            {/*    </a>*/}
-            {/*    .*/}
-            {/*</div>*/}
+            <div className="mb-2">{T({ key: "trans_ElecSig_s1" })}</div>
+            <div className="mb-2">{T({ key: "trans_ElecSig_s2" })}</div>
             {T({ key: "trans_ElecSig_s3" })}
             <div className="input-container">
                 <div className="e-sig-input">
@@ -49,8 +24,6 @@ const ElectronicSignature = ({ formState, handleOnChange }) => {
                                     className="hidden-label"
                                     htmlFor="firstName"
                                 >
-                                    {/*First Name*/}
-                                    {/*{T({ key: "trans_ElecSig_s4" })}*/}
                                     {firstName}
                                 </label>
                             </Fade>
@@ -62,6 +35,7 @@ const ElectronicSignature = ({ formState, handleOnChange }) => {
                         id="firstName"
                         onChange={handleOnChange}
                         placeholder="First Name"
+                        required
                         value={formState.firstName}
                     />
                 </div>
@@ -74,8 +48,6 @@ const ElectronicSignature = ({ formState, handleOnChange }) => {
                                     className="hidden-label"
                                     htmlFor="middleName"
                                 >
-                                    {/*Middle Name*/}
-                                    {/*{T({ key: "trans_ElecSig_s5" })}*/}
                                     {middleName}
                                 </label>
                             </Fade>
@@ -99,8 +71,6 @@ const ElectronicSignature = ({ formState, handleOnChange }) => {
                                     className="hidden-label"
                                     htmlFor="lastName"
                                 >
-                                    {/*Last Name*/}
-                                    {/*{T({ key: "trans_ElecSig_s6" })}*/}
                                     {lastName}
                                 </label>
                             </Fade>
@@ -112,13 +82,14 @@ const ElectronicSignature = ({ formState, handleOnChange }) => {
                         id="lastName"
                         onChange={handleOnChange}
                         placeholder="Last Name"
+                        required
                         value={formState.lastName}
                     />
                 </div>
             </div>
             <div>
                 <br />
-                <label htmlFor="affirmation" className="test">
+                <label htmlFor="affirmation">
                     <input
                         type="checkbox"
                         name="affirmation"
@@ -126,8 +97,7 @@ const ElectronicSignature = ({ formState, handleOnChange }) => {
                         onChange={handleOnChange}
                         defaultChecked={formState.affirmation}
                         value={formState.affirmation}
-                    />
-                    {/*&nbsp;By checking this box, I certify that I am the parent or legal gaurdian*/}
+                    />{" "}
                     {T({ key: "trans_ElecSig_s7" })}
                 </label>
             </div>

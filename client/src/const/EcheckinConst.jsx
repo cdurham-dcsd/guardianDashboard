@@ -2,6 +2,7 @@ import { SERVICE_HOST } from "../utils/auth/config";
 
 export const ECHECKIN_SERVICE = `${SERVICE_HOST}/echeckin-sb/v0`;
 export const BUS_PASS_APPLICATION = `${ECHECKIN_SERVICE}/bus_pass_application`;
+export const ECHECKIN_BUS_PASS_APPLICATIONS_CREATE = `${BUS_PASS_APPLICATION}/detail.json`;
 export const BUS_PASS_APPLICATION_BY_STUDENT_NUMBER = `${BUS_PASS_APPLICATION}/by_student_number`;
 export const HIST_BUS_PASS_APPLICATION_BY_STUDENT_NUMBER = `${BUS_PASS_APPLICATION}/hist`;
 export const CHECKIN_WINDOW = `${ECHECKIN_SERVICE}/checkin_window/school_year`; // /<schoolYearKey>/index.json (params = checkinType, locationId, windowType)

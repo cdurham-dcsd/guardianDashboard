@@ -1,8 +1,10 @@
-import { useContext, useEffect, useState } from "react";
+import { useContext } from "react";
 import PropTypes from "prop-types";
-import { toast } from "react-toastify";
 import { GlobalContext } from "../components/contextProvider/ContextProvider";
 import { data as en } from "./en/data";
+import { data as es } from "./es/data";
+import { data as ru } from "./ru/data";
+import { data as zh } from "./zh/data";
 
 /**
  * Translator engine
@@ -12,59 +14,44 @@ import { data as en } from "./en/data";
  * @constructor
  */
 const T = ({ key }) => {
-    const { dispatch, state } = useContext(GlobalContext);
+    const { state } = useContext(GlobalContext);
     const { lang } = state || {};
 
-    const [data, setData] = useState(null);
-
-    /**
-     * Default the selected language to English
-     */
-    useEffect(() => {
-        if (!lang) {
-            dispatch({
-                type: "Lang",
-                lang: "en"
-            });
-        }
-    }, [dispatch, lang]);
-
-    /**
-     * If something other than English is selected, load that data file
-     */
-    useEffect(() => {
-        if (lang && lang !== "en") {
-            import(`./${lang}/data.jsx`)
-                .then((res) => setData(res.data))
-                .catch(() => {
-                    toast.error("Unable to load translation", {
-                        autoClose: false
-                    });
-                });
-        }
-    }, [lang]);
-
-    if (lang === "en") {
-        if (en[key]) {
-            return en[key];
-        }
-
-        return key;
-    }
-    if (data) {
-        if (data[key]) {
-            return data[key];
-        }
-        if (en[key]) {
-            return en[key];
-        }
+    const myLang = lang || "en";
+    switch (myLang) {
+        case "en":
+            if (en[key]) {
+                return en[key];
+            }
+            break;
+        case "es":
+            if (es[key]) {
+                return es[key];
+            }
+            break;
+        case "ru":
+            if (ru[key]) {
+                return ru[key];
+            }
+            break;
+        case "zh":
+            if (zh[key]) {
+                return zh[key];
+            }
+            break;
+        default:
+            break;
     }
 
-    return key;
+    return en[key] ? en[key] : key;
 };
 
 T.propTypes = {
-    key: PropTypes.string.isRequired
+    key: PropTypes.string
+};
+
+T.defaultProps = {
+    key: null
 };
 
 export default T;

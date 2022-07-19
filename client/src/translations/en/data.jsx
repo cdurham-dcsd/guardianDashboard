@@ -1,5 +1,6 @@
 import React from "react";
 
+// eslint-disable-next-line import/prefer-default-export
 export const data = {
     /// ////////////////////////////////////////////////////////////
     /// /////////////////////// Global /////////////////////////////
@@ -74,16 +75,33 @@ export const data = {
     /// ////////////////////////////////////////////////////////////
     /// //////////// Bus Pass Application //////////////////////////
     /// ////////////////////////////////////////////////////////////
-    trans_BusPass_s1:
-        "On {LINK} you submitted an application for a SMART tag bus pass. The DCSD Transportation Department will review and process your application.",
+    trans_BusPass_s0: "On",
+    trans_BusPass_s1: "you submitted an application for a SMART tag bus pass.",
     trans_BusPass_s2:
-        "On {LINK} you submitted an application for a replacement SMART tag bus pass. The DCSD Transportation Department will review and process your application",
+        "you submitted an application for a replacement SMART tag bus pass.",
+    trans_BusPass_s1_and_s2_follow_on:
+        "The DCSD Transportation Department will review and process your application.",
     trans_BusPass_s3: "You currently have a SMART tag card issued",
     trans_BusPass_s4: "You do not currently have a SMART tag card issued",
     trans_BusPass_s5: (
         <>
-            checking__ Our system indicates you have already been issued a bus
-            pass. Please contact the DCSD Transportation team at{" "}
+            Our system indicates you have already been issued a bus pass. Please
+            contact the DCSD Transportation team at{" "}
+            <a
+                href="https://www.k12insight.com/Lets-Talk/DialogueCustom.aspx?k=WK3Z6DLT@DG2T5DLT"
+                rel="noreferrer"
+                target="_blank"
+            >
+                Let&apos;s Talk
+            </a>{" "}
+            to request a replacement SMART tag bus pass.
+        </>
+    ),
+    trans_BusPass_s6: (
+        <>
+            you indicated that this student would not be riding a bus this year.
+            If you need to update your selection for the student, please contact
+            the DCSD Transportation team at{" "}
             <a
                 href="https://www.k12insight.com/Lets-Talk/DialogueCustom.aspx?k=WK3Z6DLT@DG2T5DLT"
                 rel="noreferrer"
@@ -91,18 +109,31 @@ export const data = {
             >
                 Let&apos;s Talk
             </a>
-            to request a replacement SMART tag bus pass.
         </>
     ),
-    trans_BusPass_s6:
-        "you indicated that this student would not be riding a bus this year. If you need to update your selection for the student, please contact the LINK.",
     trans_BusPass_s7:
         "Based on current school enrollment and your home address, your student is eligible for transportation services. In order to assign your student to a route, please answer the following question:",
     trans_BusPass_s8: "Will your student be riding the bus this year?",
     trans_BusPass_s9: "Yes, my student will ride the bus this year",
     trans_BusPass_s10: "No, my student will not ride the bus this year",
-    trans_BusPass_s11:
-        "Thank you for your response. By submitting this form, your student’s application for a SMART take bus pass will be sent to DCSD's Transportation Department for processing. Please register for an account in the Douglas County - SMART tag&#8482; Parent Portal (http://parent.smart-tag.net/) to sign up for Smart Alert text or email notifications for ridership confirmation.",
+    trans_BusPass_s11: (
+        <>
+            Thank you for your response. By submitting this form, your
+            student&apos;s application for a SMART take bus pass will be sent to
+            DCSD&apos;s Transportation Department for processing. Please
+            register for an account in the Douglas County - SMART tag&#8482;
+            Parent Portal (
+            <a
+                href="http://parent.smart-tag.net/"
+                rel="noreferrer"
+                target="_blank"
+            >
+                http://parent.smart-tag.net/
+            </a>
+            ) to sign up for Smart Alert text or email notifications for
+            ridership confirmation.
+        </>
+    ),
     trans_BusPass_s12: (
         <div>
             Thank you for your response. By submitting this form, your student
@@ -148,6 +179,7 @@ export const data = {
             .
         </div>
     ),
+
     /// ////////////////////////////////////////////////////////////
     /// ////// Electronic Signature of Parent/Legal Guardian ///////
     /// ////////////////////////////////////////////////////////////
@@ -175,12 +207,12 @@ export const data = {
     trans_ElecSig_s6: "Last Name",
     trans_ElecSig_s7:
         "By checking this box, I certify that I am the parent or legal guardian",
+
     /// ////////////////////////////////////////////////////////////
     /// ////////////////////////////// Header //////////////////////
     /// ////////////////////////////////////////////////////////////
     Main_Header_Welcome: "Welcome",
     Main_Header_HelpfulLinks: "Helpful Links",
-    // Main_Header_GDashboard: "Guardian Dashboard",
     Main_Header_Exit: "EXIT",
     Main_Header_Logout: "LOGOUT",
     Main_Header_s1: "Contact My Student(s) Nurse",
@@ -189,6 +221,7 @@ export const data = {
     Main_Header_s4: "Bus Routes",
     Main_Header_s5: "Online Payments",
     Main_Header_s6: "Lunch Menus",
+
     /// ////////////////////////////////////////////////////////////
     /// //////////////////// Buttons//////////////////////// ///////
     /// ////////////////////////////////////////////////////////////

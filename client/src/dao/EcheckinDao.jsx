@@ -1,13 +1,16 @@
 import ServiceWrapper from "../utils/ServiceWrapper";
 import {
     BUS_PASS_APPLICATION_BY_STUDENT_NUMBER,
-    CHECKIN_WINDOW, CHECKIN_WINDOW_DETAIL,
+    CHECKIN_WINDOW,
+    CHECKIN_WINDOW_DETAIL,
     CUSTOM_ATTRIBUTE_CREATE,
     CUSTOM_ATTRIBUTE_GET,
+    ECHECKIN_BUS_PASS_APPLICATIONS_CREATE,
     ELECTRONIC_SIGNATURE,
     ELECTRONIC_SIGNATURE_CREATE,
     ELECTRONIC_SIGNATURE_UPDATE,
-    GUARDIAN_STUDENT_MAP, HIS_BUS_PASS_APPLICATION_BY_STUDENT_NUMBER, HIST_BUS_PASS_APPLICATION_BY_STUDENT_NUMBER,
+    GUARDIAN_STUDENT_MAP,
+    HIST_BUS_PASS_APPLICATION_BY_STUDENT_NUMBER,
     SELECTED_VALUE,
     SELECTED_VALUE_UPDATE,
     SELECTED_VALUES_READ
@@ -47,6 +50,11 @@ const EcheckinDao = (props) => {
         options.data = formData;
     }
     switch (action) {
+        case "busPassApplicationCreate":
+            options.method = "POST";
+            options.data = dto;
+            options.url = ECHECKIN_BUS_PASS_APPLICATIONS_CREATE;
+            break;
         case "busPassApplicationsByStudentNumber":
             options.method = "GET";
             options.url = `${BUS_PASS_APPLICATION_BY_STUDENT_NUMBER}/${studentNumber}/${schoolYearKey}/index.json`;

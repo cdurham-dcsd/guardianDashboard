@@ -59,7 +59,7 @@ const HamburgerMenu = () => {
                 {/* ////////////////////////////////////////////// */}
                 <div className="mobile-list-hamburger mobile-menu-bold">
                     <Icon
-                        className=" mobile-dropdown-icon"
+                        className="mobile-dropdown-icon"
                         fill="#19608f"
                         height="25"
                         iconName="LIST_DCSD"
@@ -186,20 +186,22 @@ const HamburgerMenu = () => {
                     />
                     EXIT
                 </MenuItem>
-                <MenuItem
-                    type="button"
-                    onClick={logout}
-                    onKeyDown={logout}
-                    href="#"
-                >
-                    <Icon
-                        className="mobile-dropdown-icon"
-                        fill="#19608f"
-                        height="25"
-                        iconName="LOGOUT"
-                    />
-                    Logout
-                </MenuItem>
+                {process.env.NODE_ENV !== "production" && (
+                    <MenuItem
+                        type="button"
+                        onClick={logout}
+                        onKeyDown={logout}
+                        href="#"
+                    >
+                        <Icon
+                            className="mobile-dropdown-icon"
+                            fill="#19608f"
+                            height="25"
+                            iconName="LOGOUT"
+                        />
+                        Logout
+                    </MenuItem>
+                )}
             </Menu>
         </>
     );
