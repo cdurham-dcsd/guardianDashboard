@@ -29,14 +29,6 @@ const FormPage = () => {
         username
     } = state || {};
     const userDetails = UserDetails();
-    /*
-    annualBilling - already applied for annual billing (done)
-    inProcess - application is still in process (not working)
-    applying - first time (default) (done)
-    expired - date for annual pass has past (done)
-    notRidingBus - already chose not to ride bus in the past (done)
-    issued - already a SMART tag card issued (done)
-    */
 
     const [annualPassEndDate, setAnnualPassEndDate] = useState(null);
     const [customStudent, setCustomStudent] = useState(null);
@@ -46,7 +38,6 @@ const FormPage = () => {
     const [hasApplied, setHasApplied] = useState(null);
     const [lastYearProcessed, setLastYearProcessed] = useState(false);
     const [selectedValueDto, setSelectedValueDto] = useState(null);
-    const [studentZpass, setStudentZpass] = useState(null);
 
     /**
      * initialFormState
@@ -142,7 +133,7 @@ const FormPage = () => {
             element: "TransportationOption",
             enrollmentId: enrollmentDto.key,
             objectName: "Enrollment",
-            personId: guardianStudentMap.studentPersonId,
+            personId: studentInfoDto.key,
             value
         };
     };
@@ -151,9 +142,9 @@ const FormPage = () => {
         // Current Drupal code populates a new selectedValueDto with a mapId = 0? WHY?
         // init new selectedValue
         const selectedValue = {
-            optionType: "TRANSPORTATION_ELECTION",
             createdBy: username,
-            mapId
+            mapId,
+            optionType: "TRANSPORTATION_ELECTION"
         };
         const svDto = selectedValueDto || selectedValue;
         svDto.lastUpdatedBy = username;
@@ -179,13 +170,13 @@ const FormPage = () => {
         if (guardianStudentMap && enrollmentDto) {
             const customStudentDto = getCustomStudentAttributeDto(value);
             const options = {
-                action: "customStudentAttributeCreate",
-                customStudentDto,
-                mapId,
+                action: "customAttributeCreate",
+                dto: customStudentDto,
+                studentNumber,
                 subject: "Transportation Selection",
                 token
             };
-            EcheckinDao(options).then((response) => {
+            StudentInfoDao(options).then((response) => {
                 if (response) {
                     const { payload } = response.data;
                     if (payload) {
@@ -206,6 +197,7 @@ const FormPage = () => {
             firstName: formState.firstName,
             lastName: formState.lastName,
             lastUpdatedBy: username,
+            mapId: mapId || 0,
             middleName: formState.middleName,
             selectedValueId: selectedValueDto ? selectedValueDto.key : 0,
             signatureType: "TRANSPORTATION_AFFIRM"
@@ -219,6 +211,7 @@ const FormPage = () => {
     };
 
     const handleSubmit = (e) => {
+        e.preventDefault();
         // Scenarios:
         // 1. Not Riding Bus && !hasApplied - no previous applications
         //    validate formState.ridingBus
@@ -281,9 +274,22 @@ const FormPage = () => {
         }
         // NOT RIDING BUS
         if (formState.ridingBus === "N") {
-            createCustomStudentAttribute("N");
-            createSelectedValue();
-            return true;
+            const transportForm = e.target.form;
+            const checkStatus = transportForm.checkValidity();
+            transportForm.reportValidity();
+            if (checkStatus) {
+                if (!formState.affirmation) {
+                    toast.error("Please check the guardian affirmation box!", {
+                        autoClose: 10000
+                    });
+                    return false;
+                }
+                createCustomStudentAttribute("N");
+                createSelectedValue();
+                createElectronicSignature();
+
+                return true;
+            }
         }
         if (formState.ridingBus === "Y") {
             if (!formState.paymentSelection) {
@@ -326,7 +332,6 @@ const FormPage = () => {
      * getHasApplied(latest)
      * if (hasApplied(latest) is empty, did they apply last year?
      *    getLatestHistoricalApplication
-     * getStudentZpass
      * getCustomStudentAttribute(TransportationOption, Enrollment, true)
      */
 
@@ -405,27 +410,6 @@ const FormPage = () => {
     }, [hasApplied, schoolYearDto, studentNumber, token]);
 
     useEffect(() => {
-        if (studentNumber && token && !studentZpass) {
-            const options = {
-                action: "customAttributesRead",
-                attributeName: "bus_pass_id",
-                objectName: "ZPass",
-                params: {
-                    currentEnrollment: true
-                },
-                studentNumber,
-                token
-            };
-            StudentInfoDao(options).then((response) => {
-                if (response) {
-                    const { payload } = response.data;
-                    setStudentZpass(payload);
-                }
-            });
-        }
-    }, [studentNumber, studentZpass, token]);
-
-    useEffect(() => {
         if (studentNumber && token && !customStudent) {
             const options = {
                 action: "customAttributesRead",
@@ -464,17 +448,19 @@ const FormPage = () => {
     }, [annualPassEndDate, customStudent, formState]);
 
     useEffect(() => {
-        if (mapId && !selectedValueDto) {
+        if (studentNumber && !selectedValueDto) {
             const options = {
-                action: "selectedValueByMapIdAndTypeRead",
-                mapId,
-                optionType: "TRANSPORTATION_ELECTION",
+                action: "selectedValuesRead",
+                params: {
+                    studentNumber,
+                    optionType: "TRANSPORTATION_ELECTION"
+                },
                 setResults: setSelectedValueDto,
                 token
             };
             EcheckinDao(options).then();
         }
-    }, [mapId, selectedValueDto, token]);
+    }, [studentNumber, selectedValueDto, token]);
 
     useEffect(() => {
         if ((customStudent && customStudent.value === "N") || hasApplied) {
@@ -499,6 +485,15 @@ const FormPage = () => {
             StudentInfoDao(options).then();
         }
     }, [enrollmentDto, token, studentNumber]);
+
+    useEffect(() => {
+        if (studentInfoDto) {
+            console.log("studentInfoDto", studentInfoDto);
+        }
+        if (selectedValueDto) {
+            console.log("selectedValueDto: ", selectedValueDto);
+        }
+    }, [selectedValueDto, studentInfoDto]);
 
     return (
         <div className="form-page-container">

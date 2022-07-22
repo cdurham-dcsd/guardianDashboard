@@ -18,6 +18,12 @@ const TransportationPaymentSelection = ({
         return !customStudent || (customStudent && customStudent.value !== "Y");
     };
 
+    const showAnnual = () => {
+        return (
+            formState.paymentSelection === "Y" && getToday() < annualPassEndDate
+        );
+    };
+
     return (
         <div>
             {showBoth() && (
@@ -80,11 +86,25 @@ const TransportationPaymentSelection = ({
             )}
             <div className="mt-3">
                 {formState.paymentSelection === "YQ" && (
-                    <p>
+                    <div>
                         If you would like to change your transportation payment
                         selection, you may select the Annual Prepayment option
                         until {formatDate(annualPassEndDate)}
-                    </p>
+                    </div>
+                )}
+                {showAnnual() && (
+                    <div>
+                        If you would like to make your annual transportation
+                        payment please visit{" "}
+                        <a
+                            href="https://www.myschoolbucks.com/ver2/prdembd?ref=ZZHVZS5TX305OUU_ZZ5UJEZ2IPOUCEP"
+                            rel="noreferrer"
+                            target="_blank"
+                        >
+                            My School Bucks
+                        </a>
+                        .
+                    </div>
                 )}
             </div>
             {getToday() > annualPassEndDate && (
@@ -106,14 +126,29 @@ const TransportationPaymentSelection = ({
                 </div>
             )}
             {customStudent && customStudent.value === "Y" && (
-                <div>
+                <>
                     <div>
-                        In an earlier session you have selected: Annual Billing
+                        <div>
+                            In an earlier session you have selected: Annual
+                            Billing
+                        </div>
+                        <div className="mb-2">{T({ key: "trans_Pay_s8" })}</div>
                     </div>
-                    <div className="mb-2">
-                        {T({ key: "trans_Pay_s8" })}
-                    </div>
-                </div>
+                    {getToday() < annualPassEndDate && (
+                        <div>
+                            If you would like to make your annual transportation
+                            payment please visit{" "}
+                            <a
+                                href="https://www.myschoolbucks.com/ver2/prdembd?ref=ZZHVZS5TX305OUU_ZZ5UJEZ2IPOUCEP"
+                                rel="noreferrer"
+                                target="_blank"
+                            >
+                                My School Bucks
+                            </a>
+                            .
+                        </div>
+                    )}
+                </>
             )}
         </div>
     );

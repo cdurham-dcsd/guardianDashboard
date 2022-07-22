@@ -28,7 +28,11 @@ const BusPassApplication = ({
 
     const ridingResponseTrue = T({ key: "trans_BusPass_s11" });
     const ridingResponseFalse = T({ key: "trans_BusPass_s12" });
-    const appliedDate = hasApplied ? formatDate(hasApplied.createdDate) : "";
+    let appliedDate = hasApplied ? formatDate(hasApplied.createdDate) : "";
+
+    if (customStudent && customStudent.value === "N") {
+        appliedDate = formatDate(customStudent.createdDate);
+    }
 
     let cardTypeMessage = "";
     if (
@@ -88,11 +92,9 @@ const BusPassApplication = ({
                 <>
                     {customStudent && customStudent.value === "N" ? (
                         <div>
-                            {`${T({
-                                key: "trans_BusPass_s0"
-                            })} ${appliedDate}, ${T({
-                                key: "trans_BusPass_s6"
-                            })}`}
+                            {T({ key: "trans_BusPass_s0" })} {appliedDate}
+                            {", "}
+                            {T({ key: "trans_BusPass_s6" })}
                         </div>
                     ) : (
                         <>

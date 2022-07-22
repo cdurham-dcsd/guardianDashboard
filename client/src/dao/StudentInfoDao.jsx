@@ -1,22 +1,11 @@
 import {
     STUDENT_INFO_CURRENT_ENROLLMENT,
     STUDENT_INFO_CUSTOM_ATTRIBUTES,
-    STUDENT_INFO_END_RELATIONSHIP,
     STUDENT_INFO_GET,
-    STUDENT_INFO_GUARDIAN_CONTACT_UPDATE,
     STUDENT_INFO_GUARDIAN_HOUSEHOLD,
-    STUDENT_INFO_GUARDIAN_HOUSEHOLD_PHONE_UPDATE,
-    STUDENT_INFO_GUARDIAN_SMS_UPDATE,
-    STUDENT_INFO_NON_HOUSEHOLD_CONTACTS,
     STUDENT_INFO_STUDENT,
     STUDENT_INFO_INDIVIDUAL_PERSON_READ,
-    STUDENT_INFO_REFERENCE_DATA,
-    STUDENT_INFO_HEALTH_CONDITIONS,
-    STUDENT_INFO_HEALTH_CONDITION_UPDATE,
-    STUDENT_INFO_LEP_CREATE,
-    STUDENT_INFO_LEP_READ,
-    STUDENT_INFO_GUARDIAN_MILITARY_CONNECTION_CREATE,
-    STUDENT_INFO_GUARDIAN_MILITARY_CONNECTION_READ
+    STUDENT_INFO_CUSTOM_ATTRIBUTE_CREATE
 } from "../const/StudentInfoConst";
 import ServiceWrapper from "../utils/ServiceWrapper";
 
@@ -31,8 +20,6 @@ const StudentInfoDao = (props) => {
         action,
         attributeName,
         dto,
-        householdDto,
-        individualDto,
         objectName,
         params,
         personId,
@@ -52,6 +39,11 @@ const StudentInfoDao = (props) => {
         case "currentEnrollmentRead":
             options.method = "GET";
             options.url = `${STUDENT_INFO_CURRENT_ENROLLMENT}/${studentNumber}/detail.json`;
+            break;
+        case "customAttributeCreate":
+            options.data = dto;
+            options.method = "POST";
+            options.url = `${STUDENT_INFO_CUSTOM_ATTRIBUTE_CREATE}/${studentNumber}/detail.json`;
             break;
         case "customAttributesRead":
             options.method = "GET";

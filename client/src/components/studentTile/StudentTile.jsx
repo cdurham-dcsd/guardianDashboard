@@ -55,6 +55,9 @@ const StudentTile = () => {
     }, [dispatch, studentInfoDto, studentNumber, token]);
 
     if (studentInfoDto && studentNumber && schoolYearKey) {
+        console.log("pop - studentInfoDto: ", studentInfoDto);
+        console.log("pop - studentNumber: ", studentNumber);
+        console.log("pop - schoolYearKey: ", schoolYearKey);
         return (
             <div className="student-container mt-4 mb-4">
                 <div className="student-photo ms-3">

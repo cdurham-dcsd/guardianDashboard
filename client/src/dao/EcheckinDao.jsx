@@ -3,7 +3,6 @@ import {
     BUS_PASS_APPLICATION_BY_STUDENT_NUMBER,
     CHECKIN_WINDOW,
     CHECKIN_WINDOW_DETAIL,
-    CUSTOM_ATTRIBUTE_CREATE,
     CUSTOM_ATTRIBUTE_GET,
     ECHECKIN_BUS_PASS_APPLICATIONS_CREATE,
     ELECTRONIC_SIGNATURE,
@@ -11,9 +10,7 @@ import {
     ELECTRONIC_SIGNATURE_UPDATE,
     GUARDIAN_STUDENT_MAP,
     HIST_BUS_PASS_APPLICATION_BY_STUDENT_NUMBER,
-    SELECTED_VALUE,
-    SELECTED_VALUE_UPDATE,
-    SELECTED_VALUES_READ
+    SELECTED_VALUE
 } from "../const/EcheckinConst";
 
 /**
@@ -25,10 +22,8 @@ import {
 const EcheckinDao = (props) => {
     const {
         action,
-        customStudentDto,
         dto,
         mapId,
-        optionType,
         params,
         schoolYearKey,
         selectedFile,
@@ -43,12 +38,6 @@ const EcheckinDao = (props) => {
         },
         withCredentials: true
     };
-    // in order to upload a file, you must init form-data
-    if (selectedFile) {
-        const formData = new FormData();
-        formData.append("file", selectedFile, selectedFile.name);
-        options.data = formData;
-    }
     switch (action) {
         case "busPassApplicationCreate":
             options.method = "POST";
@@ -72,11 +61,6 @@ const EcheckinDao = (props) => {
             options.method = "GET";
             options.params = params;
             options.url = `${CHECKIN_WINDOW}/${schoolYearKey}/index.json`;
-            break;
-        case "customStudentAttributeCreate":
-            options.data = customStudentDto;
-            options.method = "POST";
-            options.url = `${CUSTOM_ATTRIBUTE_CREATE}/${mapId}/detail.json`;
             break;
         case "customStudentAttributeRead":
             options.params = params;
@@ -117,35 +101,15 @@ const EcheckinDao = (props) => {
             options.method = "PUT";
             options.url = `${GUARDIAN_STUDENT_MAP}/${dto.key}/detail.json`;
             break;
-        case "selectedValueByMapIdAndTypeRead":
+        case "selectedValuesRead":
             options.method = "GET";
-            options.params = {
-                mapId,
-                optionType
-            };
+            options.params = params;
             options.url = SELECTED_VALUE;
-            break;
-        case "selectedValuesByMapIdRead":
-            options.method = "GET";
-            options.params = {
-                mapId
-            };
-            options.url = SELECTED_VALUES_READ;
             break;
         case "selectedValue": // BE java service will determine this case
             options.method = "POST";
             options.data = dto; // must be an ARRAY of DTOs !!
             options.url = SELECTED_VALUE;
-            break;
-        case "selectedValueCreate": // BE java service will determine this case
-            options.data = dto;
-            options.method = "POST";
-            options.url = SELECTED_VALUE;
-            break;
-        case "selectedValueUpdate":
-            options.data = dto;
-            options.method = "PUT";
-            options.url = `${SELECTED_VALUE_UPDATE}/${dto.key}/detail.json`;
             break;
         default:
             return null;
