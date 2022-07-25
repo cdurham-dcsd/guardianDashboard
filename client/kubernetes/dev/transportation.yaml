@@ -24,7 +24,7 @@ spec:
         app: transportation-parent-app
     spec:
       containers:
-        - image: 152476864589.dkr.ecr.us-east-2.amazonaws.com/transportation-parent-app:1.0.0.0
+        - image: 152476864589.dkr.ecr.us-east-2.amazonaws.com/transportation-parent-app:1.0.0.1
           imagePullPolicy: Always
           name: transportation-parent-app
           resources:

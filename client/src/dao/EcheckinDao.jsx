@@ -26,7 +26,6 @@ const EcheckinDao = (props) => {
         mapId,
         params,
         schoolYearKey,
-        selectedFile,
         studentNumber,
         token,
         username

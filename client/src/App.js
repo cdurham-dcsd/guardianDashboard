@@ -1,4 +1,5 @@
 import React, { useEffect } from "react";
+import "@fontsource/montserrat";
 import { Route, Routes, useNavigate, useParams } from "react-router-dom";
 import "./App.scss";
 import Main from "./components/Main";

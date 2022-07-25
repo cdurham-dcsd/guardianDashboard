@@ -1,4 +1,10 @@
-import React, { useCallback, useContext, useEffect, useReducer } from "react";
+import React, {
+    useCallback,
+    useContext,
+    useEffect,
+    useReducer,
+    useState
+} from "react";
 import { Button } from "@mui/material";
 import { GlobalContext } from "../contextProvider/ContextProvider";
 import FormReducer from "../../utils/FormReducer";
@@ -14,6 +20,8 @@ import { fakeLogout } from "../../utils/auth/Auth";
 const Spoofer = () => {
     const { dispatch, state } = useContext(GlobalContext);
     const { token, username } = state || {};
+
+    const [hasSubmitted, setHasSubmitted] = useState(false);
 
     /**
      * @name initialFormState
@@ -80,6 +88,7 @@ const Spoofer = () => {
         const checkStatus = spooferForm.checkValidity();
         spooferForm.reportValidity();
         if (checkStatus) {
+            setHasSubmitted(true);
             fakeLogout().then(() => {
                 dispatch({
                     type: "Get Username",
@@ -119,9 +128,11 @@ const Spoofer = () => {
             if (!originalToken) {
                 sessionStorage.setItem("originalToken", JSON.stringify(token));
             }
-            callUserDetails().then();
+            if (hasSubmitted) {
+                callUserDetails().then();
+            }
         }
-    }, [callUserDetails, originalToken, token, username]);
+    }, [callUserDetails, hasSubmitted, originalToken, token, username]);
 
     return (
         <form id="spoofer-form">

@@ -20,6 +20,7 @@ const FormPage = () => {
     const { state } = useContext(GlobalContext);
     const {
         guardianStudentMap,
+        householdDto,
         locKey,
         mapId,
         schoolYearDto,
@@ -90,7 +91,7 @@ const FormPage = () => {
             cardType: "NEW_CARD",
             createdBy: username,
             eligibilityCancellationAffirmFlag: false,
-            grade: studentInfoDto.grade,
+            grade: studentInfoDto.gradeName,
             lastUpdatedBy: username,
             locKey,
             lossOfPrivilegesAffirmFlag: false,
@@ -107,7 +108,7 @@ const FormPage = () => {
         };
     };
 
-    const createBusPassApplication = () => {
+    const createBusPassApplication = async () => {
         const dto = getBusPassApplicationDto();
         const options = {
             action: "busPassApplicationCreate",
@@ -115,6 +116,8 @@ const FormPage = () => {
             subject: "Bus Pass Application",
             token
         };
+        console.log("createbusPass:", options);
+        return 2;
         return EcheckinDao(options).then((response) => {
             if (response) {
                 const { payload } = response.data;
@@ -156,6 +159,8 @@ const FormPage = () => {
             subject: "Selected Value",
             token
         };
+        console.log("selectedValue: ", options);
+        return;
         EcheckinDao(options).then((response) => {
             if (response) {
                 const { payload } = response.data;
@@ -176,6 +181,8 @@ const FormPage = () => {
                 subject: "Transportation Selection",
                 token
             };
+            console.log("customStudentCreate: ", options);
+            return;
             StudentInfoDao(options).then((response) => {
                 if (response) {
                     const { payload } = response.data;
@@ -207,11 +214,14 @@ const FormPage = () => {
             dto: eSig,
             token
         };
+        console.log("eSig options: ", options);
+        return;
         EcheckinDao(options).then();
     };
 
     const handleSubmit = (e) => {
         e.preventDefault();
+        const transportForm = e.target.form;
         // Scenarios:
         // 1. Not Riding Bus && !hasApplied - no previous applications
         //    validate formState.ridingBus
@@ -274,7 +284,6 @@ const FormPage = () => {
         }
         // NOT RIDING BUS
         if (formState.ridingBus === "N") {
-            const transportForm = e.target.form;
             const checkStatus = transportForm.checkValidity();
             transportForm.reportValidity();
             if (checkStatus) {
@@ -298,20 +307,30 @@ const FormPage = () => {
                 });
                 return false;
             }
-            const transportForm = e.target.form;
+            if (!formState.affirmation) {
+                toast.error("Please check the guardian affirmation box!", {
+                    autoClose: 10000
+                });
+                return false;
+            }
             const checkStatus = transportForm.checkValidity();
             transportForm.reportValidity();
             if (checkStatus) {
-                const busPassId = createBusPassApplication();
+                createBusPassApplication().then((response) => {
+                    if (response) {
+                        createElectronicSignature(response);
+                    }
+                });
                 createCustomStudentAttribute(formState.paymentSelection);
                 createSelectedValue();
-                createElectronicSignature(busPassId);
+
             }
         }
         if (hasApplied) {
             if (
                 getToday() < annualPassEndDate &&
-                customStudent.value === "YQ"
+                ((customStudent && customStudent.value === "YQ") ||
+                    !customStudent)
             ) {
                 if (!formState.paymentSelection) {
                     toast.error("Please select a Billing Option", {
@@ -425,6 +444,21 @@ const FormPage = () => {
                 if (response) {
                     const { payload } = response.data;
                     setCustomStudent(payload);
+                    const resetFormState = {
+                        affirmation: false,
+                        firstName: "",
+                        lastName: "",
+                        middleName: "",
+                        paymentSelection:
+                            payload && payload.value !== "N"
+                                ? payload.value
+                                : "",
+                        ridingBus: null
+                    };
+                    formDispatch({
+                        type: "reset",
+                        payload: resetFormState
+                    });
                 }
             });
         }
@@ -488,12 +522,31 @@ const FormPage = () => {
 
     useEffect(() => {
         if (studentInfoDto) {
-            console.log("studentInfoDto", studentInfoDto);
+            console.info("studentInfoDto: ", studentInfoDto);
         }
         if (selectedValueDto) {
-            console.log("selectedValueDto: ", selectedValueDto);
+            console.info("selectedValueDto: ", selectedValueDto);
         }
-    }, [selectedValueDto, studentInfoDto]);
+        if (customStudent) {
+            console.info("customStudent: ", customStudent);
+        }
+        if (hasApplied) {
+            console.info("hasApplied: ", hasApplied);
+        }
+        if (householdDto) {
+            console.info("householdDto: ", householdDto);
+        }
+        if (guardianStudentMap) {
+            console.log("guardianStudent: ", guardianStudentMap);
+        }
+    }, [
+        customStudent,
+        guardianStudentMap,
+        hasApplied,
+        householdDto,
+        selectedValueDto,
+        studentInfoDto
+    ]);
 
     return (
         <div className="form-page-container">

@@ -1,4 +1,8 @@
-import {USER_ACTIVE_SCHOOL_YEAR, USER_LOCATION_SEARCHABLE_GET, USER_SERVICE} from "../const/UserConst";
+import {
+    USER_ACTIVE_SCHOOL_YEAR,
+    USER_LOCATION_SEARCHABLE_GET,
+    USER_SERVICE
+} from "../const/UserConst";
 import ServiceWrapper from "../utils/ServiceWrapper";
 
 /**
@@ -8,7 +12,7 @@ import ServiceWrapper from "../utils/ServiceWrapper";
  * @return {null|*}
  */
 const UserDao = (props) => {
-    const { action, searchString, token, username } = props;
+    const { action, icId, token, username } = props;
     const bearer = `Bearer ${token}`;
     const options = {
         headers: {
@@ -28,7 +32,7 @@ const UserDao = (props) => {
             options.method = "GET";
             options.url = USER_LOCATION_SEARCHABLE_GET;
             options.params = {
-                searchString
+                icId
             };
             return ServiceWrapper.serviceCall({
                 options,

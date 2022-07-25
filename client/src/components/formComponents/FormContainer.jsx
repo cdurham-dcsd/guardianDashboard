@@ -5,7 +5,6 @@ import "../../styles/FormContainer.scss";
 
 const FormContainer = ({ children, title }) => {
     return (
-        // <div className="test-background">
         <div>
             <div className="form-container">
                 <div className="form-title-bar">

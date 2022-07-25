@@ -15,6 +15,7 @@ import { GlobalContext } from "../../components/contextProvider/ContextProvider"
  * Token Object that lives in memory.
  */
 let inMemoryToken;
+let retrievedFlag = true;
 
 /**
  * This is to store the inMemoryToken Object.
@@ -103,13 +104,14 @@ const retrieveToken = async (id) => {
         // This will pass the HTTP Only cookie we need to pass REST API.
         withCredentials: true
     };
-
+    retrievedFlag = false;
     await axios
         .get(TOKEN_URL, options)
         .then((response) => {
             if (response.status === 401) {
                 clearInterval(id);
             } else {
+                retrievedFlag = true;
                 storeToken(response.data.payload);
             }
         })
@@ -140,11 +142,13 @@ const TokenRefresh = () => {
                 // call token service is token is expired
                 if (+inMemoryToken.expiry - +EXPIRY_BUFFER_MILLI < Date.now()) {
                     inMemoryToken = null;
-                    retrieveToken(id).then((response) => {
-                        inMemoryToken = response;
-                    });
+                    if (retrievedFlag) {
+                        retrieveToken(id).then((response) => {
+                            inMemoryToken = response;
+                        });
+                    }
                 }
-            } else {
+            } else if (retrievedFlag) {
                 retrieveToken(id).then((response) => {
                     inMemoryToken = response;
                 });

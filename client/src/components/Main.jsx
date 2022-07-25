@@ -37,7 +37,7 @@ const Main = () => {
 
     const allowedRolesArray =
         process.env.NODE_ENV !== "production"
-            ? ["EMPLOYEE", "GUARDIAN"]
+            ? ["EMPLOYEE", "EXTERNAL_GUARDIAN", "GUARDIAN"]
             : ["ECHECKIN_ADMIN", "GUARDIAN"];
 
     const userDetails = UserDetails();
@@ -264,7 +264,7 @@ const Main = () => {
         if (studentInfoDto && token && !locations) {
             const options = {
                 action: "searchableLocationRead",
-                searchString: `IcId=${studentInfoDto.schoolId}`,
+                IcId: studentInfoDto.schoolId,
                 token
             };
             UserDao(options).then((response) => {

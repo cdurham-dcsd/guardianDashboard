@@ -167,14 +167,14 @@ export const data = {
         "Accumulated ride charges of $1 each way will be invoiced via MySchoolBucks.",
     trans_Pay_s8: (
         <div>
-            If you would like to change your transportation payment election,
-            please visit{" "}
+            If you would like to make your annual transportation
+            payment please visit{" "}
             <a
                 href="https://www.myschoolbucks.com/ver2/prdembd?ref=ZZHVZS5TX305OUU_ZZ5UJEZ2IPOUCEP"
                 rel="noreferrer"
                 target="_blank"
             >
-                My School Bucks
+                MySchoolBucks
             </a>
             .
         </div>
