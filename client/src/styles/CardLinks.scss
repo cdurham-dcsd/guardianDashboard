@@ -1,0 +1,24 @@
+@import "global/Colors";
+@import "global/globalMixins";
+
+// this file is located in CardLinks.
+
+.link-title {
+  font-weight: 700;
+  font-size: 1.5em;
+  color: $dk-blue;
+}
+
+.link-description {
+  //border: 2px solid red;
+  margin-top: -8px;
+  //color: red;
+  font-size: .9em;
+}
+
+.link-description-container {
+  //border: 2px solid green;
+  margin-left: 10px;
+  padding-top: 12px;
+  height: 70px;
+}

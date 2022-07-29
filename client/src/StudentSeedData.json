@@ -1,0 +1,12 @@
+let text = {
+        "studentInfo": [
+                {
+                        "firstName": "Guy",
+                        "lastName": "Last",
+                        "grade": "5",
+                        "schoolName": "Big Sky Elementary",
+                        "studentNumber": "123456",
+                        "daysAbsent": "0"
+                }
+        ]
+}

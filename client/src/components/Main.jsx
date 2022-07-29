@@ -14,6 +14,7 @@ import UserDao from "../dao/UserDao";
 import EcheckinDao from "../dao/EcheckinDao";
 import UserDetails from "../utils/UserDetails";
 import TranslationButton from "./formInputs/buttons/TranslationButton";
+import Dashboard from "./Dashboard/Dashboard";
 
 import "../styles/Main.scss";
 
@@ -289,6 +290,8 @@ const Main = () => {
         }
     }, [dispatch, locations]);
 
+    const dashTest = true;
+
     return (
         <RbA allowedRoles={allowedRolesArray} redirect="/notFound">
             <ToastContainer />
@@ -334,7 +337,10 @@ const Main = () => {
             <BreadCrumb />
             <div className="gutter">
                 <StudentTile />
-                <FormPage />
+                {dashTest ===  false && (
+                    <FormPage />
+                )}
+                {dashTest === true && <Dashboard />}
             </div>
             <hr />
             <br />
