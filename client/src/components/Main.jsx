@@ -14,7 +14,7 @@ import UserDao from "../dao/UserDao";
 import EcheckinDao from "../dao/EcheckinDao";
 import UserDetails from "../utils/UserDetails";
 import TranslationButton from "./formInputs/buttons/TranslationButton";
-import Dashboard from "./Dashboard/Dashboard";
+import StudentCard from "./studentCard/StudentCard";
 
 import "../styles/Main.scss";
 
@@ -337,10 +337,8 @@ const Main = () => {
             <BreadCrumb />
             <div className="gutter">
                 <StudentTile />
-                {dashTest ===  false && (
-                    <FormPage />
-                )}
-                {dashTest === true && <Dashboard />}
+                {dashTest === false && <FormPage />}
+                {dashTest === true && <StudentCard />}
             </div>
             <hr />
             <br />

@@ -1,22 +1,13 @@
 import React from "react";
 import { students } from "../../StudentSeedData";
-import Icon from "../icon/Icon";
 import CardLinks from "./CardLinks";
-import ActionButton from "../formInputs/buttons/ActionButton";
 
 import "../../styles/StudentCard.scss";
 
-const Dashboard = () => {
+const StudentCard = () => {
     const studentSeed = students;
-    const { fistName, lastName } = students;
-
-    console.log("as;ldkjfs", studentSeed[0].firstName);
-
-    console.log("Student Seed Info ->", studentSeed);
-
-    const handleClick = () => {
-        console.log("testing the button");
-    };
+    // const { fistName, lastName } = students;
+    // console.log("as;ldkjfs", studentSeed[0].firstName);
 
     return (
         <div className="cards-container">
@@ -48,31 +39,14 @@ const Dashboard = () => {
                             />
                         </div>
                     </div>
-                    <div className="links-container">
-                        <div className="link-content-container">
-                            <div>
-                                <Icon
-                                    iconName="ECHECKIN"
-                                    width="50"
-                                    height="50"
-                                    fill="#39B54A"
-                                />
-                            </div>
-                            <CardLinks
-                                className="title"
-                                title="Transportation"
-                                description="Bus Route Payment System"
-                            />
-                        </div>
-                        <div className="actionButton-container">
-                            <ActionButton label="Enter" onClick={handleClick} />
-                        </div>
-                    </div>
+                    <CardLinks
+                        title="Transportation"
+                        description="Bus Route Payment System"
+                    />
                 </div>
             </section>
-
         </div>
     );
 };
 
-export default Dashboard;
+export default StudentCard;

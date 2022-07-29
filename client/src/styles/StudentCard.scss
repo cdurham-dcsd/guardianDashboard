@@ -117,17 +117,32 @@
 
     .link-content-container {
       //border: 2px solid red;
-      margin: 0 auto;
-      display: flex;
-      justify-content: center;
-    }
-
-    .actionButton-container {
-      //border: 2px solid blue;
-      margin: 0 auto;
-      width: 90%;
       display: flex;
       justify-content: center;
     }
   }
+}
+
+/////////////////////////////////////////////////////////
+// This is the application link at the bottom of the card
+/////////////////////////////////////////////////////////
+
+.link-title {
+  font-weight: 700;
+  font-size: 1.5em;
+  color: $dk-blue;
+}
+
+.link-description {
+  //border: 2px solid red;
+  margin-top: -8px;
+  //color: red;
+  font-size: .9em;
+}
+
+.link-description-container {
+  //border: 2px solid green;
+  margin-left: 10px;
+  padding-top: 12px;
+  height: 70px;
 }
