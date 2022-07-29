@@ -14,7 +14,7 @@ import UserDao from "../dao/UserDao";
 import EcheckinDao from "../dao/EcheckinDao";
 import UserDetails from "../utils/UserDetails";
 import TranslationButton from "./formInputs/buttons/TranslationButton";
-import StudentCard from "./studentCard/StudentCard";
+import CardContainer from "./cardContainer/CardContainer";
 
 import "../styles/Main.scss";
 
@@ -338,8 +338,9 @@ const Main = () => {
             <div className="gutter">
                 <StudentTile />
                 {dashTest === false && <FormPage />}
-                {dashTest === true && <StudentCard />}
+                {dashTest === true && <CardContainer />}
             </div>
+
             <hr />
             <br />
             {process.env.NODE_ENV !== "production" && <Spoofer />}

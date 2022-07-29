@@ -5,29 +5,37 @@ import CardLinks from "./CardLinks";
 import "../../styles/StudentCard.scss";
 
 const StudentCard = () => {
-    const studentSeed = students;
+    const testArray = [
+        {
+            firstName: "Buddy",
+            lastName: "Wilson",
+            grade: "5",
+            schoolName: "Big Sky Elementary",
+            studentNumber: "958377",
+            daysAbsent: "0"
+        }
+    ];
+    // const studentSeed = students;
     // const { fistName, lastName } = students;
-    // console.log("as;ldkjfs", studentSeed[0].firstName);
+    // console.log("studentSeedData -> ",studentSeed)
 
-    return (
-        <div className="cards-container">
-            <section>
+    const studentCard = students.map((item, index) => {
+        const uniqueIndex = `student-card-${index}`;
+        return (
+            <section key={uniqueIndex}>
                 <div className="card">
                     <div className="student-number-container">
-                        <h6 className="student-number">
-                            {studentSeed[0].studentNumber}
-                        </h6>
+                        <h6 className="student-number">{item.studentNumber}</h6>
                     </div>
                     <div className="student-information-container">
                         <div className="student-information">
                             <p id="name">
-                                {/* {studentSeed.firstName}, {studentSeed.lastName} */}
-                                {studentSeed[0].firstName}, {studentSeed[0].lastName}
+                                {item.firstName}, {item.lastName}
                             </p>
-                            <p id="grade">{`Grade: ${studentSeed[0].grade}`}</p>
-                            <p id="schoolName">{studentSeed[0].schoolName}</p>
+                            <p id="grade">{`Grade: ${item.grade}`}</p>
+                            <p id="schoolName">{item.schoolName}</p>
                             <p id="daysAbsent">
-                                {`${studentSeed[0].daysAbsent} Day(s) absent`}
+                                {`${item.daysAbsent} Day(s) absent`}
                             </p>
                         </div>
                     </div>
@@ -45,8 +53,14 @@ const StudentCard = () => {
                     />
                 </div>
             </section>
-        </div>
-    );
+        );
+    });
+    const haveStudentInfoTest = true; // This is trash. Delete after making calls!
+
+    // This is where I need to check if I have student info
+    if (haveStudentInfoTest) {
+        return <div>{studentCard}</div>;
+    }
 };
 
 export default StudentCard;

@@ -10,7 +10,7 @@ const CardLinks = ({className, title, description}) => {
 
     const handleClick = () => {
         console.log("testing the button");
-        alert("This button is working..")
+        alert("This button is working..");
     };
 
     return (
