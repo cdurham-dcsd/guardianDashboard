@@ -2,7 +2,7 @@
 @import "global/globalMixins";
 
 .main-cards-container {
-  border: 2px solid red;
+  //border: 2px solid red;
   display: flex;
   justify-content: center;
   flex-wrap: wrap;
@@ -28,6 +28,7 @@
     @include borderRadius(10px);
     width: 350px;
     min-width: 275px;
+    //margin-bottom: -250px;
     //margin: 30px 60px;
 
     .student-number-container {
@@ -57,6 +58,7 @@
       bottom: 350px;
       display: flex;
       justify-content: center;
+      margin-bottom: -150px; /// change this (with .link-container/ top to create correct spacing) //
 
       .photo {
         //border: 2px solid red;
@@ -121,43 +123,42 @@
         }
       }
     }
-
-    .links-container {
-      //border: 2px solid hotpink;
-      position: absolute;
-      bottom: 50px;
-      left: 16px;
-      width: 90%;
-    }
-
-    .link-content-container {
-      //border: 2px solid red;
-      display: flex;
-      justify-content: center;
-    }
   }
 }
 
 /////////////////////////////////////////////////////////
 // This is the application link at the bottom of the card
 /////////////////////////////////////////////////////////
+.link-container {
+  //border: 2px solid hotpink;
+  position: relative;
+  top: -20px; // change this (with .photo-container/ margin-bottom to create correct spacing) //
+  left: 16px;
+  width: 90%;
 
-.link-title {
-  font-weight: 700;
-  font-size: 1.5em;
-  color: $dk-blue;
+  .link-content-container {
+    //border: 2px solid red;
+    display: flex;
+    justify-content: center;
+
+    .link-description-container {
+      //border: 2px solid green;
+      margin-left: 10px;
+      padding-top: 12px;
+      height: 70px;
+
+      .link-title {
+        font-weight: 700;
+        font-size: 1.5em;
+        color: $dk-blue;
+      }
+      .link-description {
+        //border: 2px solid red;
+        margin-top: -8px;
+        //color: red;
+        font-size: .9em;
+      }
+    }
+  }
 }
 
-.link-description {
-  //border: 2px solid red;
-  margin-top: -8px;
-  //color: red;
-  font-size: .9em;
-}
-
-.link-description-container {
-  //border: 2px solid green;
-  margin-left: 10px;
-  padding-top: 12px;
-  height: 70px;
-}

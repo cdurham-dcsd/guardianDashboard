@@ -34,10 +34,7 @@ const StudentCard = () => {
                             />
                         </div>
                     </div>
-                    <CardLinks
-                        title="Transportation"
-                        description="Bus Route Payment System"
-                    />
+                    <CardLinks title="Transportation" description="Bus Route Payment System"/>
                 </div>
             </div>
         );
