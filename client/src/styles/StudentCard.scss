@@ -1,22 +1,34 @@
 @import "global/Colors";
 @import "global/globalMixins";
 
-.cards-container {
-  border: 2px solid blue;
-  padding: 50px;
-  margin: 0 auto;
+.main-cards-container {
+  border: 2px solid red;
   display: flex;
   justify-content: center;
   flex-wrap: wrap;
-  width: 90%;
+  max-width: 1000px;
+  margin: 0 auto;
+}
 
+.test {
+  border: 2px solid aqua;
+  //display: flex;
+  width: 300px;
+}
+
+.individual-cards-container {
+  //border: 2px solid blue;
+  max-width: 460px;
+  padding: 50px;
+  //display: flex;
+  //justify-content: center;
 
   .card {
     border: 3px solid $grey1;
     @include borderRadius(10px);
     width: 350px;
-    //height: 600px;
-    margin: 30px 60px;
+    min-width: 275px;
+    //margin: 30px 60px;
 
     .student-number-container {
       //border: 2px solid red;
@@ -39,28 +51,29 @@
       }
     }
 
-   .photo-container {
-     //border: 2px solid aqua;
-     position: relative;
-     bottom: 350px;
-     display: flex;
-     justify-content: center;
+    .photo-container {
+      //border: 2px solid aqua;
+      position: relative;
+      bottom: 350px;
+      display: flex;
+      justify-content: center;
 
-     .photo {
-       //border: 2px solid red;
-       overflow: hidden;
-       display: flex;
-       justify-content: center;
-       width: 180px;
-       height: 180px;
-       border-radius: 50%;
-     }
-   }
+      .photo {
+        //border: 2px solid red;
+        overflow: hidden;
+        display: flex;
+        justify-content: center;
+        width: 180px;
+        height: 180px;
+        border-radius: 50%;
+      }
+    }
+
     .student-information-container {
       //border: 2px solid blue;
       display: flex;
       justify-content: center;
-      align-items: flex-end;
+      //align-items: flex-end;
       background: $grey2;
       height: 350px;
 
@@ -68,7 +81,6 @@
         //border: 2px solid red;
         width: 275px;
         margin-bottom: 20px;
-        //height: 75px;
         display: flex;
         flex-direction: column;
         justify-content: flex-end;
@@ -79,6 +91,7 @@
           font-size: 1.4em;
           font-weight: 700;
         }
+
         #grade {
           //border: 2px solid aqua;
           margin: 2px;
@@ -86,6 +99,7 @@
           font-size: 1.1em;
           font-weight: 700;
         }
+
         #schoolName {
           //border: 2px solid green;
           //margin-top: -10px;
@@ -95,6 +109,7 @@
           font-weight: 400;
           font-style: italic;
         }
+
         #daysAbsent {
           //border: 2px solid green;
           //margin-top: -10px;

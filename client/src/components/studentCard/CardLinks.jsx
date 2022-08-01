@@ -2,7 +2,6 @@ import React from "react";
 import PropTypes from "prop-types";
 
 import ActionButton from "../formInputs/buttons/ActionButton";
-// import "../../styles/CardLinks.scss";
 import "../../styles/StudentCard.scss";
 import Icon from "../icon/Icon";
 

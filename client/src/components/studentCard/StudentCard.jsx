@@ -5,25 +5,12 @@ import CardLinks from "./CardLinks";
 import "../../styles/StudentCard.scss";
 
 const StudentCard = () => {
-    const testArray = [
-        {
-            firstName: "Buddy",
-            lastName: "Wilson",
-            grade: "5",
-            schoolName: "Big Sky Elementary",
-            studentNumber: "958377",
-            daysAbsent: "0"
-        }
-    ];
-    // const studentSeed = students;
-    // const { fistName, lastName } = students;
-    // console.log("studentSeedData -> ",studentSeed)
 
     const studentCard = students.map((item, index) => {
         const uniqueIndex = `student-card-${index}`;
         return (
-            <section key={uniqueIndex}>
-                <div className="card">
+            <div className="individual-cards-container">
+                <div className="card" key={uniqueIndex}>
                     <div className="student-number-container">
                         <h6 className="student-number">{item.studentNumber}</h6>
                     </div>
@@ -52,14 +39,14 @@ const StudentCard = () => {
                         description="Bus Route Payment System"
                     />
                 </div>
-            </section>
+            </div>
         );
     });
     const haveStudentInfoTest = true; // This is trash. Delete after making calls!
 
     // This is where I need to check if I have student info
     if (haveStudentInfoTest) {
-        return <div>{studentCard}</div>;
+        return <div className="main-cards-container">{studentCard}</div>;
     }
 };
 

@@ -30,5 +30,21 @@
         schoolName: "Vista Ridge High School",
         studentNumber: "123456",
         daysAbsent: "0"
-    }
+    },
+    {
+        firstName: "Christiane",
+        lastName: "Mammoth",
+        grade: "9",
+        schoolName: "Vista Ridge High School",
+        studentNumber: "123456",
+        daysAbsent: "3"
+    },
+    {
+        firstName: "Connor",
+        lastName: "Mammoth",
+        grade: "7",
+        schoolName: "Vista Ridge High School",
+        studentNumber: "123456",
+        daysAbsent: "0"
+    },
 ];

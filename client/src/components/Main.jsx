@@ -338,7 +338,8 @@ const Main = () => {
             <div className="gutter">
                 <StudentTile />
                 {dashTest === false && <FormPage />}
-                {dashTest === true && <CardContainer />}
+                {/* {dashTest === true && <CardContainer />} */}
+                <CardContainer />
             </div>
 
             <hr />
