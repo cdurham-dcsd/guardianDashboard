@@ -12,7 +12,7 @@ const CardLinks = ({className, description, fillColor, iconName, title,}) => {
         alert("This button is working..");
     };
 
-    const testStatus = "COMPLETE";
+    const testStatus = "!COMPLETE";
 
     return (
         <>
