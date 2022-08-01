@@ -18,7 +18,7 @@ const StudentCard = () => {
     const studentCard = students.map((item, index) => {
         const uniqueIndex = `student-card-${index}`;
         return (
-            <div className="individual-cards-container">
+            <div className="individual-cards-container" key={uniqueIndex}>
                 <div className="card" key={uniqueIndex}>
                     <div className="student-number-container">
                         <h6 className="student-number">{item.studentNumber}</h6>

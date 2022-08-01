@@ -4,16 +4,22 @@ import ActionButton from "../formInputs/buttons/ActionButton";
 import Icon from "../icon/Icon";
 
 import "../../styles/StudentCard.scss";
+import {renderIntoDocument} from "react-dom/test-utils";
 
 const CardLinks = ({className, description, fillColor, iconName, title,}) => {
     /* SCSS for this file is found in StudentCard.scss */
 
+    /**
+     * @todo need to open correct route for individual "Enter" onCLick
+     */
     const handleClick = () => {
         alert("This button is working..");
     };
 
-    const testStatus = "!COMPLETE";
-
+    const testStatus = "COMPLETE";
+    /**
+     * @todo need to call correct service to update status (complete / incomplete)
+     */
     return (
         <>
             <div className="link-container">
