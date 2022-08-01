@@ -1,16 +1,18 @@
 import React from "react";
 import PropTypes from "prop-types";
-
 import ActionButton from "../formInputs/buttons/ActionButton";
-import "../../styles/StudentCard.scss";
 import Icon from "../icon/Icon";
 
-const CardLinks = ({className, title, description}) => {
+import "../../styles/StudentCard.scss";
+
+const CardLinks = ({className, description, fillColor, iconName, title,}) => {
     /* SCSS for this file is found in StudentCard.scss */
 
     const handleClick = () => {
         alert("This button is working..");
     };
+
+    const testStatus = "COMPLETE";
 
     return (
         <>
@@ -18,19 +20,30 @@ const CardLinks = ({className, title, description}) => {
                 <section className="pb-3 pt-3">
                     <div className="link-content-container">
                         <div>
-                            <Icon
-                                iconName="ECHECKIN"
-                                width="50"
-                                height="50"
-                                fill="#39B54A"
-                            />
+                            {testStatus === "COMPLETE" ? (
+                                <Icon
+                                    className="icon-top"
+                                    iconName={iconName}
+                                    width="40"
+                                    height="40"
+                                    fill="#39B54A"
+                                />
+                            ) : (
+                                <Icon
+                                    className="icon-top"
+                                    iconName={iconName}
+                                    width="40"
+                                    height="40"
+                                    fill="#A7A9AC"
+                                />
+                            )}
                         </div>
                         <div className="link-description-container">
                             <h5 className="link-title">{title}</h5>
                             <p className="link-description">{description}</p>
                         </div>
                     </div>
-                    <div>
+                    <div className="action-button-container">
                         <ActionButton label="Enter" onClick={handleClick} />
                     </div>
                 </section>

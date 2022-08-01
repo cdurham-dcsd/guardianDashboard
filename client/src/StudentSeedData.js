@@ -12,7 +12,7 @@
         lastName: "Taylor",
         grade: "2",
         schoolName: "Capstone Middle School",
-        studentNumber: "123456",
+        studentNumber: "847676",
         daysAbsent: "0"
     },
     {
@@ -20,7 +20,7 @@
         lastName: "Mammoth",
         grade: "9",
         schoolName: "Vista Ridge High School",
-        studentNumber: "123456",
+        studentNumber: "827995",
         daysAbsent: "3"
     },
     {
@@ -28,7 +28,7 @@
         lastName: "Mammoth",
         grade: "7",
         schoolName: "Vista Ridge High School",
-        studentNumber: "123456",
+        studentNumber: "447238",
         daysAbsent: "0"
     },
     {

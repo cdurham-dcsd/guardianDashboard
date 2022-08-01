@@ -146,19 +146,26 @@
       margin-left: 10px;
       padding-top: 12px;
       height: 70px;
+      //min-width: 220px;
 
       .link-title {
+        //border: 2px solid hotpink;
         font-weight: 700;
         font-size: 1.5em;
         color: $dk-blue;
       }
       .link-description {
-        //border: 2px solid red;
+        //border: 2px solid hotpink;
         margin-top: -8px;
-        //color: red;
         font-size: .9em;
+        max-width: 240px;
       }
     }
   }
 }
 
+///////////////////////////////////////////////////////
+////// classes for complete / incomplete (grey vs green) & margin top for icon
+.icon-top {
+  margin-top: 15px;
+}

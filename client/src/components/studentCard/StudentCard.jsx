@@ -4,8 +4,17 @@ import CardLinks from "./CardLinks";
 
 import "../../styles/StudentCard.scss";
 
-const StudentCard = () => {
+/**
+ * need to make a call to get student info
+ *  - studentNumber
+ *  - image
+ *  - fistName, lastName
+ *  - grade
+ *  - schoolName
+ *  - daysAbsent
+ */
 
+const StudentCard = () => {
     const studentCard = students.map((item, index) => {
         const uniqueIndex = `student-card-${index}`;
         return (
@@ -34,7 +43,18 @@ const StudentCard = () => {
                             />
                         </div>
                     </div>
-                    <CardLinks title="Transportation" description="Bus Route Payment System"/>
+                    <CardLinks
+                        description="Online Student Check-In"
+                        // fillColor="grey"
+                        iconName="ECHECKIN_SQUARE"
+                        title="Express Checkin"
+                    />
+                    <CardLinks
+                        description="Bus Route Payment System"
+                        // fillColor="grey"
+                        iconName="TRANSPORTATION_SQUARE"
+                        title="Transportation"
+                    />
                 </div>
             </div>
         );
