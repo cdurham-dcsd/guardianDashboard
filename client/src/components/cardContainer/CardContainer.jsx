@@ -5,6 +5,7 @@ import Icon from "../icon/Icon";
 
 import "../../styles/StudentCard.scss";
 import "../../styles/CardContainer.scss";
+import AppCard from "../appCard/AppCard";
 
 const CardContainer = () => {
     return (
@@ -33,31 +34,17 @@ const CardContainer = () => {
                         </p>
                         <p>
                             Lorem ipsum dolor sit amet, consectetur radicalising
-                            elit. Aperiam consequatur deleniti eos exercitationem
-                            fuga fugiat fugit in ipsum laboriosam molestiae, neque
+                            elit. Aperiam consequatur deleniti eos fuga fugit
+                            fugit in ipsum laboriosam molestiae, neque
                             praesentium quaerat qui quis ratione sint sunt
                             temporibus voluptas.
                         </p>
                     </div>
                     <div className="right-app-container">
-                        <div className="apps">
-                            this is where the apps will go
-                        </div>
-                        <div className="apps">
-                            this is where the apps will go
-                        </div>
-                        <div className="apps">
-                            this is where the apps will go
-                        </div>
-                        <div className="apps">
-                            this is where the apps will go
-                        </div>
-                        {/*<div className="apps">*/}
-                        {/*    this is where the apps will go*/}
-                        {/*</div>*/}
-                        {/*<div className="apps">*/}
-                        {/*    this is where the apps will go*/}
-                        {/*</div>*/}
+                        <AppCard
+                            description="Online Student Check-in"
+                            title="Express Check-In"
+                        />
                     </div>
                 </div>
             </div>

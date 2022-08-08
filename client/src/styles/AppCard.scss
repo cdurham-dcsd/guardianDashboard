@@ -1,0 +1,46 @@
+@import "global/Colors";
+@import "global/globalMixins";
+
+.app-card-container {
+  //border: 2px solid darksalmon;
+  @include borderRadius(5px);
+  background: $light-background;
+  filter: drop-shadow(7px 7px 5px #414245);
+  padding: 10px;
+  height: 230px;
+  width: 310px;
+  margin: 15px;
+
+
+  .move-right {
+    display: flex;
+    justify-content: flex-end;
+    position: relative;
+    top: -50px;
+
+    .top-section {
+      //border: 1px solid chocolate;
+      width: 80%;
+
+      .app-name {
+        //border: 2px solid aquamarine;
+        font-size: 1.2em;
+        font-weight: 700;
+      }
+
+      .app-description {
+        //border: 2px solid aquamarine;
+        margin-top: -5px;
+        font-size: .8em;
+      }
+    }
+  }
+}
+
+
+//.test-border {
+//  border: 2px solid aqua;
+//}
+//.app-description {
+//  border: 2px solid red;
+//}
