@@ -20,10 +20,21 @@ const StudentCard = () => {
         return (
             <div className="cards" key={uniqueIndex}>
                 <div className="info-container">
-                    <div className="info">
+                    <div>
                         <div className="name-container">
                             <h5>{`${item.firstName}, ${item.lastName}`}</h5>
                             <h6>{item.studentNumber}</h6>
+                        </div>
+                        <div className="boxes">
+                            <div id="grade">
+                                box 1<div id="value">testing</div>
+                            </div>
+                            <div id="school">
+                                box 1<div id="value">testing</div>
+                            </div>
+                            <div id="absent">
+                                box 1<div id="value">testing</div>
+                            </div>
                         </div>
                     </div>
                 </div>
