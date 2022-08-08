@@ -2,28 +2,34 @@
 @import "global/globalMixins";
 
 .left-container {
-  border: 1px solid aqua;
+  //border: 3px solid aqua;
   display: flex;
   flex-direction: column;
-  height: 500px;
+  height: 1000px;
   width: 700px;
-  margin: 0 0 0 40px;
+  margin: 0 0 0 20px;
+  overflow: scroll; // when div is filled with content that exceeds its height, then make it scrollable
+  overflow-x: hidden; // removes the horizontal scroll bar
+  overflow-y: auto; // removes small grey line when overflow is not engaged
 }
-.checking {
-  //border: 2px solid red;
+.center-container {
+  // thi is used to center the photo and 'everything' else in the grey card background
+  //border: 3px solid aqua;
   display: flex;
-  margin-left: 6px;
-  //margin: 0 auto;
+  margin-top: 7px;
+  margin-right: 17px;
+  width: 700px;
 }
-
-
 
 .cards {
   display: flex;
-  margin: 30px 0px;
+  justify-content: center;
+  margin-bottom: 30px;
   background: $grey4;
   @include borderRadius(5px);
   height: 200px;
+  width: 97%;
+
 
   .photo-container {
     //border: 4px solid red;
@@ -44,14 +50,7 @@
     }
   }
 
-  .info-container {
-    //border: 2px solid blue;
-    //width: 80%;
-    //margin: 0 auto;
-    //display: flex;
-    //justify-content: flex-end;
-
-    .name-container {
+  .name-container {
       //border: 2px solid greenyellow;
       display: flex;
       justify-content: space-between;
@@ -61,9 +60,12 @@
       //height: 20px;
       width: 500px;
       color: white;
-      h4 {
-        font-weight: 600;
-      }
+    h5 {
+      font-weight: 600;
+    }
+    h6 {
+      letter-spacing: 2px;
+    }
     }
     .boxes {
       //border: 2px solid red;
@@ -71,7 +73,8 @@
       justify-content: space-between;
       height: 100px;
       color: white;
-      font-size: 1.3em;
+      font-size: 1.30em;
+      font-weight: 600;
 
       #grade {
         //border: 2px solid green;
@@ -84,6 +87,7 @@
         #value {
           color: white;
           font-size: .7em;
+          font-weight: 400;
         }
       }
       #school {
@@ -97,6 +101,7 @@
         #value {
           color: white;
           font-size: .7em;
+          font-weight: 400;
         }
       }
       #absent {
@@ -110,10 +115,10 @@
         #value {
           color: white;
           font-size: .7em;
+          font-weight: 400;
         }
       }
     }
-  }
 }
 
 //.main-cards-container {

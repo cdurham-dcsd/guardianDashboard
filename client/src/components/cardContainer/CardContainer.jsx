@@ -7,7 +7,6 @@ const CardContainer = () => {
     return (
         <div className="left-container">
             <StudentCard />
-            {/*<StudentCardV2 />*/}
         </div>
     );
 };
