@@ -290,7 +290,7 @@ const Main = () => {
         }
     }, [dispatch, locations]);
 
-    const dashTest = true;
+    // const dashTest = true;
 
     return (
         <RbA allowedRoles={allowedRolesArray} redirect="/notFound">
@@ -335,9 +335,10 @@ const Main = () => {
                 />
             </section>
             <BreadCrumb />
-            <div className="gutter">
-                <StudentTile />
-                {dashTest === false && <FormPage />}
+            {/*<div className="gutter">*/}
+            <div className="gutter-guardian-dashboard">
+                {/*<StudentTile />*/}
+                {/*{dashTest === false && <FormPage />}*/}
                 {/* {dashTest === true && <CardContainer />} */}
                 <CardContainer />
             </div>

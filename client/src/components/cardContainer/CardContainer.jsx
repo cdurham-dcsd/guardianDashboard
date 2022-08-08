@@ -5,8 +5,9 @@ import "../../styles/StudentCard.scss";
 
 const CardContainer = () => {
     return (
-        <div>
+        <div className="left-container">
             <StudentCard />
+            {/*<StudentCardV2 />*/}
         </div>
     );
 };

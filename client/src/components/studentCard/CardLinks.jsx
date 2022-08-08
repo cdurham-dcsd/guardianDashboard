@@ -4,9 +4,8 @@ import ActionButton from "../formInputs/buttons/ActionButton";
 import Icon from "../icon/Icon";
 
 import "../../styles/StudentCard.scss";
-import {renderIntoDocument} from "react-dom/test-utils";
 
-const CardLinks = ({className, description, fillColor, iconName, title,}) => {
+const CardLinks = ({className, description, iconName, title,}) => {
     /* SCSS for this file is found in StudentCard.scss */
 
     /**
@@ -16,7 +15,7 @@ const CardLinks = ({className, description, fillColor, iconName, title,}) => {
         alert("This button is working..");
     };
 
-    const testStatus = "COMPLETE";
+    const testStatus = "!COMPLETE";
     /**
      * @todo need to call correct service to update status (complete / incomplete)
      */
