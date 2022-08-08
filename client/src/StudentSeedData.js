@@ -1,19 +1,19 @@
  export const students = [
     {
-        firstName: "Buddy",
-        lastName: "Wilson",
+        firstName: "Chad",
+        lastName: "Esquire",
         grade: "5",
-        schoolName: "Big Sky Elementary",
+        schoolName: "Capstone Middle School",
         studentNumber: "958377",
         daysAbsent: "0"
     },
     {
-        firstName: "Andy",
-        lastName: "Taylor",
+        firstName: "Emma",
+        lastName: "Esquire",
         grade: "2",
         schoolName: "Capstone Middle School",
         studentNumber: "847676",
-        daysAbsent: "0"
+        daysAbsent: "4"
     },
     // {
     //     firstName: "Christiane",

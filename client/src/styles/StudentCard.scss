@@ -9,28 +9,55 @@
   width: 700px;
   margin: 0 0 0 40px;
 }
-.cards {
+.checking {
   //border: 2px solid red;
   display: flex;
-  //justify-content: center;
-  margin: 20px 0px;
+  margin-left: 6px;
+  //margin: 0 auto;
+}
+
+
+
+.cards {
+  display: flex;
+  margin: 30px 0px;
   background: $grey4;
   @include borderRadius(5px);
   height: 200px;
 
-  .info-container {
-    border: 2px solid blue;
-    width: 95%;
-    margin: 0 auto;
+  .photo-container {
+    //border: 4px solid red;
     display: flex;
-    justify-content: flex-end;
+    align-items: center;
+    position: relative;
+    left: 20px;
+    //width: 200px;
+
+    .photo {
+      overflow: hidden;
+      display: flex;
+      justify-content: center;
+      border-radius: 50%;
+      width: 170px;
+      height: 170px;
+      border: 4px solid white;
+    }
+  }
+
+  .info-container {
+    //border: 2px solid blue;
+    //width: 80%;
+    //margin: 0 auto;
+    //display: flex;
+    //justify-content: flex-end;
 
     .name-container {
-      border: 2px solid greenyellow;
+      //border: 2px solid greenyellow;
       display: flex;
       justify-content: space-between;
       align-items: center;
       margin-top: 20px;
+      padding-left: 10px;
       //height: 20px;
       width: 500px;
       color: white;
@@ -39,7 +66,7 @@
       }
     }
     .boxes {
-      border: 2px solid red;
+      //border: 2px solid red;
       display: flex;
       justify-content: space-between;
       height: 100px;
@@ -47,7 +74,7 @@
       font-size: 1.3em;
 
       #grade {
-        border: 2px solid green;
+        //border: 2px solid green;
         display: flex;
         flex-direction: column;
         align-items: center;
@@ -60,7 +87,7 @@
         }
       }
       #school {
-        border: 2px solid green;
+        //border: 2px solid green;
         display: flex;
         flex-direction: column;
         align-items: center;
@@ -73,7 +100,7 @@
         }
       }
       #absent {
-        border: 2px solid green;
+        //border: 2px solid green;
         display: flex;
         flex-direction: column;
         align-items: center;
