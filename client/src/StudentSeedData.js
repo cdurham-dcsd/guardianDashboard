@@ -19,7 +19,7 @@
     },
     {
         firstName: "Christiane",
-        lastName: "Mammoth",
+        lastName: "Esquire",
         grade: "9",
         schoolName: "Vista Ridge",
         schoolType: "Middle",
@@ -28,22 +28,22 @@
     },
     {
         firstName: "Connor",
-        lastName: "Mammoth",
+        lastName: "Esquire",
         grade: "7",
         schoolName: "Vista Ridge",
         schoolType: "Middle",
         studentNumber: "447238",
         daysAbsent: "0"
     },
-    {
-        firstName: "Christiane",
-        lastName: "Mammoth",
-        grade: "9",
-        schoolName: "Vista Ridge",
-        schoolType: "Middle",
-        studentNumber: "123456",
-        daysAbsent: "3"
-    },
+    // {
+    //     firstName: "Christiane",
+    //     lastName: "Mammoth",
+    //     grade: "9",
+    //     schoolName: "Vista Ridge",
+    //     schoolType: "Middle",
+    //     studentNumber: "123456",
+    //     daysAbsent: "3"
+    // },
     // {
     //     firstName: "Connor",
     //     lastName: "Mammoth",

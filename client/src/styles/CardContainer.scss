@@ -1,0 +1,69 @@
+@import "global/Colors";
+@import "global/globalMixins";
+
+.action-button-container {
+  //border: 2px solid red;
+  display: flex;
+  width: 380px;
+  margin: 20px 0 50px 0;
+
+  .button-icon{
+    //background: green;
+    position: relative;
+    right: 30px;
+    display: flex;
+    margin-top: 3px;
+  }
+}
+.left-right-containers {
+  //border: 2px solid red;
+  display: flex;
+  justify-content: space-between;
+
+  .right-container {
+    //border: 2px solid red;
+    width: 55%;
+
+    .right-info {
+      //border: 2px solid cornflowerblue;
+      @include borderRadius(5px);
+      padding: 30px 20px;
+      background: $grey1;
+      margin-bottom: 40px;
+    }
+    .right-app-container {
+      //border: 2px solid red;
+      padding: 46px 0;
+      display: flex;
+      justify-content: center;
+      flex-wrap: wrap;
+      overflow: scroll; // when div is filled with content that exceeds its height, then make it scrollable
+      overflow-x: hidden; // removes the horizontal scroll bar
+      overflow-y: auto; // removes small grey line when overflow is not engaged
+      @include borderRadius(5px);
+      //padding: 30px 20px;
+      background: $grey1;
+      //min-height: 65%;
+      //max-height: 730px;
+
+      .apps {
+        border: 2px solid red;
+        height: 230px;
+        width: 310px;
+        margin: 15px;
+      }
+
+    }
+  }
+}
+
+///////////////////////////////////////////////
+@media only screen and (max-width: 1100px) {
+  .left-right-containers {
+    border: 4px solid red;
+    flex-wrap: wrap;
+  }
+  //.right-container {
+  //  width: 100%;
+  //}
+}
