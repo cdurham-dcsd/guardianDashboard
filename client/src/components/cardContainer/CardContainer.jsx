@@ -45,6 +45,44 @@ const CardContainer = () => {
                             description="Online Student Check-in"
                             title="Express Check-In"
                         />
+                        <AppCard
+                            description="Online Student Check-in"
+                            title="Express Check-In"
+                        />
+                        <AppCard
+                            description="Online Student Check-in"
+                            title="Express Check-In"
+                        />
+                        <AppCard
+                            description="Online Student Check-in"
+                            title="Express Check-In"
+                        />
+                        <AppCard
+                            description="Online Student Check-in"
+                            title="Express Check-In"
+                        />
+                        <AppCard
+                            description="Online Student Check-in"
+                            title="Express Check-In"
+                        />
+                        <AppCard
+                            description="Online Student Check-in"
+                            title="Express Check-In"
+                        />
+                        <AppCard
+                            description="Online Student Check-in"
+                            title="Express Check-In"
+                        />
+                        <AppCard
+                            description="Online Student Check-in"
+                            title="Express Check-In"
+                        />
+                        <AppCard
+                            description="Online Student Check-in"
+                            title="Express Check-In"
+                        />
+
+
                     </div>
                 </div>
             </div>

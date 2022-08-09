@@ -1,17 +1,6 @@
 @import "global/Colors";
 @import "global/globalMixins";
 
-.left-container {
-  //border: 3px solid aqua;
-  display: flex;
-  flex-direction: column;
-  height: 1100px;
-  min-width: 700px;
-  //margin: 0 0 0 20px;
-  overflow: scroll; // when div is filled with content that exceeds its height, then make it scrollable
-  overflow-x: hidden; // removes the horizontal scroll bar
-  overflow-y: auto; // removes small grey line when overflow is not engaged
-}
 .center-container {
   // thi is used to center the photo and 'everything' else in the grey card background
   //border: 3px solid aqua;

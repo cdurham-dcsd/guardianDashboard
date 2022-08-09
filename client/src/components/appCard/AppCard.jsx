@@ -14,6 +14,13 @@ const AppCard = ({ description, title }) => {
                     <div className="app-description">{description}</div>
                 </div>
             </div>
+            <div className="middle-section">
+                Status:
+                <h6>Complete</h6>
+            </div>
+            <div className="completed-by">
+                Completed by Name of person here
+            </div>
         </div>
     );
 };

@@ -2,15 +2,15 @@
 @import "global/globalMixins";
 
 .app-card-container {
-  //border: 2px solid darksalmon;
+  border: 2px solid darksalmon;
   @include borderRadius(5px);
   background: $light-background;
   filter: drop-shadow(7px 7px 5px #414245);
   padding: 10px;
   height: 230px;
-  width: 310px;
-  margin: 15px;
-
+  //width: 390px;
+  min-width: 400px;
+  margin: 20px 15px;
 
   .move-right {
     display: flex;
@@ -35,12 +35,22 @@
       }
     }
   }
+
+  .middle-section {
+    //border: 2px solid cornflowerblue;
+    display: flex;
+    font-size: 1.1em;
+    font-weight: 600;
+    h6 {
+      padding-top: 3px;
+      margin-left: 10px;
+      font-size: 1em;
+      font-weight: 400;
+    }
+  }
+  .completed-by {
+    //border: 2px solid cornflowerblue;
+    margin-top: -10px;
+    font-size: .8em;
+  }
 }
-
-
-//.test-border {
-//  border: 2px solid aqua;
-//}
-//.app-description {
-//  border: 2px solid red;
-//}
