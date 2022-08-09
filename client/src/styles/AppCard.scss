@@ -2,13 +2,13 @@
 @import "global/globalMixins";
 
 .app-card-container {
-  border: 2px solid darksalmon;
+  //border: 2px solid darksalmon;
   @include borderRadius(5px);
   background: $light-background;
   filter: drop-shadow(7px 7px 5px #414245);
   padding: 10px;
   height: 230px;
-  //width: 390px;
+  width: 430px;
   min-width: 400px;
   margin: 20px 15px;
 
@@ -30,7 +30,6 @@
 
       .app-description {
         //border: 2px solid aquamarine;
-        margin-top: -5px;
         font-size: .8em;
       }
     }
@@ -39,18 +38,76 @@
   .middle-section {
     //border: 2px solid cornflowerblue;
     display: flex;
-    font-size: 1.1em;
+    font-size: 1.4em;
     font-weight: 600;
+    color: $shadow;
+    position: relative;
+    bottom: 35px;
     h6 {
-      padding-top: 3px;
+      padding-top: 8px;
+      padding-left: 10px;
       margin-left: 10px;
-      font-size: 1em;
+      font-size: .8em;
       font-weight: 400;
     }
+  }
+  .application-note {
+    //border: 2px solid aquamarine;
+    position: relative;
+    bottom: 20px;
+    color: $shadow;
+    font-size: .9em;
+    line-height: 20px;
   }
   .completed-by {
     //border: 2px solid cornflowerblue;
     margin-top: -10px;
     font-size: .8em;
   }
+}
+
+.hover-enter-container {
+  //border: 2px solid red;
+  //background: linear-gradient(0deg, black, white );
+  border-bottom-left-radius: 5px;
+  border-bottom-right-radius: 5px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+  bottom: 120px;
+  left: -10px;
+  width: 430px;
+  height: 125px;
+  //background: $shadow;
+  background: $information;
+  opacity: 80%;
+
+  .hover-enter {
+    border: 2px solid white;
+    background: none;
+    @include borderRadius(5px);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 150px;
+    height: 50px;
+    color: white;
+    transition: 0.05s ease;
+
+    &:hover {
+      background: white;
+      border: none;
+      color: $shadow;
+      transform: scale(1.07);
+    }
+  }
+}
+
+.hidden {
+  display: none
+}
+.not-hidden {
+  //background: lightblue;
+  display: block
 }

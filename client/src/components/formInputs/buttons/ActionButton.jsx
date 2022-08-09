@@ -13,12 +13,21 @@ import "../../../styles/ActionButton.scss";
  * @return {JSX.Element}
  * @constructor
  */
-const ActionButton = ({ className, id, label, onClick }) => {
+const ActionButton = ({
+    className,
+    id,
+    label,
+    onClick,
+    onMouseEnter,
+    onMouseLeave
+}) => {
     return (
         <button
             className={className}
             id={id}
             onClick={onClick}
+            onMouseEnter={onMouseEnter}
+            onMouseLeave={onMouseLeave}
             tabIndex={0}
             type="button"
         >
@@ -30,6 +39,8 @@ const ActionButton = ({ className, id, label, onClick }) => {
 ActionButton.propTypes = {
     className: PropTypes.string,
     onClick: PropTypes.func,
+    onMouseEnter: PropTypes.func,
+    onMouseLeave: PropTypes.func,
     id: PropTypes.string,
     label: PropTypes.string
 };
@@ -37,6 +48,8 @@ ActionButton.propTypes = {
 ActionButton.defaultProps = {
     className: "action-button",
     onClick: null,
+    onMouseEnter: null,
+    onMouseLeave: null,
     id: "",
     label: ""
 };

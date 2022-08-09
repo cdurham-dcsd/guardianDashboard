@@ -345,7 +345,7 @@ const Main = () => {
 
             <hr />
             <br />
-            {/*{process.env.NODE_ENV !== "production" && <Spoofer />}*/}
+            {process.env.NODE_ENV !== "production" && <Spoofer />}
         </RbA>
     );
 };

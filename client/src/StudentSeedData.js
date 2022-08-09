@@ -17,24 +17,24 @@
         studentNumber: "847676",
         daysAbsent: "4"
     },
-    // {
-    //     firstName: "Christiane",
-    //     lastName: "Esquire",
-    //     grade: "9",
-    //     schoolName: "Vista Ridge",
-    //     schoolType: "Middle",
-    //     studentNumber: "827995",
-    //     daysAbsent: "3"
-    // },
-    // {
-    //     firstName: "Connor",
-    //     lastName: "Esquire",
-    //     grade: "7",
-    //     schoolName: "Vista Ridge",
-    //     schoolType: "Middle",
-    //     studentNumber: "447238",
-    //     daysAbsent: "0"
-    // },
+    {
+        firstName: "Christiane",
+        lastName: "Esquire",
+        grade: "9",
+        schoolName: "Vista Ridge",
+        schoolType: "Middle",
+        studentNumber: "827995",
+        daysAbsent: "3"
+    },
+    {
+        firstName: "Connor",
+        lastName: "Esquire",
+        grade: "7",
+        schoolName: "Vista Ridge",
+        schoolType: "Middle",
+        studentNumber: "447238",
+        daysAbsent: "0"
+    },
     // {
     //     firstName: "Christiane",
     //     lastName: "Mammoth",
