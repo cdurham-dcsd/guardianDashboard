@@ -11,13 +11,17 @@
 }
 
 .cards {
+  //border: 2px solid red;
   display: flex;
   justify-content: center;
   margin-bottom: 30px;
+  //margin-right: -10px;
   background: $grey4;
   @include borderRadius(5px);
-  height: 200px;
-  width: 97%;
+  height: 150px;
+  width: 540px;
+  min-width: 500px;
+  //z-index: 0;
 
 
   .photo-container {
@@ -25,7 +29,7 @@
     display: flex;
     align-items: center;
     position: relative;
-    left: 20px;
+    left: 15px;
     //width: 200px;
 
     .photo {
@@ -33,45 +37,59 @@
       display: flex;
       justify-content: center;
       border-radius: 50%;
-      width: 170px;
-      height: 170px;
+      width: 120px;
+      height: 120px;
       border: 4px solid white;
+      z-index: 1;
     }
   }
 
-  .name-container {
+  .info-container {
+    //border: 2px solid blue;
+    display: flex;
+    //justify-content: center;
+    align-items: center;
+    position: relative;
+    margin-bottom: 10px;
+    width: 400px;
+
+    .name-container {
       //border: 2px solid greenyellow;
       display: flex;
       justify-content: space-between;
       align-items: center;
-      margin-top: 20px;
       padding-left: 10px;
-      //height: 20px;
-      width: 500px;
+      width: 390px;
       color: white;
-    h5 {
-      font-weight: 600;
+      h5 {
+        font-weight: 600;
+      }
+      h6 {
+        margin-top: 5px;
+        letter-spacing: 2px;
+      }
     }
-    h6 {
-      letter-spacing: 2px;
-    }
-    }
+
     .boxes {
       //border: 2px solid red;
       display: flex;
       justify-content: space-between;
-      height: 100px;
+      height: 80px;
+      width: 400px;
+      padding-bottom: 10px;
       color: white;
-      font-size: 1.30em;
+      font-size: 1.2em;
       font-weight: 600;
+      position: relative;
+      //left: -20px;
 
       #grade {
-        //border: 2px solid green;
+        //border: 2px solid aquamarine;
         display: flex;
         flex-direction: column;
         align-items: center;
         justify-content: center;
-        width: 25%;
+        width: 18%;
         background: $grey1;
         #value {
           color: white;
@@ -85,8 +103,9 @@
         flex-direction: column;
         align-items: center;
         justify-content: center;
-        width: 50%;
+        width: 65%;
         background: $grey2;
+        text-align: center;
         #value {
           color: white;
           font-size: .7em;
@@ -99,7 +118,7 @@
         flex-direction: column;
         align-items: center;
         justify-content: center;
-        width: 25%;
+        width: 17%;
         background: $grey1;
         #value {
           color: white;
@@ -108,4 +127,5 @@
         }
       }
     }
+  }
 }

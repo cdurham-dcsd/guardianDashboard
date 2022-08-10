@@ -15,7 +15,7 @@ const CardContainer = () => {
                 <Icon
                     className="button-icon"
                     iconName="ADD"
-                    height="25"
+                    height="30"
                     fill="white"
                 />
             </div>
@@ -41,26 +41,6 @@ const CardContainer = () => {
                         </p>
                     </div>
                     <div className="right-app-container">
-                        <AppCard
-                            description="Online Student Check-in"
-                            title="Express Check-In"
-                        />
-                        <AppCard
-                            description="Online Student Check-in"
-                            title="Express Check-In"
-                        />
-                        <AppCard
-                            description="Online Student Check-in"
-                            title="Express Check-In"
-                        />
-                        <AppCard
-                            description="Online Student Check-in"
-                            title="Express Check-In"
-                        />
-                        <AppCard
-                            description="Online Student Check-in"
-                            title="Express Check-In"
-                        />
                         <AppCard
                             description="Online Student Check-in"
                             title="Express Check-In"

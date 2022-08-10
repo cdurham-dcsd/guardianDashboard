@@ -2,15 +2,15 @@
 @import "global/globalMixins";
 
 .app-card-container {
-  //border: 2px solid darksalmon;
+  //border: 2px solid red;
   @include borderRadius(5px);
   background: $light-background;
   filter: drop-shadow(7px 7px 5px #414245);
   padding: 10px;
   height: 260px;
-  width: 430px;
+  width: 410px; // if we want full width cards.. comment this out to span the whole div
   min-width: 400px;
-  margin: 20px 15px;
+  margin: 15px 15px;
 
   .up-arrow {
     //border: 2px solid red;
@@ -82,7 +82,7 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  width: 430px;
+  width: 410px;
   height: 145px;
   //background: $information;
   background: black;

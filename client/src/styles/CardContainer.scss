@@ -3,39 +3,42 @@
 
 .action-button-container {
   //border: 2px solid red;
-  display: flex;
-  width: 380px;
+  padding-left: 5px;
+  //display: flex;
+  width: 550px;
+
   margin: 20px 0 50px 0;
 
   .button-icon{
     //background: green;
     position: relative;
-    right: 30px;
+    left: 440px;
+    bottom: 38px;
     display: flex;
-    margin-top: 3px;
+    //margin-top: 6px;
   }
 }
 .left-right-containers {
-  //border: 2px solid red;
+  //border: 1px solid red;
   display: flex;
   justify-content: space-between;
 
   .left-container {
-    //border: 4px solid aqua;
+    //border: 1px solid aqua;
     display: flex;
     flex-direction: column;
-    height: 1100px;
-    min-width: 700px;
-    //margin: 0 0 0 20px;
+    align-items: center;
+    //height: 1100px;
+    min-width: 550px;
     overflow: scroll; // when div is filled with content that exceeds its height, then make it scrollable
     overflow-x: hidden; // removes the horizontal scroll bar
     overflow-y: auto; // removes small grey line when overflow is not engaged
   }
 
   .right-container {
-    //border: 4px solid lightcoral;
+    //border: 1px solid red;
     min-width: 700px;
-    max-width: 55%;
+    max-width: 70%;
 
     .right-info {
       //border: 2px solid cornflowerblue;
@@ -46,15 +49,15 @@
     }
     .right-app-container {
       //border: 2px solid red;
-      padding: 46px 0;
+      padding: 20px 0;
       @include borderRadius(5px);
       display: flex;
       //flex-direction: column;
       justify-content: center;
       flex-wrap: wrap;
-      max-height: 870px;
-      overflow: scroll; // when div is filled with content that exceeds its height, then make it scrollable
-      overflow-x: hidden; // removes the horizontal scroll bar
+      //max-height: 870px;
+      //overflow: scroll; // when div is filled with content that exceeds its height, then make it scrollable
+      //overflow-x: hidden; // removes the horizontal scroll bar
       background: $grey1;
     }
   }
