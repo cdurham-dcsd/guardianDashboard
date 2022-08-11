@@ -2,6 +2,7 @@ import {
     STUDENT_INFO_CURRENT_ENROLLMENT,
     STUDENT_INFO_CUSTOM_ATTRIBUTES,
     STUDENT_INFO_GET,
+    GET_STUDENTS_BY_GUARDIAN,
     STUDENT_INFO_GUARDIAN_HOUSEHOLD,
     STUDENT_INFO_STUDENT,
     STUDENT_INFO_INDIVIDUAL_PERSON_READ,
@@ -49,6 +50,10 @@ const StudentInfoDao = (props) => {
             options.method = "GET";
             options.params = params;
             options.url = `${STUDENT_INFO_CUSTOM_ATTRIBUTES}/${studentNumber}/${attributeName}/${objectName}/detail.json`;
+            break;
+        case "getStudentsByGuardian":
+            options.method = "GET";
+            options.url = `${GET_STUDENTS_BY_GUARDIAN}/${username}/index.json`;
             break;
         case "guardianHouseholdFromUsernameRead":
             options.method = "GET";

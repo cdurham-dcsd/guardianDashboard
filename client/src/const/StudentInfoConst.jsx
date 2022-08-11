@@ -11,3 +11,5 @@ export const STUDENT_INFO_GUARDIAN_CONTACT_UPDATE = `${STUDENT_INFO_GUARDIAN}/up
 export const STUDENT_INFO_GUARDIAN_HOUSEHOLD = `${STUDENT_INFO_GUARDIAN}/household`;
 export const STUDENT_INFO_REFERENCE_DATA = `${STUDENT_INFO}/reference_data/campus_dictionary`; // {attributeName}/{objectName}/ index.json
 export const STUDENT_INFO_INDIVIDUAL_PERSON_READ = `${STUDENT_INFO}/reference_data/individual`; // <personId> detail.json
+
+export const GET_STUDENTS_BY_GUARDIAN = `${STUDENT_INFO}/guardian/students`; // <userName> index.json

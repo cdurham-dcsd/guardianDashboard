@@ -44,7 +44,6 @@ const StudentCard = () => {
                                 </div>
                                 <div id="absent">
                                     {item.daysAbsent}
-                                    {/*{`${item.daysAbsent} Days`}*/}
                                     <div id="value">Absent</div>
                                 </div>
                             </div>

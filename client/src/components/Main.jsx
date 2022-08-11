@@ -43,6 +43,8 @@ const Main = () => {
 
     const userDetails = UserDetails();
 
+    console.log("studentInfoDto =>", studentInfoDto);
+
     const createGuardianStudentMap = useCallback(() => {
         if (studentInfoDto && userDetails && householdDto && schoolYearDto) {
             const { householdMembersDto } = householdDto;
@@ -121,6 +123,21 @@ const Main = () => {
         userDetails,
         username
     ]);
+
+    useEffect(() => {
+        if (!studentInfoDto) {
+            const options = {
+                action: "getStudentsByGuardian",
+                token,
+                username
+            };
+            StudentInfoDao(options).then((response) => {
+                if (response) {
+                    console.log("yesss!", response);
+                }
+            });
+        }
+    });
 
     /**
      * If we do not have the householdDto, go get it;
@@ -276,21 +293,19 @@ const Main = () => {
         }
     }, [locations, studentInfoDto, token]);
 
-    /**
-     * LOCATION KEY > CONTEXT
-     * Push the location key into context
-     */
-    useEffect(() => {
-        if (locations && locations.length) {
-            dispatch({
-                type: "LocKey",
-                locKey: locations[0].key
-            });
-            setLocKey(locations[0].key);
-        }
-    }, [dispatch, locations]);
-
-    // const dashTest = true;
+    // /**
+    //  * LOCATION KEY > CONTEXT
+    //  * Push the location key into context
+    //  */
+    // useEffect(() => {
+    //     if (locations && locations.length) {
+    //         dispatch({
+    //             type: "LocKey",
+    //             locKey: locations[0].key
+    //         });
+    //         setLocKey(locations[0].key);
+    //     }
+    // }, [dispatch, locations]);
 
     return (
         <RbA allowedRoles={allowedRolesArray} redirect="/notFound">
@@ -335,11 +350,7 @@ const Main = () => {
                 />
             </section>
             <BreadCrumb />
-            {/*<div className="gutter">*/}
             <div className="gutter-guardian-dashboard">
-                {/*<StudentTile />*/}
-                {/*{dashTest === false && <FormPage />}*/}
-                {/* {dashTest === true && <CardContainer />} */}
                 <CardContainer />
             </div>
 
