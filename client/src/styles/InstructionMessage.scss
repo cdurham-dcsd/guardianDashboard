@@ -1,0 +1,25 @@
+@import "global/Colors";
+@import "global/globalMixins";
+
+
+.message-container {
+  display: flex;
+  flex-direction: column;;
+  @include borderRadius(5px);
+  background: $grey4;
+  padding: 15px 30px;
+  width: 600px;
+  height: 300px;
+
+  .message1 {
+    color: white;
+    margin-top: 30px;
+    display: flex;
+    justify-content: center;
+  }
+
+  .message2 {
+    color: white;
+    margin-top: 20px;
+  }
+}

@@ -12,14 +12,6 @@
   min-width: 400px;
   margin: 15px 15px;
 
-  .up-arrow {
-    //border: 2px solid red;
-    display: flex;
-    justify-content: center;
-    cursor: pointer;
-    z-index: 1000000;
-  }
-
   .move-right {
     display: flex;
     justify-content: flex-end;
@@ -73,29 +65,36 @@
     font-size: .8em;
   }
 }
-
+//////////////////////////////////////////////////////////////
+// Start of the covering div that shows up on hover
 .hover-container {
   //border: 4px solid red;
   opacity: 0;
-  border-bottom-left-radius: 5px;
-  border-bottom-right-radius: 5px;
+  border-radius: 5px;
   display: flex;
   justify-content: center;
   align-items: center;
-  width: 410px;
-  height: 145px;
-  //background: $information;
-  background: black;
+  width: 411px;
+  //height: 260px;
+  height: 230px;
+  background: #232323;
   position: relative;
   left: -10px;
-  bottom: 140px;
-  transition: .3s ease-in-out;
+  //bottom: 255px;
+  bottom: 255px;
+  transition: .5s ease-in-out;
+  cursor: cell;
 }
 .hover-container:hover {
-  //transform: translateY(-80px);
-  opacity: 70%;
+  ///////////////////////////////////////////////////////
+  // comment this in to have a glitchy drag effect
+  transform: translateY(70px);
+  height: 140px;
+  ///////////////////////////////////////////////////////
+  opacity: 80%;
 }
-
+//////////////////////////////////////////////////////////////
+// Hover enter button start
 .hover-enter {
   border: 2px solid white;
   background: none;
@@ -113,4 +112,15 @@
     border: none;
     color: white;
     //transform: scale(1.04);
+}
+.up-arrow-container {
+  //border: 2px solid red;
+  display: flex;
+  justify-content: center;
+  //padding-top: 7px; // move the arrow down a little?
+  .up-arrow {
+    //border: 2px solid red;
+    display: flex;
+    justify-content: center;
+  }
 }

@@ -92,7 +92,7 @@
         width: 18%;
         background: $grey1;
         #value {
-          color: white;
+          color: $grey3;
           font-size: .7em;
           font-weight: 400;
         }
@@ -106,11 +106,11 @@
         width: 65%;
         background: $grey2;
         text-align: center;
-        #value {
-          color: white;
-          font-size: .7em;
-          font-weight: 400;
-        }
+        //#value {
+        //  color: $grey3;
+        //  font-size: .7em;
+        //  font-weight: 400;
+        //}
       }
       #absent {
         //border: 2px solid green;
@@ -121,7 +121,7 @@
         width: 17%;
         background: $grey1;
         #value {
-          color: white;
+          color: $grey3;
           font-size: .7em;
           font-weight: 400;
         }

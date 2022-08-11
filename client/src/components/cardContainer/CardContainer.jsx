@@ -1,13 +1,17 @@
-import React from "react";
+import React, { useState } from "react";
 import StudentCard from "../studentCard/StudentCard";
 import ActionButton from "../formInputs/buttons/ActionButton";
 import Icon from "../icon/Icon";
+import AppCard from "../appCard/AppCard";
+import InstructionMessage from "../instructionMessage/InstructionMessage";
 
 import "../../styles/StudentCard.scss";
 import "../../styles/CardContainer.scss";
-import AppCard from "../appCard/AppCard";
 
 const CardContainer = () => {
+    const [show, setShow] = useState(false);
+    const hideApps = show === false ? "" : "not-hidden";
+
     return (
         <div>
             <div className="action-button-container">
@@ -40,28 +44,37 @@ const CardContainer = () => {
                             temporibus voluptas.
                         </p>
                     </div>
-                    <div className="right-app-container">
-                        <AppCard
-                            description="Online Student Check-in"
-                            title="Express Check-In"
-                        />
-                        <AppCard
-                            description="Online Student Check-in"
-                            title="Express Check-In"
-                        />
-                        <AppCard
-                            description="Online Student Check-in"
-                            title="Express Check-In"
-                        />
-                        <AppCard
-                            description="Online Student Check-in"
-                            title="Express Check-In"
-                        />
-                        <AppCard
-                            description="Online Student Check-in"
-                            title="Express Check-In"
-                        />
-                    </div>
+                    {hideApps ? (
+                        <div
+                            className="right-app-container"
+                            id="right-app-container"
+                        >
+                            <AppCard
+                                description="Online Student Check-in"
+                                title="Express Check-In"
+                            />
+                            <AppCard
+                                description="Online Student Check-in"
+                                title="Express Check-In"
+                            />
+                            <AppCard
+                                description="Online Student Check-in"
+                                title="Express Check-In"
+                            />
+                            <AppCard
+                                description="Online Student Check-in"
+                                title="Express Check-In"
+                            />
+                            <AppCard
+                                description="Online Student Check-in"
+                                title="Express Check-In"
+                            />
+                        </div>
+                    ) : (
+                        <div className="right-app-container">
+                            <InstructionMessage />
+                        </div>
+                    )}
                 </div>
             </div>
         </div>
