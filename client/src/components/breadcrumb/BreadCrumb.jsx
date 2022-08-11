@@ -10,8 +10,8 @@ const BreadCrumb = () => {
         <div>
             <Icon
                 className="ms-3 mt-3 mb-3"
-                fill="#19608f"
-                iconName="TRANSPORTATION"
+                // fill="#19608f"
+                iconName="GUARDIAN_DASHBOARD_WORD"
                 title="Transportation Logo"
                 viewBox="0 0 1024 155"
                 width="250"
@@ -23,7 +23,7 @@ const BreadCrumb = () => {
                     iconName="ARROW"
                     width="30"
                 />
-                <h6>Transportation</h6>
+                <h6>Guardian Dashboard</h6>
             </div>
         </div>
     );

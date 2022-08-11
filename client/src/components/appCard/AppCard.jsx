@@ -19,7 +19,7 @@ const AppCard = ({ description, title }) => {
 
     return (
         <div className="app-card-container" onTouchEnd={handleLink}>
-            <Icon iconName="TRANSPORTATION_SQUARE" width="50" fill="grey" />
+            <Icon iconName="ASSMENT_EXCUSAL_ICON" width="50" fill="grey" />
             <div className="move-right">
                 <div className="top-section">
                     <div className="app-name">{title}</div>

@@ -44,7 +44,7 @@ const CardContainer = () => {
                             temporibus voluptas.
                         </p>
                     </div>
-                    {hideApps ? (
+                    {!hideApps ? (
                         <div
                             className="right-app-container"
                             id="right-app-container"
