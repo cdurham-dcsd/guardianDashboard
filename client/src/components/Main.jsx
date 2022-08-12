@@ -45,6 +45,8 @@ const Main = () => {
 
     console.log("studentInfoDto =>", studentInfoDto);
 
+
+
     const createGuardianStudentMap = useCallback(() => {
         if (studentInfoDto && userDetails && householdDto && schoolYearDto) {
             const { householdMembersDto } = householdDto;
@@ -124,6 +126,9 @@ const Main = () => {
         username
     ]);
 
+    /**
+     * Getting the students form guardian along with their infor
+     */
     useEffect(() => {
         if (!studentInfoDto) {
             const options = {

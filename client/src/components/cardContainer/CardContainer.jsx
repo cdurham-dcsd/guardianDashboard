@@ -7,15 +7,19 @@ import InstructionMessage from "../instructionMessage/InstructionMessage";
 
 import "../../styles/StudentCard.scss";
 import "../../styles/CardContainer.scss";
+import StudentCardContainer from "../studentCardContainer/StudentCardContainer";
 
 const CardContainer = () => {
     const [show, setShow] = useState(false);
     const hideApps = show === false ? "" : "not-hidden";
 
+    const handleClick = () => {
+        console.log("the button is working")};
+
     return (
         <div>
             <div className="action-button-container">
-                <ActionButton label="Add Student for Open Enrollment" />
+                <ActionButton label="Add Student for Open Enrollment" onClick={handleClick} />
                 <Icon
                     className="button-icon"
                     iconName="ADD"
@@ -25,7 +29,8 @@ const CardContainer = () => {
             </div>
             <div className="left-right-containers">
                 <div className="left-container">
-                    <StudentCard />
+                    <StudentCardContainer />
+                    {/*<StudentCard />*/}
                 </div>
                 <div className="right-container">
                     <div className="right-info">
