@@ -67,7 +67,7 @@ const Main = () => {
                         locKey,
                         primSecFlag: studentMatch[0].memberType,
                         schoolId: studentInfoDto.schoolId,
-                        schoolYear: schoolYearDto.name,
+                        schoolYear: schoolYearDto.name,``
                         schoolYearKey: schoolYearDto.key,
                         setIcFlag: "false",
                         studentNumber,
@@ -126,23 +126,6 @@ const Main = () => {
         username
     ]);
 
-    /**
-     * Getting the students form guardian along with their infor
-     */
-    useEffect(() => {
-        if (!studentInfoDto) {
-            const options = {
-                action: "getStudentsByGuardian",
-                token,
-                username
-            };
-            StudentInfoDao(options).then((response) => {
-                if (response) {
-                    console.log("yesss!", response);
-                }
-            });
-        }
-    });
 
     /**
      * If we do not have the householdDto, go get it;

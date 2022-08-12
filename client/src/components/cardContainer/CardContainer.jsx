@@ -8,6 +8,7 @@ import InstructionMessage from "../instructionMessage/InstructionMessage";
 import "../../styles/StudentCard.scss";
 import "../../styles/CardContainer.scss";
 import StudentCardContainer from "../studentCardContainer/StudentCardContainer";
+import AppCardContainer from "../appCardContainer/AppCardContainer";
 
 const CardContainer = () => {
     const [show, setShow] = useState(false);
@@ -30,56 +31,30 @@ const CardContainer = () => {
             <div className="left-right-containers">
                 <div className="left-container">
                     <StudentCardContainer />
-                    {/*<StudentCard />*/}
                 </div>
                 <div className="right-container">
                     <div className="right-info">
                         <p>
-                            Lorem ipsum dolor sit amet, consectetur radicalising
-                            elit. Aliquid dicta dignissimos eum exercitationem
-                            facilis fugit ipsam maiores minima non numquam
-                            praesentium provident quae, quia quisquam quod totam
-                            ullam voluptate voluptatem?
+                            Spicy jalapeno bacon ipsum dolor amet sirloin
+                            pancetta pig pork belly capicola biltong jowl,
+                            sausage strip steak beef ribs pastrami. Pork loin
+                            chislic shoulder biltong ball tip andouille venison
+                            pork belly ham hock tail. Burgdoggen cupim drumstick
+                            beef ribs chuck hamburger landjaeger swine shankle
+                            tenderloin leberkas fatback ribeye.
                         </p>
                         <p>
-                            Lorem ipsum dolor sit amet, consectetur radicalising
-                            elit. Aperiam consequatur deleniti eos fuga fugit
-                            fugit in ipsum laboriosam molestiae, neque
-                            praesentium quaerat qui quis ratione sint sunt
-                            temporibus voluptas.
+                            Meatloaf sirloin landjaeger meatball jerky sausage
+                            bacon ham hock prosciutto. Porchetta turkey ham hock
+                            picanha, t-bone filet mignon meatball jerky shoulder
+                            doner drumstick corned beef shankle chuck. Shank
+                            chicken burgdoggen, venison strip steak landjaeger
+                            hamburger meatball beef boudin pork loin turducken
+                            kevin corned beef bacon. Beef pork chop cupim
+                            alcatra burgdoggen bacon.
                         </p>
                     </div>
-                    {!hideApps ? (
-                        <div
-                            className="right-app-container"
-                            id="right-app-container"
-                        >
-                            <AppCard
-                                description="Online Student Check-in"
-                                title="Express Check-In"
-                            />
-                            <AppCard
-                                description="Online Student Check-in"
-                                title="Express Check-In"
-                            />
-                            <AppCard
-                                description="Online Student Check-in"
-                                title="Express Check-In"
-                            />
-                            <AppCard
-                                description="Online Student Check-in"
-                                title="Express Check-In"
-                            />
-                            <AppCard
-                                description="Online Student Check-in"
-                                title="Express Check-In"
-                            />
-                        </div>
-                    ) : (
-                        <div className="right-app-container">
-                            <InstructionMessage />
-                        </div>
-                    )}
+                    {!hideApps ? <AppCardContainer /> : <InstructionMessage />}
                 </div>
             </div>
         </div>
