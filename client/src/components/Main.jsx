@@ -39,7 +39,7 @@ const Main = () => {
     const allowedRolesArray =
         process.env.NODE_ENV !== "production"
             ? ["EMPLOYEE", "EXTERNAL_GUARDIAN", "GUARDIAN"]
-            : ["ECHECKIN_ADMIN", "GUARDIAN"];
+            : ["ECHECKIN_ADMIN", "EXTERNAL_GUARDIAN", "GUARDIAN"];
 
     const userDetails = UserDetails();
 

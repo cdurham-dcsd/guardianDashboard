@@ -37,7 +37,7 @@ const StudentCard = ({ studentInfo }) => {
                             </div>
                             <div id="school">
                                 {studentInfo.schoolName}
-                                {/* <div id="value">{studentInfo.schoolType}</div> */}
+                                {/* <div id="value">{studentInfo.schoolType}</div>*/}
                             </div>
                             <div id="absent">
                                 {studentInfo.numAbsenceByDay}

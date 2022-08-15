@@ -64,6 +64,11 @@ function reducer(state, action) {
                 ...state,
                 selectedValuesDto: action.selectedValuesDto
             };
+        case "ShowApps":
+            return {
+                ...state,
+                showApps: action.showApps
+            };
         case "StudentInfoDto":
             return {
                 ...state,

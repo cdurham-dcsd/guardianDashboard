@@ -10,6 +10,16 @@ export const formatDate = (dateString = null) => {
 
     return dateString;
 };
+export const formatDateMDY = (dateString) => {
+    if (dateString) {
+        const newDate = new Date(dateString);
+        const yyyy = newDate.getFullYear();
+        const mm = newDate.getMonth() + 1;
+        const dd = newDate.getDate();
+
+        return `${mm}/${dd}/${yyyy}`;
+    }
+};
 
 export const getToday = () => {
     const myDate = new Date();

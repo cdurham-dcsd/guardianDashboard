@@ -1,18 +1,24 @@
-import React, { useState } from "react";
+import React, { useContext, useState } from "react";
+import { GlobalContext } from "../contextProvider/ContextProvider";
 // import StudentCard from "../studentCard/StudentCard";
 import ActionButton from "../formInputs/buttons/ActionButton";
 import Icon from "../icon/Icon";
 // import AppCard from "../appCard/AppCard";
 import InstructionMessage from "../instructionMessage/InstructionMessage";
-
-import "../../styles/StudentCard.scss";
-import "../../styles/CardContainer.scss";
 import StudentCardContainer from "../studentCardContainer/StudentCardContainer";
 import AppCardContainer from "../appCardContainer/AppCardContainer";
 
+import "../../styles/StudentCard.scss";
+import "../../styles/CardContainer.scss";
+
 const CardContainer = () => {
-    const [show, setShow] = useState(false);
-    const hideApps = show === false ? "" : "not-hidden";
+    const { dispatch, state } = useContext(GlobalContext);
+    const { showApps } = state || {};
+    console.log("ShowApps From CardContainer", showApps);
+
+    // const [show, setShow] = useState(false);
+    // const hideApps = showApps === false ? "" : "not-hidden";
+    const hideApps = showApps === true ? "not-hidden" : "";
 
     const handleClick = () => {
         console.log("the button is working");
@@ -58,7 +64,7 @@ const CardContainer = () => {
                             alcatra burgdoggen bacon.
                         </p>
                     </div>
-                    {!hideApps ? <AppCardContainer /> : <InstructionMessage />}
+                    {hideApps ? <AppCardContainer /> : <InstructionMessage />}
                 </div>
             </div>
         </div>

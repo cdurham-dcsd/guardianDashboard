@@ -3,12 +3,14 @@
 
 
 .message-container {
+  //border: 2px solid red;
   display: flex;
-  flex-direction: column;;
+  flex-direction: column;
   @include borderRadius(5px);
   background: $grey4;
   padding: 15px 30px;
-  width: 600px;
+  //width: 600px;
+  width: 100%;
   height: 300px;
 
   .message1 {

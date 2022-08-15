@@ -12,7 +12,6 @@ const AppCard = ({ description, title }) => {
 
     const disabledClass = showEnterButton === "hidden" ? "" : "not-hidden";
     const handleLink = () => {
-        console.log("Enter");
         // window.open(ECHECKIN_SCHOOL_DOMAIN, "_self");
         window.open("https://google.com", "_blank");
     };

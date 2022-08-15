@@ -1,6 +1,9 @@
 @import "global/Colors";
 @import "global/globalMixins";
 
+.faded {
+  opacity: 50%;
+}
 .center-container {
   // thi is used to center the photo and 'everything' else in the grey card background
   //border: 3px solid aqua;
@@ -21,7 +24,13 @@
   height: 150px;
   width: 540px;
   min-width: 500px;
-  //z-index: 0;
+  cursor: pointer;
+  transition: .2s ease-in-out;
+
+  &:hover {
+    background: $information;
+    opacity: .8;
+  }
 
 
   .photo-container {
@@ -41,6 +50,13 @@
       height: 120px;
       border: 4px solid white;
       z-index: 1;
+      transition: .2s ease-in-out;
+
+      &:hover {
+        transform: scale(1.05);
+        z-index: 100;
+        border: 4px solid $information;
+      }
     }
   }
 
