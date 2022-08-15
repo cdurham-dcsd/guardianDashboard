@@ -67,7 +67,7 @@ const Main = () => {
                         locKey,
                         primSecFlag: studentMatch[0].memberType,
                         schoolId: studentInfoDto.schoolId,
-                        schoolYear: schoolYearDto.name,``
+                        schoolYear: schoolYearDto.name,
                         schoolYearKey: schoolYearDto.key,
                         setIcFlag: "false",
                         studentNumber,
@@ -125,7 +125,6 @@ const Main = () => {
         userDetails,
         username
     ]);
-
 
     /**
      * If we do not have the householdDto, go get it;
@@ -281,19 +280,19 @@ const Main = () => {
         }
     }, [locations, studentInfoDto, token]);
 
-    // /**
-    //  * LOCATION KEY > CONTEXT
-    //  * Push the location key into context
-    //  */
-    // useEffect(() => {
-    //     if (locations && locations.length) {
-    //         dispatch({
-    //             type: "LocKey",
-    //             locKey: locations[0].key
-    //         });
-    //         setLocKey(locations[0].key);
-    //     }
-    // }, [dispatch, locations]);
+    /**
+     * LOCATION KEY > CONTEXT
+     * Push the location key into context
+     */
+    useEffect(() => {
+        if (locations && locations.length) {
+            dispatch({
+                type: "LocKey",
+                locKey: locations[0].key
+            });
+            setLocKey(locations[0].key);
+        }
+    }, [dispatch, locations]);
 
     return (
         <RbA allowedRoles={allowedRolesArray} redirect="/notFound">

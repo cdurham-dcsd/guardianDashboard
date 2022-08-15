@@ -1,17 +1,19 @@
 import React from "react";
-import "./loadingSvg.scss";
 import PropTypes from "prop-types";
+
+import "./loadingSvg.scss";
 
 /**
  * Component to display loading svg
  * @name LoadingSvg
  * @param {string} width
  * @param {string} height
- * @return {SVGAnimatedLength}
+ * @param style
+ * @return {JSX.Element}
  */
-const LoadingSvg = ({ width, height }) => {
+const LoadingSvg = ({ width, height, style }) => {
     return (
-        <div className="loading-svg">
+        <div className="loading-svg" style={style}>
             <svg
                 version="1.1"
                 id="L9"
@@ -45,12 +47,14 @@ const LoadingSvg = ({ width, height }) => {
 
 LoadingSvg.propTypes = {
     width: PropTypes.string,
-    height: PropTypes.string
+    height: PropTypes.string,
+    style: PropTypes.objectOf(PropTypes.any)
 };
 
 LoadingSvg.defaultProps = {
     width: "200px",
-    height: "200px"
+    height: "200px",
+    style: null
 };
 
 export default LoadingSvg;

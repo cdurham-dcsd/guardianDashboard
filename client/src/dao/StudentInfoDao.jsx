@@ -53,6 +53,7 @@ const StudentInfoDao = (props) => {
             break;
         case "getStudentsByGuardian":
             options.method = "GET";
+            options.params = params;
             options.url = `${GET_STUDENTS_BY_GUARDIAN}/${username}/index.json`;
             break;
         case "guardianHouseholdFromUsernameRead":

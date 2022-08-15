@@ -1,8 +1,8 @@
 import React, { useState } from "react";
-import StudentCard from "../studentCard/StudentCard";
+// import StudentCard from "../studentCard/StudentCard";
 import ActionButton from "../formInputs/buttons/ActionButton";
 import Icon from "../icon/Icon";
-import AppCard from "../appCard/AppCard";
+// import AppCard from "../appCard/AppCard";
 import InstructionMessage from "../instructionMessage/InstructionMessage";
 
 import "../../styles/StudentCard.scss";
@@ -15,12 +15,16 @@ const CardContainer = () => {
     const hideApps = show === false ? "" : "not-hidden";
 
     const handleClick = () => {
-        console.log("the button is working")};
+        console.log("the button is working");
+    };
 
     return (
         <div>
             <div className="action-button-container">
-                <ActionButton label="Add Student for Open Enrollment" onClick={handleClick} />
+                <ActionButton
+                    label="Add Student for Open Enrollment"
+                    onClick={handleClick}
+                />
                 <Icon
                     className="button-icon"
                     iconName="ADD"

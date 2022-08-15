@@ -39,6 +39,11 @@ function reducer(state, action) {
                 ...state,
                 mapId: action.mapId
             };
+        case "Locations":
+            return {
+                ...state,
+                loacations: action.locations
+            };
         case "LocKey":
             return {
                 ...state,
@@ -63,6 +68,11 @@ function reducer(state, action) {
             return {
                 ...state,
                 studentInfoDto: action.studentInfoDto
+            };
+        case "StudentListDto":
+            return {
+                ...state,
+                studentListDto: action.studentListDto
             };
         case "StudentNumber":
             return {
