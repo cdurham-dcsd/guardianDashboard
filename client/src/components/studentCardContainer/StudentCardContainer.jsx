@@ -8,8 +8,15 @@ import { formatDateMDY } from "../../utils/DateFormatter";
 
 const StudentCardContainer = () => {
     const { dispatch, state } = useContext(GlobalContext);
-    const { selectedStudent, schoolYearDto, studentListDto, token, username } =
-        state || {};
+    const {
+        locations,
+        selectedStudent,
+        schoolYearDto,
+        schoolYearKey,
+        studentListDto,
+        token,
+        username
+    } = state || {};
 
     // flag set to stop calling the API service
     const [studentFlag, setStudentFlag] = useState(true);
@@ -17,6 +24,7 @@ const StudentCardContainer = () => {
     const [locationFlag, setLocationFlag] = useState(true);
 
     const [loader, setLoader] = useState(true);
+    const [image, setImage] = useState(null);
 
     // console.log("token =>", token);
     // console.log("username =>", username);
@@ -25,9 +33,9 @@ const StudentCardContainer = () => {
 
     const handleClick = (studentInfoDto) => {
         console.log("studentInfo", studentInfoDto);
-
-        const { key } = studentInfoDto;
-        console.log("cardId", key);
+        //
+        // const { key } = studentInfoDto;
+        // console.log("cardId", key);
 
         dispatch({
             type: "SelectedStudent",
@@ -39,7 +47,7 @@ const StudentCardContainer = () => {
      * Getting the locations
      */
     useEffect(() => {
-        if (token && selectedStudent) {
+        if (token && selectedStudent && !locations) {
             if (locationFlag) {
                 setLocationFlag(false);
                 const options = {
@@ -55,16 +63,16 @@ const StudentCardContainer = () => {
                                 type: "Locations",
                                 locations: payload.results[0]
                             });
-                            setLocationFlag(true);
+                            // setLocationFlag(true);
                         }
                     }
                 });
             }
         }
-    }, [dispatch, selectedStudent, token]);
+    }, [dispatch, locations, locationFlag, selectedStudent, token]);
 
     /**
-     * Getting the active school year.
+     * Getting the active school year. (SchoolYearDto)
      */
     useEffect(() => {
         if (token && !schoolYearDto) {
@@ -96,7 +104,7 @@ const StudentCardContainer = () => {
     }, [dispatch, schoolYearDto, schoolYearFlag, token]);
 
     /**
-     * Getting the students form guardian along with their info (list of students)
+     * Getting the students form guardian along with their info (StudentListDto)
      */
     useEffect(() => {
         if (schoolYearDto && token && username && !studentListDto) {
@@ -133,7 +141,6 @@ const StudentCardContainer = () => {
                     const uniqueIndex = `student-card-${index}`;
                     // console.log("index", uniqueIndex);
                     return (
-                        // eslint-disable-next-line jsx-a11y/click-events-have-key-events,jsx-a11y/no-static-element-interactions
                         <div
                             key={uniqueIndex}
                             onClick={(e) => {
@@ -147,9 +154,7 @@ const StudentCardContainer = () => {
             </>
         );
     }
-    return (
-        <LoadingSvg2 />
-    );
+    return <LoadingSvg2 />;
 };
 
 export default StudentCardContainer;

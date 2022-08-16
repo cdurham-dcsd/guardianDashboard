@@ -54,7 +54,8 @@ const StudentImage = ({
     }, [schoolYearKey, studentInfoDto, token]);
 
     return (
-        <div className="d-flex flex-row me-2">
+        // <div className="d-flex flex-row me-2"}>
+        <div className="student-image">
             {imageUrl ? (
                 <img
                     alt={`${studentInfoDto.firstName} ${studentInfoDto.lastName}`}

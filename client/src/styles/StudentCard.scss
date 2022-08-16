@@ -42,14 +42,16 @@
     left: 15px;
     //width: 200px;
 
-    .photo {
+    .student-image {
+      border: 4px solid white;
+      background: $grey2;
       overflow: hidden;
       display: flex;
       justify-content: center;
+      align-items: center;
       border-radius: 50%;
       width: 120px;
       height: 120px;
-      border: 4px solid white;
       z-index: 1;
       transition: .2s ease-in-out;
 

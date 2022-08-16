@@ -63,7 +63,11 @@ const CardContainer = () => {
                             alcatra burgdoggen bacon.
                         </p>
                     </div>
-                    {selectedStudent ? <AppCardContainer /> : <InstructionMessage />}
+                    {selectedStudent ? (
+                        <AppCardContainer />
+                    ) : (
+                        <InstructionMessage />
+                    )}
                 </div>
             </div>
         </div>
