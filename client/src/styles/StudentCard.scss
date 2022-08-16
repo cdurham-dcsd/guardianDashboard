@@ -29,7 +29,8 @@
 
   &:hover {
     background: $information;
-    opacity: .8;
+    opacity: .9;
+    @include shadow();
   }
 
 
@@ -78,7 +79,7 @@
       width: 390px;
       color: white;
       h5 {
-        font-weight: 600;
+        font-weight: 400;
       }
       h6 {
         margin-top: 5px;
@@ -93,7 +94,7 @@
       height: 80px;
       width: 400px;
       padding-bottom: 10px;
-      color: white;
+      color: $grey3;
       font-size: 1.2em;
       font-weight: 600;
       position: relative;
@@ -122,6 +123,8 @@
         width: 65%;
         background: $grey2;
         text-align: center;
+        color: white;
+        font-weight: 400;
         //#value {
         //  color: $grey3;
         //  font-size: .7em;

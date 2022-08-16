@@ -23,12 +23,9 @@ const StudentCardContainer = () => {
     // console.log("Student ListDTO", studentListDto);
     // console.log("School Year DTO", schoolYearDto);
 
-    /**
-     * @todo need to
-     * @param studentInfoDto
-     */
     const handleClick = (studentInfoDto) => {
-        // console.log("studentInfo", studentInfoDto);
+        console.log("studentInfo", studentInfoDto);
+
         const { key } = studentInfoDto;
         console.log("cardId", key);
 
