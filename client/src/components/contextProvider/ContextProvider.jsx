@@ -42,7 +42,7 @@ function reducer(state, action) {
         case "Locations":
             return {
                 ...state,
-                loacations: action.locations
+                locations: action.locations
             };
         case "LocKey":
             return {
@@ -69,10 +69,10 @@ function reducer(state, action) {
                 ...state,
                 showApps: action.showApps
             };
-        case "StudentInfoDto":
+        case "SelectedStudent":
             return {
                 ...state,
-                studentInfoDto: action.studentInfoDto
+                selectedStudent: action.selectedStudent
             };
         case "StudentListDto":
             return {

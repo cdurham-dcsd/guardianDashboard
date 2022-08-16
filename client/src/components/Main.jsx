@@ -5,9 +5,9 @@ import { toast, ToastContainer } from "react-toastify";
 import { GlobalContext } from "./contextProvider/ContextProvider";
 import RbA from "./rba/RbA";
 import BreadCrumb from "./breadcrumb/BreadCrumb";
-import FormPage from "./formComponents/FormPage";
+// import FormPage from "./formComponents/FormPage";
 import Header from "./header/Header";
-import StudentTile from "./studentTile/StudentTile";
+// import StudentTile from "./studentTile/StudentTile";
 import Spoofer from "./spoofer/Spoofer";
 import StudentInfoDao from "../dao/StudentInfoDao";
 import UserDao from "../dao/UserDao";
@@ -42,10 +42,6 @@ const Main = () => {
             : ["ECHECKIN_ADMIN", "EXTERNAL_GUARDIAN", "GUARDIAN"];
 
     const userDetails = UserDetails();
-
-    console.log("studentInfoDto =>", studentInfoDto);
-
-
 
     const createGuardianStudentMap = useCallback(() => {
         if (studentInfoDto && userDetails && householdDto && schoolYearDto) {

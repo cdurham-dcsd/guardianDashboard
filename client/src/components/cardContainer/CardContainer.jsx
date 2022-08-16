@@ -13,12 +13,11 @@ import "../../styles/CardContainer.scss";
 
 const CardContainer = () => {
     const { dispatch, state } = useContext(GlobalContext);
-    const { showApps } = state || {};
-    console.log("ShowApps From CardContainer", showApps);
+    const { selectedStudent } = state || {};
 
     // const [show, setShow] = useState(false);
     // const hideApps = showApps === false ? "" : "not-hidden";
-    const hideApps = showApps === true ? "not-hidden" : "";
+    const hideApps = selectedStudent ? "not-hidden" : "";
 
     const handleClick = () => {
         console.log("the button is working");
@@ -64,7 +63,7 @@ const CardContainer = () => {
                             alcatra burgdoggen bacon.
                         </p>
                     </div>
-                    {hideApps ? <AppCardContainer /> : <InstructionMessage />}
+                    {selectedStudent ? <AppCardContainer /> : <InstructionMessage />}
                 </div>
             </div>
         </div>
