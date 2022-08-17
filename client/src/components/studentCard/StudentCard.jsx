@@ -1,10 +1,19 @@
-import React from "react";
+import React, {useEffect, useState} from "react";
 import PropTypes from "prop-types";
 import StudentImage from "../studentTile/StudentImage";
 
 import "../../styles/StudentCard.scss";
 
 const StudentCard = ({ studentInfo }) => {
+    const [middleNameEmpty, setMiddleNameEmpty] = useState(null);
+    const middleName = middleNameEmpty ? "" : studentInfo.middleName;
+
+    useEffect(() => {
+        if (!studentInfo.middleName || studentInfo.middleName === null) {
+            // console.log("yep")
+            setMiddleNameEmpty("testing");
+        }
+    });
 
     return (
         <div className="cards">
@@ -13,14 +22,13 @@ const StudentCard = ({ studentInfo }) => {
                     <StudentImage
                         className=""
                         height="160px" // shows overall size of the photo inside the circle.
-                        // studentNumber={studentInfo.studentNumber}
                         studentInfoDto={studentInfo}
                     />
                 </div>
                 <div className="info-container">
                     <div>
                         <div className="name-container">
-                            <h5>{`${studentInfo.firstName} ${studentInfo.middleName} ${studentInfo.lastName}`}</h5>
+                            <h5>{`${studentInfo.firstName} ${middleName} ${studentInfo.lastName}`}</h5>
                             <h6>{studentInfo.studentNumber}</h6>
                         </div>
                         <div className="boxes">
