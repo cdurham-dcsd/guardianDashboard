@@ -15,7 +15,7 @@ const BreadCrumb = () => {
                 iconName="GUARDIAN_DASHBOARD_WORD"
                 title="Transportation Logo"
                 viewBox="0 0 1885.79 155"
-                width="450"
+                width="350"
                 height="40"
             />
             <div className="bc-location">
