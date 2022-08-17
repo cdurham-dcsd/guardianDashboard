@@ -10,7 +10,6 @@ const StudentCard = ({ studentInfo }) => {
 
     useEffect(() => {
         if (!studentInfo.middleName || studentInfo.middleName === null) {
-            // console.log("yep")
             setMiddleNameEmpty("testing");
         }
     });

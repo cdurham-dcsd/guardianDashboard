@@ -133,7 +133,9 @@ ServiceWrapper.serviceCall = ({
             return response;
         })
         .catch((error) => {
-            toast.error(ServiceWrapper.errorHandler(error));
+            if (subject) {
+                toast.error(ServiceWrapper.errorHandler(error));
+            }
         });
 };
 
