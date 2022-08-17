@@ -29,10 +29,10 @@ app.use((req, res, next) => {
 app.get("/", (req, res) => {
     res.sendFile(path.join(__dirname, republic, "./index.html"));
 });
-app.get("/transportation/:studentNumber?", (req, res) => {
-    console.log("I want transportation, possibly with a studentNumber");
-    res.sendFile(path.join(__dirname, republic, "./index.html"));
-});
+// app.get("/transportation/:studentNumber?", (req, res) => {
+//     console.log("I want transportation, possibly with a studentNumber");
+//     res.sendFile(path.join(__dirname, republic, "./index.html"));
+// });
 app.get("/notFound", (req, res) => {
     console.log("Not Found Page");
     res.sendFile(path.join(__dirname, republic, "./index.html"));

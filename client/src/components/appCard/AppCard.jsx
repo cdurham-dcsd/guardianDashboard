@@ -3,7 +3,7 @@ import PropTypes from "prop-types";
 import Icon from "../icon/Icon";
 import ActionButton from "../formInputs/buttons/ActionButton";
 
-import { ECHECKIN_SCHOOL_DOMAIN } from "../../utils/auth/config";
+// import { ECHECKIN_SCHOOL_DOMAIN } from "../../utils/auth/config";
 
 import "../../styles/AppCard.scss";
 

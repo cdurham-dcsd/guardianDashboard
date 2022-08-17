@@ -1,27 +1,124 @@
-import React, { useContext, useState } from "react";
+import React, { useContext, useEffect, useState } from "react";
 import { GlobalContext } from "../contextProvider/ContextProvider";
-// import StudentCard from "../studentCard/StudentCard";
 import ActionButton from "../formInputs/buttons/ActionButton";
 import Icon from "../icon/Icon";
-// import AppCard from "../appCard/AppCard";
 import InstructionMessage from "../instructionMessage/InstructionMessage";
 import StudentCardContainer from "../studentCardContainer/StudentCardContainer";
 import AppCardContainer from "../appCardContainer/AppCardContainer";
+import { formatDateMDY } from "../../utils/DateFormatter";
+import StudentInfoDao from "../../dao/StudentInfoDao";
+import UserDao from "../../dao/UserDao";
 
 import "../../styles/StudentCard.scss";
 import "../../styles/CardContainer.scss";
 
 const CardContainer = () => {
     const { dispatch, state } = useContext(GlobalContext);
-    const { selectedStudent } = state || {};
+    const {
+        locations,
+        selectedStudent,
+        schoolYearDto,
+        token,
+        username,
+        studentListDto
+    } = state || {};
 
-    // const [show, setShow] = useState(false);
-    // const hideApps = showApps === false ? "" : "not-hidden";
-    const hideApps = selectedStudent ? "not-hidden" : "";
+    const [studentFlag, setStudentFlag] = useState(true);
+    const [schoolYearFlag, setSchoolYearFlag] = useState(true);
+    const [locationFlag, setLocationFlag] = useState(true);
 
     const handleClick = () => {
-        console.log("the button is working");
+        alert("This button is working");
     };
+
+    /**
+     * Getting the students form guardian along with their info (StudentListDto)
+     */
+    useEffect(() => {
+        if (schoolYearDto && token && username && !studentListDto) {
+            if (studentFlag) {
+                setStudentFlag(false);
+                const options = {
+                    action: "getStudentsByGuardian",
+                    params: {
+                        afterDate: formatDateMDY(schoolYearDto.startDate),
+                        checkForActiveEnrolment: true
+                    },
+                    token,
+                    username
+                };
+                StudentInfoDao(options).then((response) => {
+                    if (response) {
+                        const { payload } = response.data;
+                        dispatch({
+                            type: "StudentListDto",
+                            studentListDto: payload
+                        });
+                    }
+                });
+            }
+        }
+    }, [studentListDto, studentFlag, token, username, schoolYearDto, dispatch]);
+    // ____________________________________________________________________________________________
+    /**
+     * Getting the locations
+     */
+    useEffect(() => {
+        if (token && selectedStudent && !locations) {
+            if (locationFlag) {
+                setLocationFlag(false);
+                const options = {
+                    action: "searchableLocationRead",
+                    icId: selectedStudent.schoolId,
+                    token
+                };
+                UserDao(options).then((response) => {
+                    if (response) {
+                        const { payload } = response.data;
+                        if (payload) {
+                            dispatch({
+                                type: "Locations",
+                                locations: payload.results[0]
+                            });
+                            setLocationFlag(true);
+                        }
+                    }
+                });
+            }
+        }
+    }, [dispatch, locations, locationFlag, selectedStudent, token]);
+
+    // ____________________________________________________________________________________________
+    /**
+     * Getting the active school year. (SchoolYearDto)
+     */
+    useEffect(() => {
+        if (token && !schoolYearDto) {
+            if (schoolYearFlag) {
+                setSchoolYearFlag(false);
+                const options = {
+                    action: "activeSchoolYearRead",
+                    token
+                };
+                UserDao(options).then((response) => {
+                    if (response) {
+                        const { payload } = response.data;
+                        if (payload) {
+                            dispatch({
+                                type: "SchoolYearDto",
+                                schoolYearDto: payload
+                            });
+                            dispatch({
+                                type: "SchoolYearKey",
+                                schoolYearKey: payload.key
+                            });
+                            setSchoolYearFlag(true);
+                        }
+                    }
+                });
+            }
+        }
+    }, [dispatch, schoolYearDto, schoolYearFlag, token]);
 
     return (
         <div>

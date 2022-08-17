@@ -4,41 +4,41 @@ import PropTypes from "prop-types";
 // Set up our reducer function to act on Previous and Next selections
 function reducer(state, action) {
     switch (action.type) {
-        case "EnrollmentDto":
-            return {
-                ...state,
-                enrollmentDto: action.enrollmentDto
-            };
-        case "CustomStudentAttributesDto":
-            return {
-                ...state,
-                customStudentAttributesDto: action.customStudentAttributesDto
-            };
+        // case "EnrollmentDto":
+        //     return {
+        //         ...state,
+        //         enrollmentDto: action.enrollmentDto
+        //     };
+        // case "CustomStudentAttributesDto":
+        //     return {
+        //         ...state,
+        //         customStudentAttributesDto: action.customStudentAttributesDto
+        //     };
         case "Get Username":
             return {
                 ...state,
                 username: action.username
             };
-        case "GuardianStudentMap":
-            return {
-                ...state,
-                guardianStudentMap: action.guardianStudentMap
-            };
-        case "HouseholdDto":
-            return {
-                ...state,
-                householdDto: action.householdDto
-            };
+        // case "GuardianStudentMap":
+        //     return {
+        //         ...state,
+        //         guardianStudentMap: action.guardianStudentMap
+        //     };
+        // case "HouseholdDto":
+        //     return {
+        //         ...state,
+        //         householdDto: action.householdDto
+        //     };
         case "Lang":
             return {
                 ...state,
                 lang: action.lang
             };
-        case "MapId":
-            return {
-                ...state,
-                mapId: action.mapId
-            };
+        // case "MapId":
+        //     return {
+        //         ...state,
+        //         mapId: action.mapId
+        //     };
         case "Locations":
             return {
                 ...state,
@@ -49,6 +49,11 @@ function reducer(state, action) {
                 ...state,
                 locKey: action.locKey
             };
+        // case "ModifiedStudents":
+        //     return {
+        //         ...state,
+        //         modifiedStudents: action.modifiedStudents
+        //     };
         case "SchoolYearDto":
             return {
                 ...state,
@@ -59,16 +64,16 @@ function reducer(state, action) {
                 ...state,
                 schoolYearKey: action.schoolYearKey
             };
-        case "SelectedValuesDto":
-            return {
-                ...state,
-                selectedValuesDto: action.selectedValuesDto
-            };
-        case "ShowApps":
-            return {
-                ...state,
-                showApps: action.showApps
-            };
+        // case "SelectedValuesDto":
+        //     return {
+        //         ...state,
+        //         selectedValuesDto: action.selectedValuesDto
+        //     };
+        // case "ShowApps":
+        //     return {
+        //         ...state,
+        //         showApps: action.showApps
+        //     };
         case "SelectedStudent":
             return {
                 ...state,
@@ -79,11 +84,11 @@ function reducer(state, action) {
                 ...state,
                 studentListDto: action.studentListDto
             };
-        case "StudentNumber":
-            return {
-                ...state,
-                studentNumber: action.studentNumber
-            };
+        // case "StudentNumber":
+        //     return {
+        //         ...state,
+        //         studentNumber: action.studentNumber
+        //     };
         case "Token Update":
             return {
                 ...state,

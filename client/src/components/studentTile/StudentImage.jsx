@@ -9,59 +9,56 @@ import StudentInfoDao from "../../dao/StudentInfoDao";
  * @name StudentImage
  * @param {string} className
  * @param {string} height
- * @param {string} schoolYearKey
- * @param {{}} studentInfoDto
+ * @param studentInfoDto
  * @param {string} width
- * @param studentNumber
  * @return {JSX.Element}
  */
-const StudentImage = ({
-    className,
-    height,
-    schoolYearKey,
-    studentInfoDto,
-    width
-}) => {
-    const [imageUrl, setImageUrl] = useState(null);
-
+const StudentImage = ({ className, height, studentInfoDto, width }) => {
     // inMemoryToken is stored in the GlobalContext as state
     const { state } = useContext(GlobalContext);
-    const { token } = state || {};
+    const { schoolYearKey, token } = state || {};
+
+    const [retrievedUrl, setRetrievedUrl] = useState(true);
+    const [studentImageUrl, setStudentImageUrl] = useState(null);
 
     /**
      * get the student's picture
      */
     useEffect(() => {
-        if (schoolYearKey && studentInfoDto) {
-            const options = {
-                action: "studentImageRead",
-                ignoreError: true,
-                schoolYearKey,
-                studentNumber: studentInfoDto.studentNumber,
-                token
-            };
-            StudentInfoDao(options).then((response) => {
-                if (response) {
-                    const urlCreator = window.URL || window.webkitURL;
-                    setImageUrl(
-                        urlCreator.createObjectURL(
-                            new Blob([response.data], { type: "image/jpeg" })
-                        )
-                    );
-                }
-            });
+        if (schoolYearKey && studentInfoDto && !studentImageUrl) {
+            if (retrievedUrl) {
+                setRetrievedUrl(false);
+                const options = {
+                    action: "studentImageRead",
+                    ignoreError: true,
+                    schoolYearKey,
+                    studentNumber: studentInfoDto.studentNumber,
+                    token
+                };
+                StudentInfoDao(options).then((response) => {
+                    if (response) {
+                        const urlCreator = window.URL || window.webkitURL;
+                        setStudentImageUrl(
+                            urlCreator.createObjectURL(
+                                new Blob([response.data], {
+                                    type: "image/jpeg"
+                                })
+                            )
+                        );
+                    }
+                });
+            }
         }
-    }, [schoolYearKey, studentInfoDto, token]);
+    }, [retrievedUrl, schoolYearKey, studentImageUrl, studentInfoDto, token]);
 
     return (
-        // <div className="d-flex flex-row me-2"}>
-        <div className="student-image">
-            {imageUrl ? (
+        <div className="d-flex flex-row me-2">
+            {studentImageUrl ? (
                 <img
                     alt={`${studentInfoDto.firstName} ${studentInfoDto.lastName}`}
                     className={className}
                     height={height}
-                    src={imageUrl}
+                    src={studentImageUrl}
                 />
             ) : (
                 <Icon
@@ -78,8 +75,6 @@ const StudentImage = ({
 StudentImage.propTypes = {
     className: PropTypes.string,
     height: PropTypes.string,
-    schoolYearKey: PropTypes.string.isRequired,
-    studentInfoDto: PropTypes.objectOf(PropTypes.any).isRequired,
     width: PropTypes.string
 };
 
