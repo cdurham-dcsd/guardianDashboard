@@ -54,12 +54,14 @@ const StudentImage = ({ className, height, studentInfoDto, width }) => {
     return (
         <div className="d-flex flex-row me-2">
             {studentImageUrl ? (
-                <img
-                    alt={`${studentInfoDto.firstName} ${studentInfoDto.lastName}`}
-                    className={className}
-                    height={height}
-                    src={studentImageUrl}
-                />
+                <div className="student-image">
+                    <img
+                        alt={`${studentInfoDto.firstName} ${studentInfoDto.lastName}`}
+                        className={className}
+                        height={height}
+                        src={studentImageUrl}
+                    />
+                </div>
             ) : (
                 <Icon
                     iconName="NO_STUDENT_IMAGE"
@@ -75,6 +77,7 @@ const StudentImage = ({ className, height, studentInfoDto, width }) => {
 StudentImage.propTypes = {
     className: PropTypes.string,
     height: PropTypes.string,
+    studentInfoDto: PropTypes.objectOf(PropTypes.any).isRequired,
     width: PropTypes.string
 };
 
