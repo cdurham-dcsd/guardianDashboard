@@ -42,7 +42,7 @@ const CardContainer = () => {
                     action: "getStudentsByGuardian",
                     params: {
                         afterDate: formatDateMDY(schoolYearDto.startDate),
-                        checkForActiveEnrolment: true
+                        checkForActiveEnrollment: true
                     },
                     token,
                     username

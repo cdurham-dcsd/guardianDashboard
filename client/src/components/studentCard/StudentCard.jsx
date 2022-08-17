@@ -12,7 +12,7 @@ const StudentCard = ({ studentInfo }) => {
                 <div className="photo-container">
                     <StudentImage
                         className=""
-                        height="150px" // shows overall size of the photo inside the circle.
+                        height="160px" // shows overall size of the photo inside the circle.
                         // studentNumber={studentInfo.studentNumber}
                         studentInfoDto={studentInfo}
                     />
@@ -20,7 +20,7 @@ const StudentCard = ({ studentInfo }) => {
                 <div className="info-container">
                     <div>
                         <div className="name-container">
-                            <h5>{`${studentInfo.firstName}, ${studentInfo.lastName}`}</h5>
+                            <h5>{`${studentInfo.firstName} ${studentInfo.middleName} ${studentInfo.lastName}`}</h5>
                             <h6>{studentInfo.studentNumber}</h6>
                         </div>
                         <div className="boxes">

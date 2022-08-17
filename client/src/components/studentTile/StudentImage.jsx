@@ -63,12 +63,14 @@ const StudentImage = ({ className, height, studentInfoDto, width }) => {
                     />
                 </div>
             ) : (
-                <Icon
-                    iconName="NO_STUDENT_IMAGE"
-                    fill="#19608F"
-                    height={height}
-                    width={width}
-                />
+                <div className="student-image">
+                    <Icon
+                        iconName="NO_STUDENT_IMAGE"
+                        fill="#19608F"
+                        height={height}
+                        width={width}
+                    />
+                </div>
             )}
         </div>
     );
